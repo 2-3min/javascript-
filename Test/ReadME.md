@@ -21,11 +21,11 @@ sayHi();
 
 <details>
 <summary>My Answer</summary>
-  <img src="../img/problem1/answer1-1.PNG" height="300px" alt="window"></img><br/>
-  <img src="../img/problem1/answer1-2.PNG" height="300px" alt="window"></img><br/>
-  <img src="../img/problem1/answer1-3.PNG" height="300px" alt="window"></img><br/>
-  <img src="../img/problem1/answer1-4.PNG" height="300px" alt="window"></img><br/>
-  <img src="../img/problem1/answer1-5.PNG" height="300px" alt="window"></img><br/>
+  <img src="../img/problem1/answer1-1.PNG" width="800px" height="450px" alt="window"></img><br/>
+  <img src="../img/problem1/answer1-2.PNG" width="800px" height="450px" alt="window"></img><br/>
+  <img src="../img/problem1/answer1-3.PNG" width="800px" height="450px"alt="window"></img><br/>
+  <img src="../img/problem1/answer1-4.PNG" width="800px" height="450px" alt="window"></img><br/>
+  <img src="../img/problem1/answer1-5.PNG" width="800px" height="450px" alt="window"></img><br/>
 </details>
 
 ## 2번문제
