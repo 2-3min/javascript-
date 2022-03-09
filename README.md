@@ -118,8 +118,8 @@ var sub 자체는 *소스코드 평가과정*에서 실행이 되었겠지만, f
 전역객체(Global Object)는 JS엔진에 의해 가장 먼저 생성되는 특수한 객체이다.
 브라우저에서는 `window`, NodeJS에서는 `Global `이 전역객체를 가리킨다.
 
-<img src="./img/window.PNG" width="450px" height="300px" alt="window"></img><br/>
-<img src="./img/window2.PNG" width="450px" height="300px" alt="window"></img><br/>
+<img src="./img/window.PNG" height="300px" alt="window"></img><br/>
+<img src="./img/window2.PNG" height="300px" alt="window"></img><br/>
 ## 4. 실행 컨텍스트
 ```javascript
 var x;
