@@ -81,7 +81,7 @@ for (let i = 0; i < 3; i++) {
     <img src="../img/problem2/answer2-3.PNG" width="800px" height="450px"alt="window"></img><br/>
     <img src="../img/problem2/answer2-4.PNG" width="800px" height="450px" alt="window"></img><br/>
   </details>
-<details>
+</details>
 
 ## 3번문제
 ```javascript
