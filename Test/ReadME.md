@@ -68,7 +68,7 @@ for (let i = 0; i < 3; i++) {
   </ul>
   <p><code>(Javascript DeepDive p.387 참조)</code><strong>for문의 변수 선언문에 let 키워드를 사용한 for문은 코드블록이 반복해서 실행될때마다 코드블록을 위한 새로운 렉시컬 환경을 생성</strong>한다. 만약 for문의 코드 블록 내에서 정의된 함수가 있다면 이 함수의 상위스코프는 for문의 코드 블록이 생성한 렉시컬 환경이다.</p>
   <p>외부 렉시컬 환경 참조는 <strong>자신이 정의된 환경(상위 스코프)</strong>을 가리킨다.</p>
-  <p>[[Enviroment]]도 자신이 정의된 환경 <strong>자신이 정의된 환경(상위스코프)</strong>을 가리킨다.</p>
+  <p>[[Enviroment]]도 <strong>자신이 정의된 환경(상위스코프)</strong>을 가리킨다.</p>
   <p><code>(Javascript DeepDive p.386 참조)</code><code>var</code>키워드로 선언한 변수는 오로지 함수의 코드 블록만 지역 스코프로 인정(이걸 함수레벨 블록이라 한다), <code>let</code>, <code>const</code>는 모든 코드 블록을 지역스코프로 인정한다.(블록레벨스코프)</p>
   <p>setTimeout 함수의 렉시컬 환경은 <code>익명함수(anonymous function)</code>의 [[Enviroment]] 내부 슬롯에 의해 참조되고 있어 가비지 컬렉터가 해제하지 않는다. 외부함수(setTimeout)보다 중첩함수(anonymous function)이 더 오래 유지 되었으며, 외부 함수의 변수를 참조할 수 있다. 이러한 중첩 함수를 클로저(closure)라 한다.</p>
   <p>콜백함수는 매개변수로 넘겨지는 함수를 콜백함수라고하고, 매겨변수를 받는 함수를 고차함수라 한다.</p>
@@ -82,3 +82,47 @@ for (let i = 0; i < 3; i++) {
     <img src="../img/problem2/answer2-4.PNG" width="800px" height="450px" alt="window"></img><br/>
   </details>
 <details>
+
+## 3번문제
+```javascript
+const shape = {
+  radius: 10,
+  diameter() {
+    return this.radius * 2;
+  },
+  perimeter: () => 2 * Math.PI * this.radius,
+};
+
+console.log(shape.diameter());
+console.log(shape.perimeter());
+```
+* A: `20` and `62.83185307179586`
+* B: `20` and `NaN`
+* C: `20` and `63`
+* D: `NaN` and `63`
+<details>
+<summary>My Answer</summary>
+<p>정답은 <code>B</code></p>
+<p></p>
+<ul>
+  <li>일반함수와 화살표함수의 this</li>
+</ul>
+<p>객체 리터럴의 메서드 내부에서의 this는 메서드를 호출한 객체인 player를 가리킨다.</p>
+<code>
+  const player = {
+    height: 183,
+    getHight() {
+      return this.height;
+    }
+  }
+</code>
+<p>프로퍼티에 할당한 화살표 함수는 메서드를 호출한 객체가 아닌 상위 컨텍스트인 전역 객체를 가리킨다. </p>
+<code>
+  const player = {
+  goalCount: 1,
+  goal: () => ++this.goalCount 
+};
+
+console.log(player.goal()); //NaN
+</code>
+</details>
