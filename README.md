@@ -225,3 +225,82 @@ console.log(copyPlayer); // [object Object] {goal: 13,name: "Mane"}
 그리고 `두개의 식별자(player, copyPlayer)가 하나의 객체를 공유`하여 값이 같다.
 
 😀`참조에 의한 전달`이  javascript를 위한 용어는 아니다. 기억해야 할 것은 `객체 타입은 변경이 가능한 값`이고, 참조 값이 전달되면 `같은 공간을 가리킨다.(참조 값이 같다.)`
+
+## 6. this
+### this의 기본
+```javascript
+//객체리터럴의 this
+const player = {
+	shootingPower : 90;
+	shootingAccuracy : 40
+	goalPercentage() {
+		return (this.shootingPower + this.shootingAccuracy) / 2
+	}
+};
+console.log(player.goalPercentage()); // 65
+
+//생성자 함수 내부의 this
+function Player() {
+	this.shootingPower : 90;
+	this.shootingAccuracy : 40
+}
+
+Player.prototype.goalPercentage = function() {
+		return (this.shootingPower + this.shootingAccuracy) / 2
+}
+const player = new Player();
+console.log(player.goalPercentage()); // 65
+```
+* (DeepDive p.343)
+> `this`는 자신이 속한 객체 도는 자신이 생성할 인스턴스를 가리키는 자기 참조 변수다.
+> `this`는 지역 변수처럼 사용할 수 있다.
+> JS에서는 `this`가 가리키는 값, this 바인딩은 `함수 호출 방식`에 의해 동적으로 결정된다.
+
+### 함수 호출 방식에 따른 this 바인딩
+1. 일반함수호출 → this : window(전역객체) 바인딩
+	> `strict mode`에서는 `undeifned`
+	> 메서드 내 중첩함수든, 콜백함수든 일반함수로 호출되면 `this`는 `window` 바인딩
+	
+2. 메시드 호출 → this : `객체.메서드()`로 호출할 때 `객체를 바인딩`
+	> this에 바인딩될 객체는 `호출 시점`에 결정된다.
+	
+3. 생성자 함수 호출 → this : 생성자 함수가 생성할 인스턴스 바인딩
+
+4. function.prototpe.apply/call/bind → this : (apply/call/bind) 메서드의 첫번째 인수로 전달한 객체
+
+### 화살표 함수에서의 this
+```javascript
+//콜백함수에서의 this 문제
+class LastNamer {
+  constructor(lastname) {
+    this.lastname = lastname;
+  }
+  
+  add(arr) {
+    return arr.map(function(firstname) {
+      return this.lastname + firstname;
+    });
+  }
+}
+
+const lastnamer = new LastNamer('Lee');
+console.log(lastnamer.add(["Sangmin", "SangJun"]));
+
+//arrow function으로 해결
+class LastNamer {
+  constructor(lastname) {
+    this.lastname = lastname;
+  }
+  
+  add(arr) {
+    return arr.map(firstname => {
+      return this.lastname + firstname;
+    });
+  }
+}
+
+const lastnamer = new LastNamer('Lee');
+console.log(lastnamer.add(["Sangmin", "SangJun"]));
+```
+* (DeepDive p.480)
+> 화살표 함수는 함수 자체의 this 바인딩을 갖지 않는다. `따라서 화살표 함수 내부의 this를 참조하면 상위 스코프의 this를 그대로 참조한다.` 이를 `Lexical this`라 한다.
