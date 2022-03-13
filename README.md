@@ -1,10 +1,38 @@
 # JS 이론 정리
+
+## 0. Javscript is interpreter??
+프로그래밍 언어는 [고수준 언어(C, Python) → 저수준 언어(기계어)] 과정을 거친다.
+* 컴파일러(Compiler)
+   * 전체 파일을 번역하여 새로운 목적 파일을 생성.
+   * 전체 파일을 번역하기 때문에 오래 걸리지만, 번역 이후에는 번역이 필요 없으므로 실행 속도가 빠름
+* 인터프리터(interpreter)
+   * 파일을 한줄 씩 읽고 번역하고 동시에 프로그램을 한줄 단위로 즉시 실행
+   * 프로그램 실행 마다 번역해야 하므로 실행속도가 느림
+
+Javascript는 interpreter 언어이다? → 실행되는 플랫폼에 따라 인터프리팅과 컴파일이 혼합되어 사용
+
+* V8 엔진(그림 : https://dev.to/varunprashar5/how-javascript-engine-s-work-3cb0)
+![v8](./img/js-v8.PNG)
+
+1. Javascript Code → (Token) → Parser → AST
+   * 코드를 최소단위인 Token으로 분해 후 AST(추상적 구문트리)를 생성한다.
+2. AST → Interpreter → ByteCode
+   * AST는 Interpreter에 의해 ByteCode를 생성
+3. Optimizing Compler → optimized code
+   * 최적화 할 수 있는 코드를 컴파일러에게 전달, 원래 있던 코드에서 최적화된 코드로 변경
+   * Ex) 반복해서 실행되는 코드 블록 등을 최적화하여 전달
+
+→ `JIT(Just-In-Time) 컴파일` : 코드를 인터프리터 방식으로 실행하고, 필요할 때 컴파일하는 방법
+
+→🙄 Javascript Code가 해석되고 실행되기까지 
+                                                                
+
 ## 1. 변수
 ```javascript
 console.log(score); //undefined
 var score;
 ```
-JS는 위에서 부터 한줄 식 실행하는 **인터프리터 언어**이기 때문에 _Reference Error_ 를 예측할 수 있다. 그러나 Console 창에서는 _undefined_ 결과를 출력한다.
+JS는 위에서 부터 한줄 식 실행하는 **인터프리터 언어**이기 때문에 _Reference Error_ 를 예측할 수 있다. 그러나 Console 창에서는 `undefined` 결과를 출력한다.
 
 두 줄의 코드가 javascript 내에서 어떻게 동작을 할까?
 
@@ -14,7 +42,7 @@ JS 엔진은 한줄씩 코드를 실행하기 전. 즉, 런타임 이전  **소�
 즉, 
 ```javascript
 console.log(score);
-var score;              // 소스코드 평가에서 변수 선언문인 var score; 를 먼저 실행
+var score;       // 소스코드 평가에서 변수 선언문인 var score; 를 먼저 실행
 ```
 var score; 줄을 실행할 때, 알아둬야하는 점이 있다. 변수선언에는 2가지 과정이 있다.
 > 선언 단계 : 변수 이름을 등록해서 JS 엔진의 변수의 존재를 알린다.
@@ -165,15 +193,12 @@ console.log(x + y);
 
 ## 5. 원시타입과 객체(참조)타입
 
-원시 값은  `변경 불가능한 값` (주의 : "할당이 불가능하다." 라는 뜻은 아님)
-객체(참조) 값  `변경이 가능한 값`
-
-
 데이터 타입(숫자, 문자열, 불리언, null, undefined, symbol, 객체)
 
 이걸 원시타입, 객체타입으로 구분
 
 원시 값은 `변경 불가능한 값` (주의 : "할당이 불가능하다." 라는 뜻은 아님)
+
 객체(참조) 값은  `변경이 가능한 값`
 
 ### 변수 할당 시 식별자와 메모리 주소
