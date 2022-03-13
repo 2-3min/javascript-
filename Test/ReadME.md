@@ -22,12 +22,12 @@ sayHi();
 <details>
 <summary>My Answer</summary>
 <p>정답은 <code>D</code></p>
-<ul>
+<ol>
   <li>함수 선언과 호출</li>
   <li>var와 let의 차이</li>
   <li>변수 호이스팅</li>
   <li>코드 평가와 실행</li>
-</ul>
+</ol>
   <p>1. 전역에서 sayHi함수가 선언문으로 정의했다. "전역 코드 평가" 시 전역 객체 프로퍼티가 된다. 평가 후 "전역 코드 실행" 때 함수 호출을 실행한다.</p>
   <p>2. 함수 호출 실행 시 "전역 코드 실행"을 멈추고 "함수 코드 평가" 에 들어간다. <code>var name</code>와 <code>let age</code>이 <code>function Env.Record</code>에 등록이 되는데 <code>var</code>는 "선언단계"와 "초기화 단계"가 동시에 이루어져 "undefined"가 할당이 된다. let은 선언단계만 진행이 되므로 "uninitialized"이고, 초기화 단계는 "함수 코드 실행" 시 할당문('=')을 만났을 때 초기화가 이루어진다. </p>
   <p>3."함수 코드 실행" 단계에서 "console" 이라는 함수를 찾기 위해 <code>스코프 체이닝</code> 과정으로 "window" 전역 객체의 프로퍼티에 접근하여 console.log를 실행한다. 참조하는 변수의 name은 위에서처럼 "undefined", age는 "Reference Error" 가 발생한다. 선언 전에 밑에 있는 변수를 위에 끌어다 쓰는 것처럼 보여 이를 <code>변수 호이스팅</code>이라 한다.</p>
@@ -58,14 +58,14 @@ for (let i = 0; i < 3; i++) {
 <details>
   <summary>My Answer</summary>
   <p>정답은 <code>C</code></p>
-  <ul>
+  <ol>
     <li>블록레벨 스코프(for)</li>
     <li>var와 let,const의 차이</li>
     <li>렉시컬 환경, 스코프</li>
     <li>콜백함수</li>
     <li>클로저</li>
     <li>이벤트 루프 그리고 콜 스택과 테스트 큐</li>
-  </ul>
+  </ol>
   <p><code>(Javascript DeepDive p.387 참조)</code><strong>for문의 변수 선언문에 let 키워드를 사용한 for문은 코드블록이 반복해서 실행될때마다 코드블록을 위한 새로운 렉시컬 환경을 생성</strong>한다. 만약 for문의 코드 블록 내에서 정의된 함수가 있다면 이 함수의 상위스코프는 for문의 코드 블록이 생성한 렉시컬 환경이다.</p>
   <p>외부 렉시컬 환경 참조는 <strong>자신이 정의된 환경(상위 스코프)</strong>을 가리킨다.</p>
   <p>[[Enviroment]]도 <strong>자신이 정의된 환경(상위스코프)</strong>을 가리킨다.</p>
@@ -104,11 +104,12 @@ console.log(shape.perimeter());
 <summary>My Answer</summary>
 <p>정답은 <code>B</code></p>
 <p></p>
-<ul>
+<ol>
   <li>일반함수와 화살표함수의 this</li>
-</ul>
+</ol>
 <p>객체 리터럴의 메서드 내부에서의 this는 메서드를 호출한 객체인 player를 가리킨다.</p>
 <code>
+*자세한 사항은 4. this에서..
   const player = {
     height: 183,
     getHight() {
@@ -125,4 +126,29 @@ console.log(shape.perimeter());
 
 console.log(player.goal()); //NaN
 </code>
+</details>
+
+## 6번문제
+```javascript
+let c = { greeting: 'Hey!' };
+let d;
+
+d = c;
+c.greeting = 'Hello';
+console.log(d.greeting);
+```
+* A: `Hello`
+* B: `Hey!`
+* C: `undefined`
+* D: `ReferenceError`
+* E: `TypeError`
+
+<details>
+<summary>My Answer</summary>
+<p>정답은 <code>A</code></p>
+<ol>
+  <li>참조에 의한 전달</li>
+</ol>
+<p>c의 참조 값(객체의 메모리 주소 값)을 복사하여 전달하기 때문에, 두개의 식별자(c, d)가 하나의 객체를 공유하여 값이 같다.</p>
+<p>자세한 건 <code>5. 원시타입과 객체(참조)타입</code> 참고</p>
 </details>
