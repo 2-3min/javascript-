@@ -90,7 +90,7 @@ const shape = {
   diameter() {
     return this.radius * 2;
   },
-  perimeter: () => 2 * Math.PI * this.radius,
+  perimeter: () => 2 * Math.PI * this.radius
 };
 
 console.log(shape.diameter());
@@ -107,24 +107,9 @@ console.log(shape.perimeter());
 <ol>
   <li>일반함수와 화살표함수의 this</li>
 </ol>
-<p>객체 리터럴의 메서드 내부에서의 this는 메서드를 호출한 객체인 player를 가리킨다.</p>
+<p>객체<code>메서드</code>의 <code>this</code>는 객체를 바인딩하고, 객체 프로퍼티에 할당된 <code>arrow function</code>의 <code>this</code>는 해당 코드에서의 상위 컨텍스트인 전역객체를 가리킨다.</p>
 <code>
-*자세한 사항은 4. this에서..
-  const player = {
-    height: 183,
-    getHight() {
-      return this.height;
-    }
-  }
-</code>
-<p>프로퍼티에 할당한 화살표 함수는 메서드를 호출한 객체가 아닌 상위 컨텍스트인 전역 객체를 가리킨다. </p>
-<code>
-  const player = {
-  goalCount: 1,
-  goal: () => ++this.goalCount 
-};
-
-console.log(player.goal()); //NaN
+*자세한 내용은 6. this : 핵심 부분에서
 </code>
 </details>
 
@@ -150,5 +135,7 @@ console.log(d.greeting);
   <li>참조에 의한 전달</li>
 </ol>
 <p>c의 참조 값(객체의 메모리 주소 값)을 복사하여 전달하기 때문에, 두개의 식별자(c, d)가 하나의 객체를 공유하여 값이 같다.</p>
-<p>자세한 건 <code>5. 원시타입과 객체(참조)타입</code> 참고</p>
+<code>
+*자세한 내용은 5. 원시타입과 객체(참조)타입에서
+</code> 
 </details>
