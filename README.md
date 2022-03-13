@@ -323,7 +323,7 @@ const arrowCounter = {
 
 console.log(arrowCounter.increase()); //Nan
 ```
-😀결국 핵심은 `호출 시점`에 `normalCounter`의 `this`는 `객체`를 binding 하고, `arrowCounter`는 `this`바인딩이 존재하지 않기 때문에 상위 스코프인 전역의 `this`가 가리키는 값(window)를 바인딩한다.
+😀결국 핵심은 `호출 시점`에 `normalCounter`의 일반함수 `increase()` 내`this`는 `객체를 binding` 하고, `arrowCounter`의 화살표 함수 `increase: () => {}`는 `함수 자체의 this 바인딩을 갖지 않고` 상위 스코프인 전역의 `this`가 가리키는 값(window)를 바인딩한다.(`Lexcial this`)
 
 ```javascript
 var num = 100; 
