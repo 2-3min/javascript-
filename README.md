@@ -61,6 +61,8 @@ score = 90;
 
 🙄그렇다면 undefined와 80이 할당되어 있는 공간은? >>>>> 가비지 콜렉터에 메모리에서 자동해제 된다.
 
+😁자세한 건 `5. 원시 타입과 객체(참조) 타입` 에서 확인.
+
 
 ## 2. 함수
 ### 함수 형태
@@ -120,6 +122,7 @@ var sub 자체는 *소스코드 평가과정*에서 실행이 되었겠지만, f
 
 <img src="./img/window.PNG" height="300px" alt="window"></img><br/>
 <img src="./img/window2.PNG" height="300px" alt="window"></img><br/>
+
 ## 4. 실행 컨텍스트
 ```javascript
 var x;
@@ -160,3 +163,65 @@ console.log(x + y);
 
 함수 코드 > 함수 코드는 지역 스코프를 생성하고, 지역변수, 매개변수 arguments 객체를 관리한다. 생성한 지역 스코프를 전역스코프에서 시작하는 스코프 체인의 일원으로 연결해야한다. 이를 위해 함수 코드가 평가되면 함수 실행 컨텍스트가 생성된다.
 
+## 5. 원시타입과 객체(참조)타입
+
+원시 값은  `변경 불가능한 값` (주의 : "할당이 불가능하다." 라는 뜻은 아님)
+객체(참조) 값  `변경이 가능한 값`
+
+
+데이터 타입(숫자, 문자열, 불리언, null, undefined, symbol, 객체)
+
+이걸 원시타입, 객체타입으로 구분
+
+원시 값은 `변경 불가능한 값` (주의 : "할당이 불가능하다." 라는 뜻은 아님)
+객체(참조) 값은  `변경이 가능한 값`
+
+### 변수 할당 시 식별자와 메모리 주소
+```javascript
+var score = 80;
+score = 90;
+```
+`1. 변수 : 또 알아야 할것` 에서 언급했던 것처럼 `score` 식별자는 `80`을 가지고 있는 메모리 주소를 가지고 있다가, `score=90`에서 `score` 식별자는 `90`을 가지고 있는 메모리 주소로 변경한다.
+
+😀`score`의 메모리 주소 값이 바뀐것일 뿐, 메모리 공간 안에 있는 `80`이라는 값이 변경된 것은 아니다. 
+
+
+### 값에 의한 전달
+```javascript
+let money = 5000;
+
+let dMoney = money;
+
+console.log(money, dMoney); // 5000 5000
+console.log(money === dMoney); // true
+
+money = 10000;
+console.log(money, dMoney); // 5000 10000
+console.log(money === dMoney); // false
+```
+
+`let dMoney = money;` 에서 `5000`이라는 원시 값을 새로운 메모리 주소 공간에 복사 후 `dMoney`가 이를 가리킨다. 즉, `같은 값이지만 서로 다른 공간을 가리키고 있는다.`
+
+`money = 10000;` 에서는 당연히 새로운 메모리 공간에 `10000`을 할당하고 `money` 가 이 공간을 가리킨다. 
+
+😀`값에 의한 전달`이  javascript를 위한 용어는 아니다. 기억해야 할 것은 `같은 값이지만 서로 다른 공간을 가리키고 있는다. 즉, 값을 변경하더라도 서로 간섭할 수 없다.`
+
+### 참조에 의한 전달
+```javascript 
+var player = {
+  name : 'Salah',
+  goal : 19
+}
+
+var copyPlayer = player; //서로 다른 메모리 공간을 가리키지만, 참조하는 메모리 주소는 같다. 즉, 같은 곳을 참조하고 있다.
+copyPlayer.name = "Mane";
+player.goal = 13;
+
+console.log(player); // [object Object] {goal: 13,name: "Mane"}
+console.log(copyPlayer); // [object Object] {goal: 13,name: "Mane"}
+```
+원시 값은 `변경이 불가능한 값`이라서 변수의 값을 변경하라면 `재할당` 뿐이었지만, 객체 값은 `변경이 가능한 값`이다. 
+`copyPlayer.name = "Mane"`, `player.goal = 13` 에서 객체 값을 변경하였다.
+그리고 `두개의 식별자(player, copyPlayer)가 하나의 객체를 공유`하여 값이 같다.
+
+😀`참조에 의한 전달`이  javascript를 위한 용어는 아니다. 기억해야 할 것은 `객체 타입은 변경이 가능한 값`이고, 참조 값이 전달되면 `같은 공간을 가리킨다.(참조 값이 같다.)`
