@@ -261,7 +261,7 @@ console.log(player.goalPercentage()); // 65
 	> `strict mode`에서는 `undeifned`
 	> 메서드 내 중첩함수든, 콜백함수든 일반함수로 호출되면 `this`는 `window` 바인딩
 	
-2. 메시드 호출 → this : `객체.메서드()`로 호출할 때 `객체를 바인딩`
+2. 메서드 호출 → this : `객체.메서드()`로 호출할 때 `객체를 바인딩`
 	> this에 바인딩될 객체는 `호출 시점`에 결정된다.
 	
 3. 생성자 함수 호출 → this : 생성자 함수가 생성할 인스턴스 바인딩
@@ -304,3 +304,34 @@ console.log(lastnamer.add(["Sangmin", "SangJun"]));
 ```
 * (DeepDive p.480)
 > 화살표 함수는 함수 자체의 this 바인딩을 갖지 않는다. `따라서 화살표 함수 내부의 this를 참조하면 상위 스코프의 this를 그대로 참조한다.` 이를 `Lexical this`라 한다.
+
+### 핵심
+```javascript
+const normalCounter = {
+  num : 1,
+  increase() {
+    return ++this.num
+  }
+};
+
+console.log(normalCounter.increase()); //2
+
+const arrowCounter = {
+  num : 1,
+  increase: () => ++this.num
+};
+
+console.log(arrowCounter.increase()); //Nan
+```
+😀결국 핵심은 `호출 시점`에 `normalCounter`의 `this`는 `객체`를 binding 하고, `arrowCounter`는 `this`바인딩이 존재하지 않기 때문에 상위 스코프인 전역의 `this`가 가리키는 값(window)를 바인딩한다.
+
+```javascript
+var num = 100; 
+
+const arrowCounter = {
+  num : 1,
+  increase: () => ++this.num
+};
+
+console.log(arrowCounter.increase()); //101
+```
