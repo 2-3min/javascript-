@@ -139,3 +139,38 @@ console.log(d.greeting);
 *자세한 내용은 5. 원시타입과 객체(참조)타입에서
 </code> 
 </details>
+
+## 7번문제
+```javascript
+class Chameleon {
+  static colorChange(newColor) {
+    this.newColor = newColor;
+    return this.newColor;
+  }
+
+  constructor({ newColor = 'green' } = {}) {
+    this.newColor = newColor;
+  }
+}
+
+const freddie = new Chameleon({ newColor: 'purple' });
+console.log(freddie.colorChange('orange'));
+```
+* A: `orange`
+* B: `purple`
+* C: `green`
+* D: `TypeError`
+
+<details>
+<summary>My Answer</summary>
+<p>정답은 <code>D</code></p>
+<ol>
+  <li>생성자, 인스턴스</li>
+  <li>static(정적) 메서드</li>
+</ol>
+<p>static(정적) 메서드는 인스턴스를 생성하지 않아도 호출할 수 있는 메서드이다.</p>
+<p>정적 메서드는 클래스로 호출한다.(인스턴스로는 호출할 수 없다.)</p>
+<code>
+*자세한 내용은 7. 클래스에서
+</code> 
+</details>
