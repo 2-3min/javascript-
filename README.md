@@ -360,3 +360,120 @@ const arrowCounter = {
 
 console.log(arrowCounter.increase()); //101
 ```
+## 7. Class
+### Class의 기본
+* Class를 알기 전, JS의 Class는 완전한 Class가 아니다.
+* JS에서 `Class는 함수`이며, 새로운 객체 생성의 매커니즘이다.
+* Class 내부에서 `strict mode`로 실행된다.
+```javascript
+//클래스 선언문
+class Player {}
+console.log(typeof Player); //function
+```
+* 클래스 선언문으로 정의한 클래스는 `소스코드 평가 과정`에서 함수 객체를 생성한다.
+* 생성된 함수 객체는 생성자 함수로서 호출할 수 있는 `constructor`이며,
+* 함수 객체를 생성한 시점에 `프로토타입`도 생성한다. (프로토타입과 생성자함수는 언제나 쌍이다)
+
+```javascript
+//변수 호이스팅
+console.log(player); // "ReferenceError: Cannot access 'player' before initialization
+
+const player = "Salah"; 
+
+
+//클래스 호이스팅
+console.log(Person); // "ReferenceError: Cannot access 'Person' before initialization
+
+class Person {}; 
+```
+* `클래스 호이스팅`은 `let`, `const`처럼 `일시적 사각지대(TDZ)`가 발생된다.
+
+### 메서드
+* constructor : 인스턴스를 생성하고 초기화하기 위한 특수한 메서드
+```javascript
+class Player {
+    constructor(name) {
+        this.name = name;
+    }
+}
+console.log(typeof Player); // undefined
+
+console.dir(Player);
+// class Player
+// length: 1
+// name: "Player"
+// prototype:
+//    constructor: class Player // 자기 자신(Class)
+//    [[Prototype]]: Object
+// arguments: (...)
+// caller: (...)
+// [[FunctionLocation]]: VM451:2
+// [[Prototype]]: ƒ ()
+// [[Scopes]]: Scopes[2]
+```
+* prototype 메서드 : 클래스 몸체에서 정의한 함수 (기본적으로 프로토타입 메서드가 된다.)
+```javascript
+class Player {
+  constructor(name) {
+      this.name = name;
+  }
+
+  //prototype method
+  getName() {
+    console.log(`His name is ${this.name}.`);
+  }
+}
+
+const playerSalah = new Player("Salah");
+playerSalah.getName(); //His name is Salah.
+```
+* 정적 메서드 : 인스턴스를 생성하지 않아도 호출 가능한 메서드
+```javascript
+class Player {
+  constructor(name) {
+      this.name = name;
+  }
+
+  //static method
+  static getName() {
+    console.log(`His name is ${this.name}.`);
+  }
+}
+
+//클래스만이 static 메서드를 호출할 수 있다.
+Player.getName(); //His name is Player.
+
+//인스턴스는 불가능
+const playerSalah = new Player("Salah");
+playerSalah.getName(); //Uncaught TypeError: playerSalah.getName is not a function
+
+//constructor는 클래스를 가리키기 때문에 밑 방식처럼 접근해야한다.
+playerSalah.constructor.getName(); //His name is Player.
+```
+
+😀 `프로토타입 메서드`은 `클래스`에 속해있다.(클래스에서 호출하고, 인스턴스 프로퍼티 참조가 가능) 😀`정적 메서드`는 `인스턴스` 속해있다.(인스턴스에서 호출하고, 인스턴스 프로퍼티 참조가 불가능)
+
+### 상속
+```javascript
+// 수퍼클래스
+class Person {
+  constructor(weight, height) {
+    this.weight = weight;
+    this.height = height;
+  }
+}
+
+//서브클래스
+class Player extends Person {
+  constructor(weight, height, position) {
+    super(weight, height);
+    this.position = position;
+  }
+  //만약 constructor를 생략하면 암묵적으로 constructor(...args) { super(...args)}
+}
+
+const player = new Player(180, 73, "Defender");
+```
+
+
+
