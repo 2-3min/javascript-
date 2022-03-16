@@ -361,6 +361,94 @@ const arrowCounter = {
 console.log(arrowCounter.increase()); //101
 ```
 ## 7. Class
+### __*Class 알기 전.. 프로토타입(prototype)에 대해*__
+```javascript
+//Prototype 사용 X
+function Player(name) {
+  this.name = name;
+  this.shooting = function () {
+    console.log(`${this.name} shoot!!!!`);
+  }
+}
+
+const player1 = new Player("Salah");
+const player2 = new Player("Mane");
+
+console.log(player1.shooting === player2.shooting); //false
+//this.shooting은 생성된 각자의 인스턴스 객체에 속하기 때문에, 내용은 같지만 다르다.
+```
+
+```javascript
+//prototype 사용
+function Player(name) {
+  this.name = name;
+}
+
+//Javascript는 Prototype 기반으로 상속을 구현한다.
+Player.prototype.shooting = function() {
+  console.log(`${this.name} shoot!!!!`);
+}
+
+const player1 = new Player("Salah");
+const player2 = new Player("Mane");
+player1.shooting(); //Salah shoot!!!!
+player2.shooting(); //Mane shoot!!!!
+
+console.log(console.log(player1.shooting === player2.shooting); //true
+//각자 다른 인스턴스 객체이지만, Prototype 함수를 통해 공유(상속)되어 같은 것을 확인할 수 있다.
+
+console.log(player1.shooting)
+// ƒ () {
+//   console.log(`${this.name} shoot!!!!`);
+// }
+```
+😀 Javascript가 이루고 있는 거의 모든 것이 `객체`라는 점에서(함수, 배열, 정규 표현식 등 제외) `prototype` 기반의 상속은 중복되는 코드를 줄여줄 수 있다.
+
+😀 ES6부터 도입한 `Class`도 결국 객체를 표현하기 위한 하나의 매커니즘이다.
+
+```javascript
+//뒤에 클래스에서 보면 알겠지만, 클래스 내 메서드는 "프로토타입 메서드"이므로, 클래스를 통해 생성된 객체들은 protoype 함수를 통해 공유(상속)되어 같은것을 확인할 수 있다.
+class Player {
+    constructor(name) {
+        this.name = name;
+    }
+    shooting() {
+        console.log(name);
+    }
+}
+const player1 = new Player("Salah");
+const player2 = new Player("Mane");
+console.log(player1.shooting === player2.shooting) //true!
+```
+
+#### 프로토타입 객체
+* 프로토타입은 객체 간 상속을 구현하기 위해 사용된다.
+* 모든 객체는 `__proto__` 접근자 프로퍼티를 통해 자신의 프로토타입, 즉 `[[Prototype]]` 내부 슬룻에 접근할 수 있다.
+```javascript
+//크롬 개발자 도구에서..
+
+player1
+//Player {name: 'Salah'}
+//- name: "Salah"
+//- [[Prototype]]: Object
+//  - constructor: class Player
+//  - shooting: ƒ shooting()
+//  - [[Prototype]]: Object
+
+player1.__proto__
+//{constructor: ƒ, shooting: ƒ}
+//  - constructor: class Player
+//  - shooting: ƒ shooting()
+//  - [[Prototype]]: Object
+```
+* 하지만, `__proto__` 접근자 프로퍼티를 직접 사용하는 것은 권장하지 않음!
+
+#### 프로토타입 체인
+> JS는 객체 프러퍼티에 접근하려고 할때 해당 객체에 접근하려는 프로퍼티가 없다면 [[Prototype]] 내부 슬룻의 참조를 따라 자신의 부모 역할을 하는 프로토타입의 프로퍼티를 순차적으로 검색하는데 이를 `프로토타입 체인`이라고 한다.
+
+> JS엔진은 `프로토타입 체인`에 따라 `프로퍼티/메서드`를 검색한다. 즉, 객체 간의 상속 관계로 이루어진 프로토타입의 계층적인 구조에서 객체 프로퍼티를 검색한다.
+
+> 프로퍼티가 아닌 나머지 식별자는 `스코프 체인`에서 검색한다.
 ### Class의 기본
 * Class를 알기 전, JS의 Class는 완전한 Class가 아니다.
 * JS에서 `Class는 함수`이며, 새로운 객체 생성의 매커니즘이다.
@@ -396,7 +484,12 @@ class Player {
         this.name = name;
     }
 }
-console.log(typeof Player); // undefined
+
+const player1 = new Player("Salah");
+console.log(player1.constructor === Player) //true
+console.log(layer1.__proto__ === Player.prototype)// true
+
+console.log(typeof Player); // function
 
 console.dir(Player);
 // class Player
@@ -453,6 +546,29 @@ playerSalah.constructor.getName(); //His name is Player.
 
 😀 `프로토타입 메서드`은 `클래스`에 속해있다.(클래스에서 호출하고, 인스턴스 프로퍼티 참조가 가능) 😀`정적 메서드`는 `인스턴스` 속해있다.(인스턴스에서 호출하고, 인스턴스 프로퍼티 참조가 불가능)
 
+### 접근 제어자
+* private 필드 정의는 직접적으로 접근이 불가하며, getter or setter으로 접근해야한다.
+```javascript
+class Player {
+  #name = ''; //이게 private
+
+  constructor(name) {
+    this.#name = name;
+  }
+
+  get Name() {
+    return this.#name;
+  }
+}
+
+const player = new Player("Salah");
+
+//Uncaught SyntaxError: Private field '#name' must be declared in an enclosing class
+console.log(player.#name); 
+
+console.log(player.Name); //Salah
+```
+
 ### 상속
 ```javascript
 // 수퍼클래스
@@ -474,6 +590,7 @@ class Player extends Person {
 
 const player = new Player(180, 73, "Defender");
 ```
+
 
 
 
