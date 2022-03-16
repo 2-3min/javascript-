@@ -140,7 +140,7 @@ console.log(d.greeting);
 </code> 
 </details>
 
-## 7번문제
+## 8번문제
 ```javascript
 class Chameleon {
   static colorChange(newColor) {
@@ -173,4 +173,27 @@ console.log(freddie.colorChange('orange'));
 <code>
 *자세한 내용은 7. 클래스에서
 </code> 
+</details>
+
+## 10번문제
+```javascript
+function bark() {
+  console.log('Woof!');
+}
+
+bark.animal = 'dog';
+
+```
+* A: Nothing, this is totally fine!
+* B: SyntaxError. You cannot add properties to a function this way.
+* C: "Woof" gets logged.
+* D: ReferenceError
+
+<details>
+<summary>My Answer</summary>
+<p>정답은 <code>A</code></p>
+<ol>
+  <li></li>
+</ol>
+<p>원시 값(숫자, 문자열)을 제외한 Javascript의 거의 모든 것은 객체다. 코드평가 중 정의된 함수가 등록이 되면 함수객체가 만들어진다는 점에서 알 수 있다. 실제로 위 코드처럼 작성하지는 않겠지만, <code>함수객체.animal = 'dog'</code>이 실행되면 함수객체.animal에 dog가 할당된다.</p>
 </details>
