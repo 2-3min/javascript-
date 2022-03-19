@@ -227,3 +227,41 @@ console.log(member.getFullName());
 <p>인스턴스가 <code>getFullName</code> 메서드를 호출하려면 <code>Person.prototype.getFullName</code>에 함수를 할당해야한다.(답: 'C' 출력)</p>
 <p>답 'D' 가 나오는 경우는 <code>member.constructor.getFullName()</code>으로 호출했을 경우이다.</p>
 </details>
+
+## 12번문제
+```javascript
+function Person(firstName, lastName) {
+  this.firstName = firstName;
+  this.lastName = lastName;
+}
+
+const lydia = new Person('Lydia', 'Hallie');
+const sarah = Person('Sarah', 'Smith');
+
+console.log(lydia);
+console.log(sarah); //undefined
+
+//내가 추가한 코드
+console.log(window.firstName); //Sarah
+console.log(window.lastName); //Smith
+
+```
+* A: Person `{firstName: "Lydia", lastName: "Hallie"}` and `undefined`
+* B: Person `{firstName: "Lydia", lastName: "Hallie"}` and Person `{firstName: "Sarah", lastName: "Smith"}`
+* C: Person `{firstName: "Lydia", lastName: "Hallie"}` and `{}`
+* D: Person `{firstName: "Lydia", lastName: "Hallie"}` and `ReferenceError`
+
+<details>
+<summary>My Answer</summary>
+<p>정답은 <code>A</code></p>
+<ol>
+  <li>클래스</li>
+  <li>this</li>
+</ol>
+<p>"lydia"는 new 생성자로 인해 this는 <code>인스턴스 "lydia"</code>를 가리킨다.
+<p>"sarah"는 할당이 아니라 함수 호출이다. Person 함수는 return 값이 없으므로, "sarah"는 <code>undefined</code>이다.</p>
+<p>Person의 "this"는 전역객체를 참조하므로, <code>window.firstName</code>과 <code>window.lastName</code>은 각각 <code>Sarah</code>, <code>Smith</code>를 출력한다.</p>
+<code>
+*자세한 내용은 7. 클래스에서
+</code> 
+</details>
