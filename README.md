@@ -618,7 +618,7 @@ const promise = new Promise((resolve, reject) => {
  * catch를 then 뒤에다가 쓰는 이유 :  catch메서드는 then 메서드를 호출한 이후에 호출하면 비동기 처리에 대 한 에러 + then 메서드 내부에서 발생한 에러까지 모두 캐치가 가능하다.
 * finally : fulfilled나 rejected 경우 상관 없이 무조건 실행
 
-😀 `fetch`는 HTTP 응답을 나타내는 Response를 래핑한 `Promise` 객체를 반환한다.
+😀 `fetch`는 HTTP 응답을 나타내는 Response를 래핑한 `Promise` 객체를 반환한다..
 
 
 
