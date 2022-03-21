@@ -265,3 +265,22 @@ console.log(window.lastName); //Smith
 *자세한 내용은 7. 클래스에서
 </code> 
 </details>
+
+## 13번문제
+13. What are the three phases of event propagation?
+
+* A: Target > Capturing > Bubbling
+* B: Bubbling > Target > Capturing
+* C: Target > Bubbling > Capturing
+* D: Capturing > Target > Bubbling
+
+<details>
+<summary>My Answer</summary>
+<p>정답은 <code>D</code></p>
+<p>Capturing phase – 이벤트 요소가 내려가는 단계</p>
+<p>Target phase – 이벤트 요소 도달하는 단계</p>
+<p>Bubbling phase – 이벤트 요소에서 루트로 올라가는 단계</p>
+<code>
+https://developer.mozilla.org/ko/docs/Web/API/Event/eventPhase
+</code> 
+</details>
