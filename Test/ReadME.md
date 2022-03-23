@@ -284,3 +284,22 @@ console.log(window.lastName); //Smith
 https://developer.mozilla.org/ko/docs/Web/API/Event/eventPhase
 </code> 
 </details>
+
+## 15번문제
+```javascript
+function sum(a, b) {
+  return a + b;
+}
+
+sum(1, '2');
+```
+* A: NaN
+* B: TypeError
+* C: "12"
+* D: 3
+<details>
+<summary>My Answer</summary>
+<p>정답은 <code>C</code></p>
+<p>JS는 <code>dynamically typed language</code>이다. C, Java처럼 변수에 타입을 정해져 있지 않고, JS의 타입 유형 검사는 런타임에 수행이 된다. 따라서 변수에 원하는 모든 것을 할당할 수가 있다.</p>
+<p>위 문제의 경우에는 타입 강제변환(Type coercion) 또는 암묵적 타입변환(Implicit coercion)이다. Number Type인 1이 String Type 으로 변환하여 문자열이 합쳐져 '12' 결과가 리턴된다.</p>
+</details>
