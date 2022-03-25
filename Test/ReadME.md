@@ -303,3 +303,20 @@ sum(1, '2');
 <p>JS는 <code>dynamically typed language</code>이다. C, Java처럼 변수에 타입을 정해져 있지 않고, JS의 타입 유형 검사는 런타임에 수행이 된다. 따라서 변수에 원하는 모든 것을 할당할 수가 있다.</p>
 <p>위 문제의 경우에는 타입 강제변환(Type coercion) 또는 암묵적 타입변환(Implicit coercion)이다. Number Type인 1이 String Type 으로 변환하여 문자열이 합쳐져 '12' 결과가 리턴된다.</p>
 </details>
+
+## 16번문제
+```javascript
+let number = 0;
+console.log(number++);
+console.log(++number);
+console.log(number);
+```
+* A: `1 1 2`
+* B: `1 2 2`
+* C: `0 2 2`
+* D: `0 1 2`
+<details>
+<summary>My Answer</summary>
+<p>정답은 <code>C</code></p>
+<p>후위 연산자(number++)는 console.log가 먼저 실행되고 후에 연산한다. 전위 연산자(++number)는 console.log가 실행되기 전 연산한다. 따라서 <code>0 2 2</code>가 출력된다.</p>
+</details>
