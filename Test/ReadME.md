@@ -320,3 +320,50 @@ console.log(number);
 <p>정답은 <code>C</code></p>
 <p>후위 연산자(number++)는 console.log가 먼저 실행되고 후에 연산한다. 전위 연산자(++number)는 console.log가 실행되기 전 연산한다. 따라서 <code>0 2 2</code>가 출력된다.</p>
 </details>
+
+## 17번문제
+```javascript
+function getPersonInfo(one, two, three) {
+  console.log(one);
+  console.log(two);
+  console.log(three);
+}
+
+const person = 'Lydia';
+const age = 21;
+
+getPersonInfo`${person} is ${age} years old`;
+
+```
+* A: "Lydia" 21 ["", " is ", " years old"]
+* B: ["", " is ", " years old"] "Lydia" 21
+* C: "Lydia" ["", " is ", " years old"] 21
+
+<details>
+<summary>My Answer</summary>
+<p>정답은 <code>B</code></p>
+<p>이번 키워드는 <code>tagged template literal</code>이다. getPersonInfo의 첫번째 인자에는 정적 데이터가 배열형태로 저장(${}값을 제외한 나머지 문자열)되고, 나머지 인자에는 동적데이터(${})가 저장되어 "정답 B" 형태로 출력된다.</p>
+
+<p>하지만 위 형태는 보다는 rest형식으로 인자를 받는다. rest형식의 tagged template literal은 다음과 같다.</p>
+</details>
+
+## 17-1번 문제
+```javascript
+//Tagged Template Literal (Rest)
+function getPersonInfo(one, ...values) {
+  console.log(one);
+  console.log(values);
+}
+
+const person = 'Lydia';
+const age = 21;
+const country = "Korea";
+const city = "Suwon"
+
+getPersonInfo`${person} is ${age} years old. I'm live in ${city}, ${country}`;
+
+
+
+//["", " is ", " years old. I'm live in ", ", ", ""] (5)
+//["Lydia", 21, "Suwon", "Korea"] (4)
+```
