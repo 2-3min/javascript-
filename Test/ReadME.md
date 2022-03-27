@@ -367,3 +367,78 @@ getPersonInfo`${person} is ${age} years old. I'm live in ${city}, ${country}`;
 //["", " is ", " years old. I'm live in ", ", ", ""] (5)
 //["Lydia", 21, "Suwon", "Korea"] (4)
 ```
+
+## 18번 문제
+```javascript
+function checkAge(data) {
+  if (data === { age: 18 }) {
+    console.log('You are an adult!');
+  } else if (data == { age: 18 }) {
+    console.log('You are still an adult.');
+  } else {
+    console.log(`Hmm.. You don't have an age I guess`);
+  }
+}
+
+checkAge({ age: 18 });
+```
+* A: You are an adult!
+* B: You are still an adult.
+* C: Hmm.. You don't have an age I guess
+
+<details>
+<summary>My Answer</summary>
+<p>정답은 <code>C</code></p>
+<p>매개변수 data는 {age:18} 의 참조 값을 가지고 있다<code>(call-by-reference)</code>. checkAge 함수 내 조건문에서 비교하는 객체는 data 객체와는 별개인 객체이다.<code>객체 리터럴은 평가 될때마다 객체를 생성하기 때문</code> 그렇기 때문에 참조값을 비교하는 과정에서 위 2개의 조건은 false이기 때문에 정답은 C이다.</p>
+</details>
+
+## 18-1번 문제
+```javascript
+let age = {};
+
+function checkAge(data) {
+  data.age = 123;
+}
+
+checkAge(age);
+console.log(age);
+```
+
+## 18-2번 문제
+```javascript
+let age = {};
+
+function checkAge(data) {
+  data = 123;
+}
+
+checkAge(age);
+console.log(age);
+```
+
+## 18-3번 문제
+```javascript
+let age = {age : 18};
+
+function checkAge(data) {
+  let a = age;
+  data = {age : 18};
+
+  //bonus 문제
+  console.log(a == age);
+  console.log(a === age);
+  console.log(age == data);
+  console.log(age === data);
+
+}
+
+checkAge(age);
+```
+<details>
+<summary>My Answer</summary>
+<p>객체는 변경이 가능한 값, 원시 값은 변경이 불가능하다. 18-1번 에서는 복사한 참조값을 통해 객체에 접근하여 객체의 값을 변경하는 것이기 때문에 age의 출력 값은 <code>{age : 123}</code>이다.</p>
+<p>18-2번에서는 data에 123을 할당하려 한다. 이는 자칫 "data 식별자에 123을 할당하니까 아 age값도 123으로 바뀌겠구나"라는 오해를 할 수 있다. 정확히는 data 식별자는 메모리 어딘가 123이 있는 공간을 가리키게 되어, age 값은 변경되지 않아 출력 값은 <code>{}</code>이다.</p>
+<p>18-3번에서는 18-2번과 유사하다. 원시 값 대신 객체를 할당한다. "객체니가 혹시..?" 라고 생각할 수 도 있지만, 객체 리터럴은 평가 될때마다 객체를 생성하기 때문에 전혀 다른 객체이다. 18-2번과 같이 {age : 18}이 있는 공간을 가리킬 뿐이다. age 출력 값은 <code>{}</code>이다.</p>
+
+<p>보너스 문제 정답은 true, true, false, false</p>
+</details>
