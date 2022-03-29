@@ -442,3 +442,25 @@ checkAge(age);
 
 <p>보너스 문제 정답은 true, true, false, false</p>
 </details>
+
+## 19번 문제
+```javascript
+function getAge(...args) {
+  console.log(args) // [21]
+  console.log(typeof args);
+}
+
+getAge(21);
+```
+* A: "number"
+* B: "array"
+* C: "object"
+* D: "NaN"
+<details>
+<summary>My Answer</summary>
+<p>정답은 <code>C</code></p>
+<p>Rest Prameter(나머지 매개변수) : 모든 후속 매개변수를 배열에 저장한다. <code>args</code>는 <code>[21]</code>이다.</p>
+<p>Array in MDN Javascript : 다른 프로그래밍 언어의 배열과 마찬가지로 Array 개체를 사용하면 단일 변수 이름으로 여러 항목의 컬렉션을 저장할 수 있으며 일반적인 배열 작업을 수행하기 위한 멤버가 있습니다.</p>
+<p>객체는 다양한 키와 복잡한 엔터티를 저장하는데 사용되는 데이터 유형 중 하나이다. Javscript에서의 배열도 
+"Index를 나타내는 문자열"과 "길이를 나타내는 length를 프로퍼티"로 갖는 특수한 객체이다.</p>
+</details>
