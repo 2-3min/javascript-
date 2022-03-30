@@ -594,7 +594,7 @@ const player = new Player(180, 73, "Defender");
 
 ### 8. Promise 객체
 
-#### 생겨난 이유? 
+#### 8-1. 생겨난 이유? 
  - 비동기 처리 결과에 대한 후속 처리는 `콜백함수`뿐이다. 왜냐하면 비동기 처리 결과는 외부에 반환할 수 없고, 상위 스코프 변수에도 할당할 수 없기 때문이다.(선행 : "실행 컨텍스트(콜스택), 태스크 큐, 이벤트 루프"를 파악하면 알 수 있다.)
  - 하지만 그에 대한 처리 과정이 많다면? 그만큼의 콜백 함수 호출이 필요하다. 많은 콜백 함수 호출이 중첩되어 복잡도가 높아지는 현상이 `콜백 헬`이다.
 
@@ -608,18 +608,112 @@ const promise = new Promise((resolve, reject) => {
 	}
 });
 ```
-#### Promise 상태 정보
+#### 8-2. Promise 상태 정보
 * pending : 비동기 처리가 아직 수행되지 않은 상태(프로미스가 생성된 직후)
 * settled(fulfilled, rejected) : 비동기가 처리된 상태(fulfilled : 성공, rejected: 실패)
 
-#### Promise 후속 메서드 인수정리
-* then : fulfilled 상태에는 resolve, rejected 상태에는 reject
+#### 8-3. Promise 후속 메서드 인수정리
+* then : fulfilled 상태에는 resolve, rejected 상태에는 reject.
+  * then 메서드는 `promise`를 반환한다.
 * catch : Promise가 rejected인 경우만
  * catch를 then 뒤에다가 쓰는 이유 :  catch메서드는 then 메서드를 호출한 이후에 호출하면 비동기 처리에 대 한 에러 + then 메서드 내부에서 발생한 에러까지 모두 캐치가 가능하다.
 * finally : fulfilled나 rejected 경우 상관 없이 무조건 실행
 
 😀 `fetch`는 HTTP 응답을 나타내는 Response를 래핑한 `Promise` 객체를 반환한다.
 
+#### 8-4. Promise.all
+```javascript
+const promiseArr = [Promise, Promise, Promise...];
+```
 
+Promise 객체가 담긴 배열을 나는 다음과 같이 처리했다.
+
+```javascript
+promiseArr.map(promise => {
+  promise.then(value => {
+    //value에 대한 처리
+    console.log(values)
+  });
+});
+```
+
+😅 Array.prototype 을 활용하여 배열의 요소에 하나씩 접근하여, then 메서드를 사용한다. 위 방식 대신 `Promise.all` 키워드를 사용하자면,
+```javascript
+Promise.all(promiseArr).then(values => {
+  //[data, data, data...] 대한 처리
+  console.log(values); 
+});
+```
+😄 배열 내 모든 값의 이행(resolve)을 기다리고, 이행 시 결과를 배열에 포함한다.
+Promise.all 예제(출저 : mdn)
+
+```javascript
+// Promise.all을 최대한 빨리 완료시키기 위해
+// 이미 이행된 프로미스로 배열을 만들어 인자로 전달
+var resolvedPromisesArray = [Promise.resolve(33), Promise.resolve(44)];
+
+var p = Promise.all(resolvedPromisesArray);
+// 실행 즉시 p의 값을 기록
+console.log(p);
+
+// 호출 스택을 비운 다음 실행하기 위해 setTimeout을 사용
+setTimeout(function() {
+    console.log('the stack is now empty');
+    console.log(p);
+});
+
+// 로그 출력 결과 (순서대로):
+// Promise { <state>: "pending" }
+// the stack is now empty
+// Promise { <state>: "fulfilled", <value>: Array[2] }
+
+var mixedPromisesArray = [Promise.resolve(33), Promise.reject(44)];
+var p = Promise.all(mixedPromisesArray);
+console.log(p);
+setTimeout(function() {
+    console.log('the stack is now empty');
+    console.log(p);
+});
+
+// 출력
+// Promise { <state>: "pending" }
+// the stack is now empty
+// Promise { <state>: "rejected", <reason>: 44 }
+```
+
+#### 8-5. Promise.all : 프로젝트에서의 활용
+```javascript
+//반복문으로 배열 요소에 하나씩 접근 뒤, then 메서드 처리 1
+pMatches.forEach(pMatch => {
+  pMatch.then(match => {
+    const [{nickname, matchDetail: {matchResult}}] = match.matchInfo;
+    if(nickname === firstInputNickname && matchResult === "승") winCount++;  
+    if(nickname !== firstInputNickname && matchResult === "패") winCount++;
+  });
+});
+
+//반복문으로 배열 요소에 하나씩 접근 뒤, then 메서드 처리 2
+const winCounting = pMatches.map(pMatch => {
+  return pMatch.then(match => {
+    const [{nickname, matchDetail: {matchResult}}] = match.matchInfo;
+    const result = (
+      (nickname === firstInputNickname && matchResult === "승") || 
+      (nickname !== firstInputNickname && matchResult === "패") ? "승" : "패"
+    );
+    return result;
+  });
+});
+
+//Promise.all
+const member = Promise.all(pMatches).then(matches => {
+  const winCounting = matches.reduce((count, match) => {
+    const [{nickname, matchDetail: {matchResult}}] = match.matchInfo;
+    if(nickname === user1 && matchResult === "승") count++;
+    if(nickname !== user1 && matchResult === "패") count++;
+    return count;
+  }, 0);
+});
+``` 
+😄 Array.prototype으로 Promise 객체에 하나씩 접근 뒤 then메서드로 처리하자니, 내가 원하는 값을 리턴하는게 상당히 까다로웠다. `Promise.all`를 활용하여, 반환한 Promise의 이행 결과 값이 배열에 생성된 후 로직을 짜는 것이 편했다.  
 
 
