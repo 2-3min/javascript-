@@ -462,5 +462,28 @@ getAge(21);
 <p>Rest Prameter(나머지 매개변수) : 모든 후속 매개변수를 배열에 저장한다. <code>args</code>는 <code>[21]</code>이다.</p>
 <p>Array in MDN Javascript : 다른 프로그래밍 언어의 배열과 마찬가지로 Array 개체를 사용하면 단일 변수 이름으로 여러 항목의 컬렉션을 저장할 수 있으며 일반적인 배열 작업을 수행하기 위한 멤버가 있습니다.</p>
 <p>객체는 다양한 키와 복잡한 엔터티를 저장하는데 사용되는 데이터 유형 중 하나이다. Javscript에서의 배열도 
-"Index를 나타내는 문자열"과 "길이를 나타내는 length를 프로퍼티"로 갖는 특수한 객체이다.</p>
+<code>Index를 나타내는 문자열</code>과 <code>길이를 나타내는 length를 프로퍼티</code>로 갖는 특수한 객체이다.</p>
+</details>
+
+## 20번 문제
+```javascript
+function getAge() {
+  'use strict';
+  age = 21;
+  console.log(age);
+}
+
+getAge();
+```
+* A: 21
+* B: undefined
+* C: ReferenceError
+* D: TypeError
+
+<details>
+<summary>My Answer</summary>
+<p>정답은 <code>C</code></p>
+<p></p>
+<p><code>strict mode</code>가 아니면 호출 시, "age"는 암묵적 전역변수(window)의 프로퍼티가 되고, <code>console.log(age)</code>에서 참조할 때 스코프 체이닝을 통해 window 객체에 접근하여 <code>21</code>을 출력하게 된다.</p>
+<p><code>strict mode</code>에서는 선언하지 않은 변수를 참조하면 Reference Error를 발생시킨다.</p>
 </details>
