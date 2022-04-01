@@ -487,3 +487,19 @@ getAge();
 <p><code>strict mode</code>가 아니면 호출 시, "age"는 암묵적 전역변수(window)의 프로퍼티가 되고, <code>console.log(age)</code>에서 참조할 때 스코프 체이닝을 통해 window 객체에 접근하여 <code>21</code>을 출력하게 된다.</p>
 <p><code>strict mode</code>에서는 선언하지 않은 변수를 참조하면 Reference Error를 발생시킨다.</p>
 </details>
+
+## 21번 문제
+```javascript
+const sum = eval('10*10+5');
+```
+* A: `105`
+* B: `"105"`
+* C: `TypeError`
+* D: `"10*10+5"`
+
+<details>
+<summary>My Answer</summary>
+<p>정답은 <code>A</code></p>
+<p></p>
+<p><code>eval</code>함수는 문자로 표현된 JS코드를 실행하는 함수이다. 따라서 <code>10*10+5</code>연산이 되어 정답은 105이다. 중간에 <code>문자, 숫자</code>가 섞여 있어도(Ex. '6' * 3) 문자와 숫자가 연산이 된다.</p>
+</details>
