@@ -503,3 +503,22 @@ const sum = eval('10*10+5');
 <p></p>
 <p><code>eval</code>함수는 문자로 표현된 JS코드를 실행하는 함수이다. 따라서 <code>10*10+5</code>연산이 되어 정답은 105이다. 중간에 <code>문자, 숫자</code>가 섞여 있어도(Ex. '6' * 3) 문자와 숫자가 연산이 된다.</p>
 </details>
+
+## 22번 문제
+```javascript
+sessionStorage.setItem('cool_secret', 123);
+```
+* A: Forever, the data doesn't get lost.
+* B: When the user closes the tab.
+* C: When the user closes the entire browser, not only the tab.
+* D: When the user shuts off their computer.
+
+<details>
+<summary>My Answer</summary>
+<p>정답은 <code>B</code></p>
+<p>* 설명 출저 : MDN</p>
+<p>브라우저가 열려있는 한 새고침과 페이지 복구를 거쳐도 남아있다.</p>
+<p>새로운 탭이나 창에서 열면, 세션 쿠키의 동작과는 다르게 최상위 브라우징 맥락의 값을 가진 새로운 새션을 생성한다.</p>
+<p>같은 URL을 다수의 탭/창에서 열면 가각의 탭/창에 대해 새로운 <code>sessionStorage</code>를 생성한다.</p>
+<p>탭/창을 닫으면 세션이 끝나고 sessionStorage 안의 객체를 초기화한다.</p>
+</details>
