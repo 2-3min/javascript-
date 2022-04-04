@@ -522,3 +522,20 @@ sessionStorage.setItem('cool_secret', 123);
 <p>같은 URL을 다수의 탭/창에서 열면 가각의 탭/창에 대해 새로운 <code>sessionStorage</code>를 생성한다.</p>
 <p>탭/창을 닫으면 세션이 끝나고 sessionStorage 안의 객체를 초기화한다.</p>
 </details>
+
+## 23번 문제
+```javascript
+var num = 8;
+var num = 10;
+
+console.log(num);
+```
+* A: `8`
+* B: `10`
+* C: `SyntaxError`
+* D: `ReferenceError`
+<details>
+<summary>My Answer</summary>
+<p>정답은 <code>B</code></p>
+<p><code>var</code>키워드는 같은 식별자로 선언이 가능하다. 그 식별자의 값은 가장 최근에 할당한 값이 된다.</p>
+</details>
