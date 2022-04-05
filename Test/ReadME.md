@@ -539,3 +539,19 @@ console.log(num);
 <p>정답은 <code>B</code></p>
 <p><code>var</code>키워드는 같은 식별자로 선언이 가능하다. 그 식별자의 값은 가장 최근에 할당한 값이 된다.</p>
 </details>
+
+## 25번 문제
+```javascript
+const obj = { a: 'one', b: 'two', a: 'three' };
+console.log(obj);
+```
+* A: `{ a: "one", b: "two" }`
+* B: `{ b: "two", a: "three" }`
+* C: `{ a: "three", b: "two" }`
+* D: `SyntaxError`
+<details>
+<summary>My Answer</summary>
+<p>고른 답<code>D</code></p>
+<p>정답은 <code>C</code></p>
+<p>같은 이름의 키가 있을 경우, 위치는 맨 처음 정의한 위치에 지정이 되고, 나중에 정의한 키에 할당한 값으로 대체된다.<STRIKE>(아니 뭐 이런...)</STRIKE></p></hr>
+</details>
