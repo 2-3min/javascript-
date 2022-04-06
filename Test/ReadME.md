@@ -551,7 +551,23 @@ console.log(obj);
 * D: `SyntaxError`
 <details>
 <summary>My Answer</summary>
-<p>고른 답<code>D</code></p>
+<p>고른 답 <code>D</code></p>
 <p>정답은 <code>C</code></p>
-<p>같은 이름의 키가 있을 경우, 위치는 맨 처음 정의한 위치에 지정이 되고, 나중에 정의한 키에 할당한 값으로 대체된다.<STRIKE>(아니 뭐 이런...)</STRIKE></p></hr>
+<p>같은 이름의 키가 있을 경우, 위치는 맨 처음 정의한 위치에 지정이 되고, 나중에 정의한 키에 할당한 값으로 대체된다. <STRIKE>(아니 뭐 이런...)</STRIKE></p></hr>
+</details>
+
+## 27번 문제
+```javascript
+for (let i = 1; i < 5; i++) {
+  if (i === 3) continue;
+  console.log(i);
+}
+```
+* A: `1 2`
+* B: `1 2 3`
+* C: `1 2 4`
+* D: `1 3 4`
+<details>
+<summary>My Answer</summary>
+<p>i가 3일 때 continue 문이 실행되면서 반복을 건너뛰어 <code>3</code>을 출력하지 않는다.</p>
 </details>
