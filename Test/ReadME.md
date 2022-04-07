@@ -569,5 +569,40 @@ for (let i = 1; i < 5; i++) {
 * D: `1 3 4`
 <details>
 <summary>My Answer</summary>
+<p>정답은 <code>C</code></p>
 <p>i가 3일 때 continue 문이 실행되면서 반복을 건너뛰어 <code>3</code>을 출력하지 않는다.</p>
+</details>
+
+## 29번 문제
+```javascript
+const a = {};
+const b = { key: 'b' };
+const c = { key: 'c' };
+
+a[b] = 123;
+a[c] = 456;
+
+console.log(a[b]);
+
+
+
+// const object1 = {
+//   a: 'somestring',
+//   b: 42,
+//   c: false
+// };
+
+// console.log(Object.keys(object1));
+// Array ["a", "b", "c"] 
+// 배열 내 문자임을 확인: 
+```
+* A: `123`
+* B: `456`
+* C: `undefined`
+* D: `ReferenceError`
+<details>
+<summary>My Answer</summary>
+<p>정답은 <code>B</code></p>
+<p>객체 키는 자동으로 문자열로 변환된다.</p>
+<p>JS에서 객체를 문자열화 시키면 <code>"[object Object]"</code>가 된다. <code>a[b]</code>에서 <code>123</code>을 할당하면 <code>[object Object] = 123</code>가 된다. 그 다음 줄에서도 객체를 문자열화 되어 <code>[object Object] = 456<code>이 되어 답은 <code>B</code></p>
 </details>
