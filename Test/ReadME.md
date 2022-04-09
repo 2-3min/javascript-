@@ -604,7 +604,7 @@ console.log(a[b]);
 <summary>My Answer</summary>
 <p>정답은 <code>B</code></p>
 <p>객체 키는 자동으로 문자열로 변환된다.</p>
-<p>JS에서 객체를 문자열화 시키면 <code>"[object Object]"</code>가 된다. <code>a[b]</code>에서 <code>123</code>을 할당하면 <code>[object Object] = 123</code>가 된다. 그 다음 줄에서도 객체를 문자열화 되어 <code>[object Object] = 456<code>이 되어 답은 <code>B</code></p>
+<p>JS에서 객체를 문자열화 시키면 <code>"[object Object]"</code>가 된다. <code>a[b]</code>에서 <code>123</code>을 할당하면 <code>[object Object] = 123</code>가 된다. 그 다음 줄에서도 객체를 문자열화 되어 <code>[object Object] = 456</code>이 되어 답은 <code>B</code></p>
 </details>
 
 ## 31번 문제
@@ -628,4 +628,26 @@ What is the event.target when clicking the button?
 <p>Capturing phase – 이벤트 요소가 내려가는 단계</p>
 <p>Target phase – 이벤트 요소 도달하는 단계</p>
 <p>Bubbling phase – 이벤트 요소에서 루트로 올라가는 단계</p>
+</details>
+
+## 33번 문제
+What is the event.target when clicking the button?
+```javascript
+const person = { name: 'Lydia' };
+
+function sayHi(age) {
+  return `${this.name} is ${age}`;
+}
+
+console.log(sayHi.call(person, 21));
+console.log(sayHi.bind(person, 21));
+```
+* A: `undefined is 21` `Lydia is 21`
+* B: `function` `function`
+* C: `Lydia is 21` `Lydia is 21`
+* D: `Lydia is 21` `function`
+<details>
+<summary>My Answer</summary>
+<p>정답은 <code>D</code></p>
+<p>bind는 apply, call 과 달리 함수를 호출하지 않고, this에 사용할 객체를 전달하기 때문에 function이 출력된다. <code>console.log(sayHi.bind(person, 21)());</code>로 호출해야 답 <code>C</code>가 될 수 있다.</p>
 </details>
