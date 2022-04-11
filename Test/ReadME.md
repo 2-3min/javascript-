@@ -631,7 +631,7 @@ What is the event.target when clicking the button?
 </details>
 
 ## 33번 문제
-What is the event.target when clicking the button?
+What's the output?
 ```javascript
 const person = { name: 'Lydia' };
 
@@ -650,4 +650,31 @@ console.log(sayHi.bind(person, 21));
 <summary>My Answer</summary>
 <p>정답은 <code>D</code></p>
 <p>bind는 apply, call 과 달리 함수를 호출하지 않고, this에 사용할 객체를 전달하기 때문에 function이 출력된다. <code>console.log(sayHi.bind(person, 21)());</code>로 호출해야 답 <code>C</code>가 될 수 있다.</p>
+</details>
+
+## 35번 문제
+What's the output?
+```javascript
+0;
+new Number(0);
+('');
+(' ');
+new Boolean(false);
+undefined;
+```
+* A: 0, '', undefined
+* B: 0, new Number(0), '', new Boolean(false), undefined
+* C: 0, '', new Boolean(false), undefined
+* D: All of them are falsy                                                 D: All of them are falsy
+<details>
+<summary>My Answer</summary>
+<p>정답은 <code>A</code></p>
+<p>undefined</p>
+<p>null</p>
+<p>NaN</p>
+<p>false</p>
+<p>'' (empty string)</p>
+<p>0</p>
+<p>-0</p>
+<p>0n (BigInt(0))</p>
 </details>
