@@ -653,7 +653,7 @@ console.log(sayHi.bind(person, 21));
 </details>
 
 ## 35번 문제
-What's the output?
+Which of these values are falsy?
 ```javascript
 0;
 new Number(0);
@@ -665,7 +665,7 @@ undefined;
 * A: 0, '', undefined
 * B: 0, new Number(0), '', new Boolean(false), undefined
 * C: 0, '', new Boolean(false), undefined
-* D: All of them are falsy                                                 D: All of them are falsy
+* D: All of them are falsy                               
 <details>
 <summary>My Answer</summary>
 <p>정답은 <code>A</code></p>
