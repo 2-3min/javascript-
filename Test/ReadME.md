@@ -678,3 +678,22 @@ undefined;
 <p>-0</p>
 <p>0n (BigInt(0))</p>
 </details>
+
+## 37번 문제
+
+```javascript
+const numbers = [1, 2, 3];
+numbers[10] = 11;
+console.log(numbers);
+```
+* A: `[1, 2, 3, 7 x null, 11]`
+* B: `[1, 2, 3, 11]`
+* C: `[1, 2, 3, 7 x empty, 11]`
+* D: `SyntaxError`                         
+<details>
+<summary>My Answer</summary>
+<p>정답은 <code>C</code></p>
+<p>배열의 길이를 초과하는 인덱스에 값을 할당하면 JS는 빈 슬롯을 생성한다. 하지만 이는 브라우저, 노드마다 결과 값이 다르다.</p>
+<p>Safafi : [1, 2, 3, 10: 11] </p>
+<p>Chrome : [1, 2, 3, empty x 7, 11] </p>
+</details>
