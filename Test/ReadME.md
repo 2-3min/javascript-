@@ -697,3 +697,20 @@ console.log(numbers);
 <p>Safafi : [1, 2, 3, 10: 11] </p>
 <p>Chrome : [1, 2, 3, empty x 7, 11] </p>
 </details>
+
+## 41번 문제
+```javascript
+!!null;
+!!'';
+!!1;
+```
+* A: `false` `true` `false`
+* B: `false` `false` `true`
+* C: `false` `true` `true`
+* D: `true` `true` `false`
+<details>
+<summary>My Answer</summary>
+<p>정답은 <code>B</code></p>
+<p><code>null</code>, <code>'' (empty string)</code>은 falsy이다. !falsy는 true이며 !true는 false이다.</p>
+<p>1은 truthy이며, !1은 false, !!1은 true이다.</p>
+</details>
