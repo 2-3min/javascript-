@@ -714,3 +714,17 @@ console.log(numbers);
 <p><code>null</code>, <code>'' (empty string)</code>은 falsy이다. !falsy는 true이며 !true는 false이다.</p>
 <p>1은 truthy이며, !1은 false, !!1은 true이다.</p>
 </details>
+
+## 43번 문제
+```javascript
+[...'Lydia'];
+```
+* A: `["L", "y", "d", "i", "a"]`
+* B: `["Lydia"]`
+* C: `[[], "Lydia"]`
+* D: `[["L", "y", "d", "i", "a"]]`
+<details>
+<summary>My Answer</summary>
+<p>정답은 <code>A</code></p>
+<p><code>...(Spread)</code>는 반복 가능한 객체(iterable Object)를 분리시킨다. string은 반복 가능한 객체(iterable Object)이므로 개별 요소로 분리가 가능하다.</p>
+</details>
