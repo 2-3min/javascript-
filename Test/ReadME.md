@@ -728,3 +728,25 @@ console.log(numbers);
 <p>정답은 <code>A</code></p>
 <p><code>...(Spread)</code>는 반복 가능한 객체(iterable Object)를 분리시킨다. string은 반복 가능한 객체(iterable Object)이므로 개별 요소로 분리가 가능하다.</p>
 </details>
+
+## 45번 문제
+```javascript
+const firstPromise = new Promise((res, rej) => {
+  setTimeout(res, 500, 'one');
+});
+
+const secondPromise = new Promise((res, rej) => {
+  setTimeout(res, 100, 'two');
+});
+
+Promise.race([firstPromise, secondPromise]).then(res => console.log(res));
+```
+* A: `"one"`
+* B: `"two"`
+* C: `"two"` `"one"`
+* D: `"one"` `"two"`
+<details>
+<summary>My Answer</summary>
+<p>정답은 <code>B</code></p>
+<p>race는 iterable 안에 있는 프로미스 중에 가장 먼저 완료된 것의 결과값으로 그대로 이행, 거부한다. secondPromise가 먼저 완료되기 때문에 Promise.race는 <code>"two"</code>를 리턴한다.</p>
+</details>
