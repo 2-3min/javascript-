@@ -750,3 +750,24 @@ Promise.race([firstPromise, secondPromise]).then(res => console.log(res));
 <p>정답은 <code>B</code></p>
 <p>race는 iterable 안에 있는 프로미스 중에 가장 먼저 완료된 것의 결과값으로 그대로 이행, 거부한다. secondPromise가 먼저 완료되기 때문에 Promise.race는 <code>"two"</code>를 리턴한다.</p>
 </details>
+
+## 45번 문제
+```javascript
+const person = {
+  name: 'Lydia',
+  age: 21,
+};
+
+for (const item in person) {
+  console.log(item);
+}
+```
+* A: `{ name: "Lydia" }, { age: 21 }`
+* B: `"name", "age"`
+* C: `"Lydia", 21`
+* D: `["name", "Lydia"], ["age", 21]`
+<details>
+<summary>My Answer</summary>
+<p>정답은 <code>B</code></p>
+<p><code>for...in</code>은 객체의 속성(key) 수 만큼 반복 작업을 수행한다. person 객체의 키값이 item에 할당되어 item이 출력되므로 정답은 B </p>
+</details>
