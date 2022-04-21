@@ -751,7 +751,7 @@ Promise.race([firstPromise, secondPromise]).then(res => console.log(res));
 <p>race는 iterable 안에 있는 프로미스 중에 가장 먼저 완료된 것의 결과값으로 그대로 이행, 거부한다. secondPromise가 먼저 완료되기 때문에 Promise.race는 <code>"two"</code>를 리턴한다.</p>
 </details>
 
-## 45번 문제
+## 47번 문제
 ```javascript
 const person = {
   name: 'Lydia',
