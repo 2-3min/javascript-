@@ -771,3 +771,18 @@ for (const item in person) {
 <p>정답은 <code>B</code></p>
 <p><code>for...in</code>은 객체의 속성(key) 수 만큼 반복 작업을 수행한다. person 객체의 키값이 item에 할당되어 item이 출력되므로 정답은 B </p>
 </details>
+
+## 49번 문제
+```javascript
+const num = parseInt('7*6', 10);
+```
+* A: `42`
+* B: `"42"`
+* C: `7`
+* D: `NaN`
+<details>
+<summary>My Answer</summary>
+<p>정답은 <code>C</code></p>
+<p><code>parseInt(string, radix)</code>는 문자열 인자를 파싱하여 두번째 인자인 특정 진수의 정수를 반환한다.</p>
+<p>첫번째 인자에서 문자열에서 숫자가 아닌 문자일 때 다음 문자를 무시하기 때문에 정답은 <code>7</code></p>
+</details>
