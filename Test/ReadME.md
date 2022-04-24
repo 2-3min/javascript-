@@ -786,3 +786,29 @@ const num = parseInt('7*6', 10);
 <p><code>parseInt(string, radix)</code>는 문자열 인자를 파싱하여 두번째 인자인 특정 진수의 정수를 반환한다.</p>
 <p>첫번째 인자에서 문자열에서 숫자가 아닌 문자일 때 다음 문자를 무시하기 때문에 정답은 <code>7</code></p>
 </details>
+
+## 51번 문제
+```javascript
+function getInfo(member, year) {
+  member.name = 'Lydia';
+  year = '1998';
+}
+
+const person = { name: 'Sarah' };
+const birthYear = '1997';
+
+getInfo(person, birthYear);
+
+console.log(person, birthYear);
+```
+* A: `{ name: "Lydia" }, "1997"`
+* B: `{ name: "Sarah" }, "1998"`
+* C: `{ name: "Lydia" }, "1998"`
+* D: `{ name: "Sarah" }, "1997"`
+<details>
+<summary>My Answer</summary>
+<p>정답은 <code>A</code></p>
+<p>값으로 전달되며 값이 개체가 아니면 참조로 전달된다. birthYear는 객체가 아니라 문자열이기 때문에 값으로 전달됩니다. 값으로 인수를 전달할 때 해당 값의 복사본이 생성된다.</p>
+<p>getInfo 함수 호출 시 person객체의 값이 변경되지만, birthYear 같은 경우는 참조하는 값과 동일하지 않기때문에 정답은 A</p>
+</details>
+
