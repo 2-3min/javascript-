@@ -812,3 +812,36 @@ console.log(person, birthYear);
 <p>getInfo 함수 호출 시 person객체의 값이 변경되지만, birthYear 같은 경우는 참조하는 값과 동일하지 않기때문에 정답은 A</p>
 </details>
 
+## 53번 문제
+```javascript
+function Car() {
+  this.make = 'Lamborghini';
+  return { make: 'Maserati' };
+}
+
+const myCar = new Car();
+console.log(myCar.make);
+```
+* A: `"Lamborghini"`
+* B: `"Maserati"`
+* C: `ReferenceError`
+* D: `TypeError`
+<details>
+<summary>My Answer</summary>
+<p>정답은 <code>B</code></p>
+<p>생성된 객체의 프로퍼티는 Car()함수가 리턴한 객체의 프로퍼티가 된다.</p>
+<p>return 문이 없다면 <code>myCar.make</code>는 'Lamborghini'이다.</p>
+<p>return 문에 의해<code>myCar.make</code>는 'Maserati'이다.</p>
+</details>
+
+## 53-1번 문제
+```javascript
+function Car() {
+  this.make = 'Lamborghini';
+  return { hi: 'Hello' };
+}
+
+const myCar = new Car();
+console.log(myCar.make); //undefined
+console.log(myCar.hi); //Hello
+```
