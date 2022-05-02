@@ -845,3 +845,34 @@ const myCar = new Car();
 console.log(myCar.make); //undefined
 console.log(myCar.hi); //Hello
 ```
+
+## 55번 문제
+```javascript
+class Dog {
+  constructor(name) {
+    this.name = name;
+  }
+}
+
+Dog.prototype.bark = function() {
+  console.log(`Woof I am ${this.name}`);
+};
+
+const pet = new Dog('Mara');
+
+pet.bark();
+
+delete Dog.prototype.bark;
+
+pet.bark();
+```
+* A: `"Woof I am Mara"`, `TypeError`
+* B: `"Woof I am Mara"`, `"Woof I am Mara"`
+* C: `"Woof I am Mara"`, `undefined`
+* D: `TypeError`, `TypeError`
+<details>
+<summary>My Answer</summary>
+<p>정답은 <code>A</code></p>
+<p><code>delete</code>연산는 객체의 속성을 제거한다. 제거한 객체의 참조를 어디에서도 사용하지 않는다면 나중에 자원을 회수한다.(MDN Javscript)</p>
+<p>객체 속성을 제거하였으나, 참조 시 접근 시도를 하기 때문에 함수가 아닌 것을 호출하려고 하면 TypeErrorr가 발생하게 된다.</p>
+</details>
