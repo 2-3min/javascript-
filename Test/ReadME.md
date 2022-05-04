@@ -876,3 +876,28 @@ pet.bark();
 <p><code>delete</code>연산는 객체의 속성을 제거한다. 제거한 객체의 참조를 어디에서도 사용하지 않는다면 나중에 자원을 회수한다.(MDN Javscript)</p>
 <p>객체 속성을 제거하였으나, 참조 시 접근 시도를 하기 때문에 함수가 아닌 것을 호출하려고 하면 TypeErrorr가 발생하게 된다.</p>
 </details>
+
+## 57번 문제
+```javascript
+// counter.js
+let counter = 10;
+export default counter;
+
+// index.js
+import myCounter from './counter';
+
+myCounter += 1;
+
+console.log(myCounter);
+```
+* A: `10`
+* B: `11`
+* C: `Error`
+* D: `NaN`
+<details>
+<summary>My Answer</summary>
+<p>정답은 <code>C</code></p>
+<p>가져온 모듈은 읽기 전용이므로 가져온 모듈을 수정할 수 없다. 그것들을 내보내는 모듈안에서만 값 변경이 가능하다.
+
+따라서, myCounter 값을 증가시키려고 하면 오류가 발생합니다. myCounter는 읽기 전용이며 수정할 수 없습니다.</p>
+</details>
