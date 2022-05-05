@@ -899,5 +899,24 @@ console.log(myCounter);
 <p>정답은 <code>C</code></p>
 <p>가져온 모듈은 읽기 전용이므로 가져온 모듈을 수정할 수 없다. 그것들을 내보내는 모듈안에서만 값 변경이 가능하다.
 
-따라서, myCounter 값을 증가시키려고 하면 오류가 발생합니다. myCounter는 읽기 전용이며 수정할 수 없습니다.</p>
+따라서, myCounter 값을 증가시키려고 하면 오류가 발생합니다. myCounter는 읽기 전용이며 수정이 불가능하다.</p>
+</details>
+
+## 59번 문제
+```javascript
+const numbers = [1, 2, 3, 4, 5];
+const [y] = numbers;
+
+console.log(y);
+```
+* A: `[[1, 2, 3, 4, 5]]`
+* B: `[1, 2, 3, 4, 5]`
+* C: `1`
+* D: `[1]`
+<details>
+<summary>My Answer</summary>
+<p>정답은 <code>C</code></p>
+<p>Destructuring을 통해 배열, 객체의 속성을 변수에 할당할 수 있다.</p>
+
+<p>객체의 경우에는 key값에 따라 할당이 되지만, 배열의 경우 앞의 순서대로 할당이 되기 때문에 y의 값은 맨 앞의 값인 '1'이 되어 정답은 <code>C</code>\</p>
 </details>
