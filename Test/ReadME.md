@@ -902,21 +902,24 @@ console.log(myCounter);
 따라서, myCounter 값을 증가시키려고 하면 오류가 발생합니다. myCounter는 읽기 전용이며 수정이 불가능하다.</p>
 </details>
 
-## 59번 문제
+## 61번 문제
 ```javascript
-const numbers = [1, 2, 3, 4, 5];
-const [y] = numbers;
+const person = { name: 'Lydia' };
 
-console.log(y);
+Object.defineProperty(person, 'age', { value: 21 });
+
+console.log(person);
+console.log(Object.keys(person));
 ```
-* A: `[[1, 2, 3, 4, 5]]`
-* B: `[1, 2, 3, 4, 5]`
-* C: `1`
-* D: `[1]`
+* A: `{ name: "Lydia", age: 21 }`, `["name", "age"]`
+* B: `{ name: "Lydia", age: 21 }`, `["name"]`
+* C: `{ name: "Lydia"}`, `["name", "age"]`
+* D: `{ name: "Lydia"}`, `["age"]`
 <details>
 <summary>My Answer</summary>
-<p>정답은 <code>C</code></p>
-<p>Destructuring을 통해 배열, 객체의 속성을 변수에 할당할 수 있다.</p>
+<p>정답은 <code>B</code></p>
+<p>MDN(Javascript): By default, values added using Object.defineProperty() are immutable and not enumerable.</p>
 
-<p>객체의 경우에는 key값에 따라 할당이 되지만, 배열의 경우 앞의 순서대로 할당이 되기 때문에 y의 값은 맨 앞의 값인 '1'이 되어 정답은 <code>C</code>\</p>
+<p>기본적으로 Object.defineProperty()를 사용하여 추가된 값은 변경할 수 없으며 열거할 수 없습니다.</p>
+<p>defineProperty(obj, prop, descriptor)를 통해 person 프로퍼티에 age를 추가하였으나, 열거할 수 없기 때문에 age는 출력되지 않는다.</p>
 </details>
