@@ -1,9 +1,11 @@
 # JS 문제 풀기
+
 > 참고 사이트 : <https://github.com/lydiahallie/javascript-questions>
 
 Thank you! lydiahallie😍
 
 ## 1번문제
+
 ```javascript
 function sayHi() {
   console.log(name);
@@ -14,10 +16,11 @@ function sayHi() {
 
 sayHi();
 ```
-* A: `Lydia` and `undefined`
-* B: `Lydia` and `ReferenceError`
-* C: `ReferenceError` and `21`
-* D: `undefined` and `ReferenceError`
+
+- A: `Lydia` and `undefined`
+- B: `Lydia` and `ReferenceError`
+- C: `ReferenceError` and `21`
+- D: `undefined` and `ReferenceError`
 
 <details>
 <summary>My Answer</summary>
@@ -43,6 +46,7 @@ sayHi();
 </details>
 
 ## 2번문제
+
 ```javascript
 for (var i = 0; i < 3; i++) {
   setTimeout(() => console.log(i), 1);
@@ -52,54 +56,57 @@ for (let i = 0; i < 3; i++) {
   setTimeout(() => console.log(i), 1);
 }
 ```
-* A: `0 1 2` and `0 1 2`
-* B: `0 1 2` and `3 3 3`
-* C: `3 3 3` and `0 1 2`
-<details>
-  <summary>My Answer</summary>
-  <p>정답은 <code>C</code></p>
-  <ol>
-    <li>블록레벨 스코프(for)</li>
-    <li>var와 let,const의 차이</li>
-    <li>렉시컬 환경, 스코프</li>
-    <li>콜백함수</li>
-    <li>클로저</li>
-    <li>이벤트 루프 그리고 콜 스택과 테스트 큐</li>
-  </ol>
-  <p><code>(Javascript DeepDive p.387 참조)</code><strong>for문의 변수 선언문에 let 키워드를 사용한 for문은 코드블록이 반복해서 실행될때마다 코드블록을 위한 새로운 렉시컬 환경을 생성</strong>한다. 만약 for문의 코드 블록 내에서 정의된 함수가 있다면 이 함수의 상위스코프는 for문의 코드 블록이 생성한 렉시컬 환경이다.</p>
-  <p>외부 렉시컬 환경 참조는 <strong>자신이 정의된 환경(상위 스코프)</strong>을 가리킨다.</p>
-  <p>[[Enviroment]]도 <strong>자신이 정의된 환경(상위스코프)</strong>을 가리킨다.</p>
-  <p><code>(Javascript DeepDive p.386 참조)</code><code>var</code>키워드로 선언한 변수는 오로지 함수의 코드 블록만 지역 스코프로 인정(이걸 함수레벨 블록이라 한다), <code>let</code>, <code>const</code>는 모든 코드 블록을 지역스코프로 인정한다.(블록레벨스코프)</p>
-  <p>setTimeout 함수의 렉시컬 환경은 <code>익명함수(anonymous function)</code>의 [[Enviroment]] 내부 슬롯에 의해 참조되고 있어 가비지 컬렉터가 해제하지 않는다. 외부함수(setTimeout)보다 중첩함수(anonymous function)이 더 오래 유지 되었으며, 외부 함수의 변수를 참조할 수 있다. 이러한 중첩 함수를 클로저(closure)라 한다.</p>
-  <p>콜백함수는 매개변수로 넘겨지는 함수를 콜백함수라고하고, 매겨변수를 받는 함수를 고차함수라 한다.</p>
-  <p>setTimeout, setInterval 같은 함수들은 호출한 후 delay(ms) 후에 Task Queue에 들어가 대기한다. 그리고 실행컨텍스트 스택(콜 스택)이 비워졌을 때 선입선출방식으로 함수가 실행된다.</p>
 
+- A: `0 1 2` and `0 1 2`
+- B: `0 1 2` and `3 3 3`
+- C: `3 3 3` and `0 1 2`
   <details>
-    <summary>그림</summary>
-    <img src="../img/problem2/answer2-1.PNG" width="800px" height="450px" alt="window"></img><br/>
-    <img src="../img/problem2/answer2-2.PNG" width="800px" height="450px" alt="window"></img><br/>
-    <img src="../img/problem2/answer2-3.PNG" width="800px" height="450px"alt="window"></img><br/>
-    <img src="../img/problem2/answer2-4.PNG" width="800px" height="450px" alt="window"></img><br/>
+    <summary>My Answer</summary>
+    <p>정답은 <code>C</code></p>
+    <ol>
+      <li>블록레벨 스코프(for)</li>
+      <li>var와 let,const의 차이</li>
+      <li>렉시컬 환경, 스코프</li>
+      <li>콜백함수</li>
+      <li>클로저</li>
+      <li>이벤트 루프 그리고 콜 스택과 테스트 큐</li>
+    </ol>
+    <p><code>(Javascript DeepDive p.387 참조)</code><strong>for문의 변수 선언문에 let 키워드를 사용한 for문은 코드블록이 반복해서 실행될때마다 코드블록을 위한 새로운 렉시컬 환경을 생성</strong>한다. 만약 for문의 코드 블록 내에서 정의된 함수가 있다면 이 함수의 상위스코프는 for문의 코드 블록이 생성한 렉시컬 환경이다.</p>
+    <p>외부 렉시컬 환경 참조는 <strong>자신이 정의된 환경(상위 스코프)</strong>을 가리킨다.</p>
+    <p>[[Enviroment]]도 <strong>자신이 정의된 환경(상위스코프)</strong>을 가리킨다.</p>
+    <p><code>(Javascript DeepDive p.386 참조)</code><code>var</code>키워드로 선언한 변수는 오로지 함수의 코드 블록만 지역 스코프로 인정(이걸 함수레벨 블록이라 한다), <code>let</code>, <code>const</code>는 모든 코드 블록을 지역스코프로 인정한다.(블록레벨스코프)</p>
+    <p>setTimeout 함수의 렉시컬 환경은 <code>익명함수(anonymous function)</code>의 [[Enviroment]] 내부 슬롯에 의해 참조되고 있어 가비지 컬렉터가 해제하지 않는다. 외부함수(setTimeout)보다 중첩함수(anonymous function)이 더 오래 유지 되었으며, 외부 함수의 변수를 참조할 수 있다. 이러한 중첩 함수를 클로저(closure)라 한다.</p>
+    <p>콜백함수는 매개변수로 넘겨지는 함수를 콜백함수라고하고, 매겨변수를 받는 함수를 고차함수라 한다.</p>
+    <p>setTimeout, setInterval 같은 함수들은 호출한 후 delay(ms) 후에 Task Queue에 들어가 대기한다. 그리고 실행컨텍스트 스택(콜 스택)이 비워졌을 때 선입선출방식으로 함수가 실행된다.</p>
+
+    <details>
+      <summary>그림</summary>
+      <img src="../img/problem2/answer2-1.PNG" width="800px" height="450px" alt="window"></img><br/>
+      <img src="../img/problem2/answer2-2.PNG" width="800px" height="450px" alt="window"></img><br/>
+      <img src="../img/problem2/answer2-3.PNG" width="800px" height="450px"alt="window"></img><br/>
+      <img src="../img/problem2/answer2-4.PNG" width="800px" height="450px" alt="window"></img><br/>
+    </details>
   </details>
-</details>
 
 ## 3번문제
+
 ```javascript
 const shape = {
   radius: 10,
   diameter() {
     return this.radius * 2;
   },
-  perimeter: () => 2 * Math.PI * this.radius
+  perimeter: () => 2 * Math.PI * this.radius,
 };
 
 console.log(shape.diameter());
 console.log(shape.perimeter());
 ```
-* A: `20` and `62.83185307179586`
-* B: `20` and `NaN`
-* C: `20` and `63`
-* D: `NaN` and `63`
+
+- A: `20` and `62.83185307179586`
+- B: `20` and `NaN`
+- C: `20` and `63`
+- D: `NaN` and `63`
 <details>
 <summary>My Answer</summary>
 <p>정답은 <code>B</code></p>
@@ -114,6 +121,7 @@ console.log(shape.perimeter());
 </details>
 
 ## 6번문제
+
 ```javascript
 let c = { greeting: 'Hey!' };
 let d;
@@ -122,11 +130,12 @@ d = c;
 c.greeting = 'Hello';
 console.log(d.greeting);
 ```
-* A: `Hello`
-* B: `Hey!`
-* C: `undefined`
-* D: `ReferenceError`
-* E: `TypeError`
+
+- A: `Hello`
+- B: `Hey!`
+- C: `undefined`
+- D: `ReferenceError`
+- E: `TypeError`
 
 <details>
 <summary>My Answer</summary>
@@ -141,6 +150,7 @@ console.log(d.greeting);
 </details>
 
 ## 8번문제
+
 ```javascript
 class Chameleon {
   static colorChange(newColor) {
@@ -156,10 +166,11 @@ class Chameleon {
 const freddie = new Chameleon({ newColor: 'purple' });
 console.log(freddie.colorChange('orange'));
 ```
-* A: `orange`
-* B: `purple`
-* C: `green`
-* D: `TypeError`
+
+- A: `orange`
+- B: `purple`
+- C: `green`
+- D: `TypeError`
 
 <details>
 <summary>My Answer</summary>
@@ -176,18 +187,19 @@ console.log(freddie.colorChange('orange'));
 </details>
 
 ## 10번문제
+
 ```javascript
 function bark() {
   console.log('Woof!');
 }
 
 bark.animal = 'dog';
-
 ```
-* A: Nothing, this is totally fine!
-* B: SyntaxError. You cannot add properties to a function this way.
-* C: "Woof" gets logged.
-* D: ReferenceError
+
+- A: Nothing, this is totally fine!
+- B: SyntaxError. You cannot add properties to a function this way.
+- C: "Woof" gets logged.
+- D: ReferenceError
 
 <details>
 <summary>My Answer</summary>
@@ -199,6 +211,7 @@ bark.animal = 'dog';
 </details>
 
 ## 11번문제
+
 ```javascript
 function Person(firstName, lastName) {
   this.firstName = firstName;
@@ -206,16 +219,17 @@ function Person(firstName, lastName) {
 }
 
 const member = new Person('Lydia', 'Hallie');
-Person.getFullName = function() {
+Person.getFullName = function () {
   return `${this.firstName} ${this.lastName}`;
 };
 
 console.log(member.getFullName());
 ```
-* A: `TypeError`
-* B: `SyntaxError`
-* C: `Lydia Hallie`
-* D: `undefined undefined`
+
+- A: `TypeError`
+- B: `SyntaxError`
+- C: `Lydia Hallie`
+- D: `undefined undefined`
 
 <details>
 <summary>My Answer</summary>
@@ -229,6 +243,7 @@ console.log(member.getFullName());
 </details>
 
 ## 12번문제
+
 ```javascript
 function Person(firstName, lastName) {
   this.firstName = firstName;
@@ -244,12 +259,12 @@ console.log(sarah); //undefined
 //내가 추가한 코드
 console.log(window.firstName); //Sarah
 console.log(window.lastName); //Smith
-
 ```
-* A: Person `{firstName: "Lydia", lastName: "Hallie"}` and `undefined`
-* B: Person `{firstName: "Lydia", lastName: "Hallie"}` and Person `{firstName: "Sarah", lastName: "Smith"}`
-* C: Person `{firstName: "Lydia", lastName: "Hallie"}` and `{}`
-* D: Person `{firstName: "Lydia", lastName: "Hallie"}` and `ReferenceError`
+
+- A: Person `{firstName: "Lydia", lastName: "Hallie"}` and `undefined`
+- B: Person `{firstName: "Lydia", lastName: "Hallie"}` and Person `{firstName: "Sarah", lastName: "Smith"}`
+- C: Person `{firstName: "Lydia", lastName: "Hallie"}` and `{}`
+- D: Person `{firstName: "Lydia", lastName: "Hallie"}` and `ReferenceError`
 
 <details>
 <summary>My Answer</summary>
@@ -267,12 +282,13 @@ console.log(window.lastName); //Smith
 </details>
 
 ## 13번문제
+
 13. What are the three phases of event propagation?
 
-* A: Target > Capturing > Bubbling
-* B: Bubbling > Target > Capturing
-* C: Target > Bubbling > Capturing
-* D: Capturing > Target > Bubbling
+- A: Target > Capturing > Bubbling
+- B: Bubbling > Target > Capturing
+- C: Target > Bubbling > Capturing
+- D: Capturing > Target > Bubbling
 
 <details>
 <summary>My Answer</summary>
@@ -286,6 +302,7 @@ https://developer.mozilla.org/ko/docs/Web/API/Event/eventPhase
 </details>
 
 ## 15번문제
+
 ```javascript
 function sum(a, b) {
   return a + b;
@@ -293,10 +310,11 @@ function sum(a, b) {
 
 sum(1, '2');
 ```
-* A: NaN
-* B: TypeError
-* C: "12"
-* D: 3
+
+- A: NaN
+- B: TypeError
+- C: "12"
+- D: 3
 <details>
 <summary>My Answer</summary>
 <p>정답은 <code>C</code></p>
@@ -305,16 +323,18 @@ sum(1, '2');
 </details>
 
 ## 16번문제
+
 ```javascript
 let number = 0;
 console.log(number++);
 console.log(++number);
 console.log(number);
 ```
-* A: `1 1 2`
-* B: `1 2 2`
-* C: `0 2 2`
-* D: `0 1 2`
+
+- A: `1 1 2`
+- B: `1 2 2`
+- C: `0 2 2`
+- D: `0 1 2`
 <details>
 <summary>My Answer</summary>
 <p>정답은 <code>C</code></p>
@@ -322,6 +342,7 @@ console.log(number);
 </details>
 
 ## 17번문제
+
 ```javascript
 function getPersonInfo(one, two, three) {
   console.log(one);
@@ -333,11 +354,11 @@ const person = 'Lydia';
 const age = 21;
 
 getPersonInfo`${person} is ${age} years old`;
-
 ```
-* A: "Lydia" 21 ["", " is ", " years old"]
-* B: ["", " is ", " years old"] "Lydia" 21
-* C: "Lydia" ["", " is ", " years old"] 21
+
+- A: "Lydia" 21 ["", " is ", " years old"]
+- B: ["", " is ", " years old"] "Lydia" 21
+- C: "Lydia" ["", " is ", " years old"] 21
 
 <details>
 <summary>My Answer</summary>
@@ -348,6 +369,7 @@ getPersonInfo`${person} is ${age} years old`;
 </details>
 
 ## 17-1번 문제
+
 ```javascript
 //Tagged Template Literal (Rest)
 function getPersonInfo(one, ...values) {
@@ -357,18 +379,17 @@ function getPersonInfo(one, ...values) {
 
 const person = 'Lydia';
 const age = 21;
-const country = "Korea";
-const city = "Suwon"
+const country = 'Korea';
+const city = 'Suwon';
 
 getPersonInfo`${person} is ${age} years old. I'm live in ${city}, ${country}`;
-
-
 
 //["", " is ", " years old. I'm live in ", ", ", ""] (5)
 //["Lydia", 21, "Suwon", "Korea"] (4)
 ```
 
 ## 18번 문제
+
 ```javascript
 function checkAge(data) {
   if (data === { age: 18 }) {
@@ -382,9 +403,10 @@ function checkAge(data) {
 
 checkAge({ age: 18 });
 ```
-* A: You are an adult!
-* B: You are still an adult.
-* C: Hmm.. You don't have an age I guess
+
+- A: You are an adult!
+- B: You are still an adult.
+- C: Hmm.. You don't have an age I guess
 
 <details>
 <summary>My Answer</summary>
@@ -393,6 +415,7 @@ checkAge({ age: 18 });
 </details>
 
 ## 18-1번 문제
+
 ```javascript
 let age = {};
 
@@ -405,6 +428,7 @@ console.log(age);
 ```
 
 ## 18-2번 문제
+
 ```javascript
 let age = {};
 
@@ -417,23 +441,24 @@ console.log(age);
 ```
 
 ## 18-3번 문제
+
 ```javascript
-let age = {age : 18};
+let age = { age: 18 };
 
 function checkAge(data) {
   let a = age;
-  data = {age : 18};
+  data = { age: 18 };
 
   //bonus 문제
   console.log(a == age);
   console.log(a === age);
   console.log(age == data);
   console.log(age === data);
-
 }
 
 checkAge(age);
 ```
+
 <details>
 <summary>My Answer</summary>
 <p>객체는 변경이 가능한 값, 원시 값은 변경이 불가능하다. 18-1번 에서는 복사한 참조값을 통해 객체에 접근하여 객체의 값을 변경하는 것이기 때문에 age의 출력 값은 <code>{age : 123}</code>이다.</p>
@@ -444,18 +469,20 @@ checkAge(age);
 </details>
 
 ## 19번 문제
+
 ```javascript
 function getAge(...args) {
-  console.log(args) // [21]
+  console.log(args); // [21]
   console.log(typeof args);
 }
 
 getAge(21);
 ```
-* A: "number"
-* B: "array"
-* C: "object"
-* D: "NaN"
+
+- A: "number"
+- B: "array"
+- C: "object"
+- D: "NaN"
 <details>
 <summary>My Answer</summary>
 <p>정답은 <code>C</code></p>
@@ -466,6 +493,7 @@ getAge(21);
 </details>
 
 ## 20번 문제
+
 ```javascript
 function getAge() {
   'use strict';
@@ -475,10 +503,11 @@ function getAge() {
 
 getAge();
 ```
-* A: 21
-* B: undefined
-* C: ReferenceError
-* D: TypeError
+
+- A: 21
+- B: undefined
+- C: ReferenceError
+- D: TypeError
 
 <details>
 <summary>My Answer</summary>
@@ -489,13 +518,15 @@ getAge();
 </details>
 
 ## 21번 문제
+
 ```javascript
 const sum = eval('10*10+5');
 ```
-* A: `105`
-* B: `"105"`
-* C: `TypeError`
-* D: `"10*10+5"`
+
+- A: `105`
+- B: `"105"`
+- C: `TypeError`
+- D: `"10*10+5"`
 
 <details>
 <summary>My Answer</summary>
@@ -505,13 +536,15 @@ const sum = eval('10*10+5');
 </details>
 
 ## 22번 문제
+
 ```javascript
 sessionStorage.setItem('cool_secret', 123);
 ```
-* A: Forever, the data doesn't get lost.
-* B: When the user closes the tab.
-* C: When the user closes the entire browser, not only the tab.
-* D: When the user shuts off their computer.
+
+- A: Forever, the data doesn't get lost.
+- B: When the user closes the tab.
+- C: When the user closes the entire browser, not only the tab.
+- D: When the user shuts off their computer.
 
 <details>
 <summary>My Answer</summary>
@@ -524,16 +557,18 @@ sessionStorage.setItem('cool_secret', 123);
 </details>
 
 ## 23번 문제
+
 ```javascript
 var num = 8;
 var num = 10;
 
 console.log(num);
 ```
-* A: `8`
-* B: `10`
-* C: `SyntaxError`
-* D: `ReferenceError`
+
+- A: `8`
+- B: `10`
+- C: `SyntaxError`
+- D: `ReferenceError`
 <details>
 <summary>My Answer</summary>
 <p>정답은 <code>B</code></p>
@@ -541,14 +576,16 @@ console.log(num);
 </details>
 
 ## 25번 문제
+
 ```javascript
 const obj = { a: 'one', b: 'two', a: 'three' };
 console.log(obj);
 ```
-* A: `{ a: "one", b: "two" }`
-* B: `{ b: "two", a: "three" }`
-* C: `{ a: "three", b: "two" }`
-* D: `SyntaxError`
+
+- A: `{ a: "one", b: "two" }`
+- B: `{ b: "two", a: "three" }`
+- C: `{ a: "three", b: "two" }`
+- D: `SyntaxError`
 <details>
 <summary>My Answer</summary>
 <p>고른 답 <code>D</code></p>
@@ -557,16 +594,18 @@ console.log(obj);
 </details>
 
 ## 27번 문제
+
 ```javascript
 for (let i = 1; i < 5; i++) {
   if (i === 3) continue;
   console.log(i);
 }
 ```
-* A: `1 2`
-* B: `1 2 3`
-* C: `1 2 4`
-* D: `1 3 4`
+
+- A: `1 2`
+- B: `1 2 3`
+- C: `1 2 4`
+- D: `1 3 4`
 <details>
 <summary>My Answer</summary>
 <p>정답은 <code>C</code></p>
@@ -574,6 +613,7 @@ for (let i = 1; i < 5; i++) {
 </details>
 
 ## 29번 문제
+
 ```javascript
 const a = {};
 const b = { key: 'b' };
@@ -584,8 +624,6 @@ a[c] = 456;
 
 console.log(a[b]);
 
-
-
 // const object1 = {
 //   a: 'somestring',
 //   b: 42,
@@ -593,13 +631,14 @@ console.log(a[b]);
 // };
 
 // console.log(Object.keys(object1));
-// Array ["a", "b", "c"] 
-// 배열 내 문자임을 확인: 
+// Array ["a", "b", "c"]
+// 배열 내 문자임을 확인:
 ```
-* A: `123`
-* B: `456`
-* C: `undefined`
-* D: `ReferenceError`
+
+- A: `123`
+- B: `456`
+- C: `undefined`
+- D: `ReferenceError`
 <details>
 <summary>My Answer</summary>
 <p>정답은 <code>B</code></p>
@@ -608,20 +647,21 @@ console.log(a[b]);
 </details>
 
 ## 31번 문제
+
 What is the event.target when clicking the button?
+
 ```javascript
 <div onclick="console.log('first div')">
   <div onclick="console.log('second div')">
-    <button onclick="console.log('button')">
-      Click!
-    </button>
+    <button onclick="console.log('button')">Click!</button>
   </div>
 </div>
 ```
-* A: `Outer div`
-* B: `Inner div`
-* C: `button`
-* D: `An array of all nested elements.`
+
+- A: `Outer div`
+- B: `Inner div`
+- C: `button`
+- D: `An array of all nested elements.`
 <details>
 <summary>My Answer</summary>
 <p>정답은 <code>C</code></p>
@@ -631,7 +671,9 @@ What is the event.target when clicking the button?
 </details>
 
 ## 33번 문제
+
 What's the output?
+
 ```javascript
 const person = { name: 'Lydia' };
 
@@ -642,10 +684,11 @@ function sayHi(age) {
 console.log(sayHi.call(person, 21));
 console.log(sayHi.bind(person, 21));
 ```
-* A: `undefined is 21` `Lydia is 21`
-* B: `function` `function`
-* C: `Lydia is 21` `Lydia is 21`
-* D: `Lydia is 21` `function`
+
+- A: `undefined is 21` `Lydia is 21`
+- B: `function` `function`
+- C: `Lydia is 21` `Lydia is 21`
+- D: `Lydia is 21` `function`
 <details>
 <summary>My Answer</summary>
 <p>정답은 <code>D</code></p>
@@ -653,7 +696,9 @@ console.log(sayHi.bind(person, 21));
 </details>
 
 ## 35번 문제
+
 Which of these values are falsy?
+
 ```javascript
 0;
 new Number(0);
@@ -662,10 +707,11 @@ new Number(0);
 new Boolean(false);
 undefined;
 ```
-* A: 0, '', undefined
-* B: 0, new Number(0), '', new Boolean(false), undefined
-* C: 0, '', new Boolean(false), undefined
-* D: All of them are falsy                               
+
+- A: 0, '', undefined
+- B: 0, new Number(0), '', new Boolean(false), undefined
+- C: 0, '', new Boolean(false), undefined
+- D: All of them are falsy
 <details>
 <summary>My Answer</summary>
 <p>정답은 <code>A</code></p>
@@ -686,10 +732,11 @@ const numbers = [1, 2, 3];
 numbers[10] = 11;
 console.log(numbers);
 ```
-* A: `[1, 2, 3, 7 x null, 11]`
-* B: `[1, 2, 3, 11]`
-* C: `[1, 2, 3, 7 x empty, 11]`
-* D: `SyntaxError`                         
+
+- A: `[1, 2, 3, 7 x null, 11]`
+- B: `[1, 2, 3, 11]`
+- C: `[1, 2, 3, 7 x empty, 11]`
+- D: `SyntaxError`
 <details>
 <summary>My Answer</summary>
 <p>정답은 <code>C</code></p>
@@ -699,15 +746,17 @@ console.log(numbers);
 </details>
 
 ## 41번 문제
+
 ```javascript
 !!null;
 !!'';
 !!1;
 ```
-* A: `false` `true` `false`
-* B: `false` `false` `true`
-* C: `false` `true` `true`
-* D: `true` `true` `false`
+
+- A: `false` `true` `false`
+- B: `false` `false` `true`
+- C: `false` `true` `true`
+- D: `true` `true` `false`
 <details>
 <summary>My Answer</summary>
 <p>정답은 <code>B</code></p>
@@ -716,13 +765,15 @@ console.log(numbers);
 </details>
 
 ## 43번 문제
+
 ```javascript
 [...'Lydia'];
 ```
-* A: `["L", "y", "d", "i", "a"]`
-* B: `["Lydia"]`
-* C: `[[], "Lydia"]`
-* D: `[["L", "y", "d", "i", "a"]]`
+
+- A: `["L", "y", "d", "i", "a"]`
+- B: `["Lydia"]`
+- C: `[[], "Lydia"]`
+- D: `[["L", "y", "d", "i", "a"]]`
 <details>
 <summary>My Answer</summary>
 <p>정답은 <code>A</code></p>
@@ -730,6 +781,7 @@ console.log(numbers);
 </details>
 
 ## 45번 문제
+
 ```javascript
 const firstPromise = new Promise((res, rej) => {
   setTimeout(res, 500, 'one');
@@ -739,12 +791,13 @@ const secondPromise = new Promise((res, rej) => {
   setTimeout(res, 100, 'two');
 });
 
-Promise.race([firstPromise, secondPromise]).then(res => console.log(res));
+Promise.race([firstPromise, secondPromise]).then((res) => console.log(res));
 ```
-* A: `"one"`
-* B: `"two"`
-* C: `"two"` `"one"`
-* D: `"one"` `"two"`
+
+- A: `"one"`
+- B: `"two"`
+- C: `"two"` `"one"`
+- D: `"one"` `"two"`
 <details>
 <summary>My Answer</summary>
 <p>정답은 <code>B</code></p>
@@ -752,6 +805,7 @@ Promise.race([firstPromise, secondPromise]).then(res => console.log(res));
 </details>
 
 ## 47번 문제
+
 ```javascript
 const person = {
   name: 'Lydia',
@@ -762,10 +816,11 @@ for (const item in person) {
   console.log(item);
 }
 ```
-* A: `{ name: "Lydia" }, { age: 21 }`
-* B: `"name", "age"`
-* C: `"Lydia", 21`
-* D: `["name", "Lydia"], ["age", 21]`
+
+- A: `{ name: "Lydia" }, { age: 21 }`
+- B: `"name", "age"`
+- C: `"Lydia", 21`
+- D: `["name", "Lydia"], ["age", 21]`
 <details>
 <summary>My Answer</summary>
 <p>정답은 <code>B</code></p>
@@ -773,13 +828,15 @@ for (const item in person) {
 </details>
 
 ## 49번 문제
+
 ```javascript
 const num = parseInt('7*6', 10);
 ```
-* A: `42`
-* B: `"42"`
-* C: `7`
-* D: `NaN`
+
+- A: `42`
+- B: `"42"`
+- C: `7`
+- D: `NaN`
 <details>
 <summary>My Answer</summary>
 <p>정답은 <code>C</code></p>
@@ -788,6 +845,7 @@ const num = parseInt('7*6', 10);
 </details>
 
 ## 51번 문제
+
 ```javascript
 function getInfo(member, year) {
   member.name = 'Lydia';
@@ -801,10 +859,11 @@ getInfo(person, birthYear);
 
 console.log(person, birthYear);
 ```
-* A: `{ name: "Lydia" }, "1997"`
-* B: `{ name: "Sarah" }, "1998"`
-* C: `{ name: "Lydia" }, "1998"`
-* D: `{ name: "Sarah" }, "1997"`
+
+- A: `{ name: "Lydia" }, "1997"`
+- B: `{ name: "Sarah" }, "1998"`
+- C: `{ name: "Lydia" }, "1998"`
+- D: `{ name: "Sarah" }, "1997"`
 <details>
 <summary>My Answer</summary>
 <p>정답은 <code>A</code></p>
@@ -813,6 +872,7 @@ console.log(person, birthYear);
 </details>
 
 ## 53번 문제
+
 ```javascript
 function Car() {
   this.make = 'Lamborghini';
@@ -822,10 +882,11 @@ function Car() {
 const myCar = new Car();
 console.log(myCar.make);
 ```
-* A: `"Lamborghini"`
-* B: `"Maserati"`
-* C: `ReferenceError`
-* D: `TypeError`
+
+- A: `"Lamborghini"`
+- B: `"Maserati"`
+- C: `ReferenceError`
+- D: `TypeError`
 <details>
 <summary>My Answer</summary>
 <p>정답은 <code>B</code></p>
@@ -835,6 +896,7 @@ console.log(myCar.make);
 </details>
 
 ## 53-1번 문제
+
 ```javascript
 function Car() {
   this.make = 'Lamborghini';
@@ -847,6 +909,7 @@ console.log(myCar.hi); //Hello
 ```
 
 ## 55번 문제
+
 ```javascript
 class Dog {
   constructor(name) {
@@ -854,7 +917,7 @@ class Dog {
   }
 }
 
-Dog.prototype.bark = function() {
+Dog.prototype.bark = function () {
   console.log(`Woof I am ${this.name}`);
 };
 
@@ -866,10 +929,11 @@ delete Dog.prototype.bark;
 
 pet.bark();
 ```
-* A: `"Woof I am Mara"`, `TypeError`
-* B: `"Woof I am Mara"`, `"Woof I am Mara"`
-* C: `"Woof I am Mara"`, `undefined`
-* D: `TypeError`, `TypeError`
+
+- A: `"Woof I am Mara"`, `TypeError`
+- B: `"Woof I am Mara"`, `"Woof I am Mara"`
+- C: `"Woof I am Mara"`, `undefined`
+- D: `TypeError`, `TypeError`
 <details>
 <summary>My Answer</summary>
 <p>정답은 <code>A</code></p>
@@ -878,6 +942,7 @@ pet.bark();
 </details>
 
 ## 57번 문제
+
 ```javascript
 // counter.js
 let counter = 10;
@@ -890,19 +955,22 @@ myCounter += 1;
 
 console.log(myCounter);
 ```
-* A: `10`
-* B: `11`
-* C: `Error`
-* D: `NaN`
+
+- A: `10`
+- B: `11`
+- C: `Error`
+- D: `NaN`
 <details>
 <summary>My Answer</summary>
 <p>정답은 <code>C</code></p>
 <p>가져온 모듈은 읽기 전용이므로 가져온 모듈을 수정할 수 없다. 그것들을 내보내는 모듈안에서만 값 변경이 가능하다.
 
 따라서, myCounter 값을 증가시키려고 하면 오류가 발생합니다. myCounter는 읽기 전용이며 수정이 불가능하다.</p>
+
 </details>
 
 ## 61번 문제
+
 ```javascript
 const person = { name: 'Lydia' };
 
@@ -911,10 +979,11 @@ Object.defineProperty(person, 'age', { value: 21 });
 console.log(person);
 console.log(Object.keys(person));
 ```
-* A: `{ name: "Lydia", age: 21 }`, `["name", "age"]`
-* B: `{ name: "Lydia", age: 21 }`, `["name"]`
-* C: `{ name: "Lydia"}`, `["name", "age"]`
-* D: `{ name: "Lydia"}`, `["age"]`
+
+- A: `{ name: "Lydia", age: 21 }`, `["name", "age"]`
+- B: `{ name: "Lydia", age: 21 }`, `["name"]`
+- C: `{ name: "Lydia"}`, `["name", "age"]`
+- D: `{ name: "Lydia"}`, `["age"]`
 <details>
 <summary>My Answer</summary>
 <p>정답은 <code>B</code></p>
@@ -922,4 +991,30 @@ console.log(Object.keys(person));
 
 <p>기본적으로 Object.defineProperty()를 사용하여 추가된 값은 변경할 수 없으며 열거할 수 없습니다.</p>
 <p>defineProperty(obj, prop, descriptor)를 통해 person 프로퍼티에 age를 추가하였으나, 열거할 수 없기 때문에 age는 출력되지 않는다.</p>
+</details>
+
+## 63번 문제
+
+```javascript
+let num = 10;
+
+const increaseNumber = () => num++;
+const increasePassedNumber = (number) => number++;
+
+const num1 = increaseNumber();
+const num2 = increasePassedNumber(num1);
+
+console.log(num1);
+console.log(num2);
+```
+
+- A: `10`, `10`
+- B: `10`, `11`
+- C: `11`, `11`
+- D: `11`, `12`
+<details>
+<summary>My Answer</summary>
+<p>정답은 <code>A</code></p>
+<p>++연산자는 피연산자 값을 반환한 다음 연산한다. increaseNumber()이 num이 증가하기 전 num1에 10을 반환하고, num을 1 증가시킨다.</p>
+<p>그리고 num1(10)을 increasePassedNumber()함수 파라미터에 할당하는데 이 함수 또한 반환 후 연산하여, num2도 10이다. 따라서 답은 <code>A</code></p>
 </details>
