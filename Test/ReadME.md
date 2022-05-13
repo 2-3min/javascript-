@@ -1018,3 +1018,20 @@ console.log(num2);
 <p>++연산자는 피연산자 값을 반환한 다음 연산한다. increaseNumber()이 num이 증가하기 전 num1에 10을 반환하고, num을 1 증가시킨다.</p>
 <p>그리고 num1(10)을 increasePassedNumber()함수 파라미터에 할당하는데 이 함수 또한 반환 후 연산하여, num2도 10이다. 따라서 답은 <code>A</code></p>
 </details>
+
+## 65번 문제
+
+```javascript
+[1, 2, 3, 4].reduce((x, y) => console.log(x, y));
+```
+
+- A: `1 2` and `3 3` and `6 4`
+- B: `1 2` and `2 3` and `3 4`
+- C: `1 undefined` and `2 undefined` and `3 undefined` and `4 undefined`
+- D: `1 2` and `undefined 3` and `undefined 4`
+<details>
+<summary>My Answer</summary>
+<p>정답은 <code>D</code></p>
+<p>reduce 함수는 최초 초기화값이 없으면 가장 맨 앞의 값이 accumulator이다. 그리고 두번째 값이 현재 값이 되는데 콜백함수에서 리턴이 아닌 단순히 파라미터를 출력한다.</p>
+<p>reduce 함수에서 값을 반환하지 않으면 <code>undefined</code>반환한다. 그래서 다음 반복에서는 undefined 3이 출력되고 그 다음 반복에서도 undefined 4 가 출력되어 정답은 <code>D</code></p>
+</details>
