@@ -1035,3 +1035,28 @@ console.log(num2);
 <p>reduce 함수는 최초 초기화값이 없으면 가장 맨 앞의 값이 accumulator이다. 그리고 두번째 값이 현재 값이 되는데 콜백함수에서 리턴이 아닌 단순히 파라미터를 출력한다.</p>
 <p>reduce 함수에서 값을 반환하지 않으면 <code>undefined</code>반환한다. 그래서 다음 반복에서는 undefined 3이 출력되고 그 다음 반복에서도 undefined 4 가 출력되어 정답은 <code>D</code></p>
 </details>
+
+## 67번 문제
+
+```javascript
+// index.js
+console.log('running index.js');
+import { sum } from './sum.js';
+console.log(sum(1, 2));
+
+// sum.js
+console.log('running sum.js');
+export const sum = (a, b) => a + b;
+```
+
+- A: `running index.js`, `running sum.js`, `3`
+- B: `running sum.js`, `running index.js`, `3`
+- C: `running sum.js`, `3`, `running index.js`
+- D: `running index.js`, `undefined`, `running sum.js`
+<details>
+<summary>My Answer</summary>
+<p>정답은 <code>B</code></p>
+<p>import 키워드를 사용하면 가져온 모든 모듈이 미리 구문이 분석이 되어 가져온 모듈이 먼저 실행되고 모듈을 가져오는 파일의 코드가 나중에 실행된다.</p>
+<p>즉, sum.js의 console.log가 먼저 실행되고, index.js console.log가 출력된다. 그리고 마지막으로 sum함수가 실행된 결과 값이 출력되어 정답은 <code>B</code></p>
+
+</details>
