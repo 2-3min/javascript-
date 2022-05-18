@@ -1079,3 +1079,31 @@ console.log(name.padStart(2));
 <p>Lydia Hallie는 총 12자릿수 이며, padStart(13)이므로 맨 앞자리 한칸을 띄운 문자열을 반환한다.</p>
 <p>padStart(2)는 문자열 자릿수보다 적으므로, 문자열을 그대로 반환한다.</p>
 </details>
+
+## 71번 문제
+
+```javascript
+function* startGame() {
+  const answer = yield 'Do you love JavaScript?';
+  if (answer !== 'Yes') {
+    return "Oh wow... Guess we're gone here";
+  }
+  return 'JavaScript loves you back ❤️';
+}
+
+const game = startGame();
+console.log(/* 1 */); // Do you love JavaScript?
+console.log(/* 2 */); // JavaScript loves you back ❤️
+```
+
+- A: `game.next("Yes").value` and `game.next().value`
+- B: `game.next.value("Yes")` and `game.next.value()`
+- C: `game.next().value`and `game.next("Yes").value`
+- D: `game.next.value()` and `game.next.value("Yes")`
+<details>
+<summary>My Answer</summary>
+<p>정답은 <code>C</code></p>
+<p>생성기 함수는 yield 키워드를 보면 실행을 멈춘다. 먼저, 함수가 "Do you love JavaScript?" 이기 때문에 이는 game.next().value를 호출해야한다.</p>
+<p>game.next("Yes").value를 호출하면 이전 수율이 next() 함수에 전달된 매개변수 값으로 대체된다. Yes가 되어 두번째 출력에서 Javascript loves you back을 출력한다.</p>
+
+</details>
