@@ -1105,5 +1105,25 @@ console.log(/* 2 */); // JavaScript loves you back ❤️
 <p>정답은 <code>C</code></p>
 <p>생성기 함수는 yield 키워드를 보면 실행을 멈춘다. 먼저, 함수가 "Do you love JavaScript?" 이기 때문에 이는 game.next().value를 호출해야한다.</p>
 <p>game.next("Yes").value를 호출하면 이전 수율이 next() 함수에 전달된 매개변수 값으로 대체된다. Yes가 되어 두번째 출력에서 Javascript loves you back을 출력한다.</p>
+</details>
 
+## 73번 문제
+
+```javascript
+async function getData() {
+  return await Promise.resolve('I made it!');
+}
+
+const data = getData();
+console.log(data);
+```
+
+- A: `"I made it!"`
+- B: `Promise {<resolved>: "I made it!"}`
+- C: `Promise {<pending>}`
+- D: `undefined`
+<details>
+<summary>My Answer</summary>
+<p>정답은 <code>C</code></p>
+<p>async함수는 항상 Promise 객체를 반환하기 때문에 정답은 C</p>
 </details>
