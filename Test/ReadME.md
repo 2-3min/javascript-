@@ -1127,3 +1127,26 @@ console.log(data);
 <p>정답은 <code>C</code></p>
 <p>async함수는 항상 Promise 객체를 반환하기 때문에 정답은 C</p>
 </details>
+
+## 75번 문제
+
+```javascript
+const box = { x: 10, y: 20 };
+
+Object.freeze(box);
+
+const shape = box;
+shape.x = 100;
+
+console.log(shape);
+```
+
+- A: `{ x: 100, y: 20 }`
+- B: `{ x: 10, y: 20 }`
+- C: `{ x: 100 }`
+- D: `ReferenceError`
+<details>
+<summary>My Answer</summary>
+<p>정답은 <code>B</code></p>
+<p>Object.freeze는 객체의 속성을 변경이 불가하다. 위 예제에서는 shape 식별자는 box가 가리키는 메모리의 값을 가지게 되고, freeze에 의해 변경이 불가하기 때문에 정답은 B</p>
+</details>
