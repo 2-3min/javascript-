@@ -1150,3 +1150,23 @@ console.log(shape);
 <p>정답은 <code>B</code></p>
 <p>Object.freeze는 객체의 속성을 변경이 불가하다. 위 예제에서는 shape 식별자는 box가 가리키는 메모리의 값을 가지게 되고, freeze에 의해 변경이 불가하기 때문에 정답은 B</p>
 </details>
+
+## 77번 문제 : Is this pure function?
+
+```javascript
+function sum(a, b) {
+  return a + b;
+}
+```
+
+- A: Yes
+- B: No
+
+<details>
+<summary>My Answer</summary>
+<p>정답은 <code>B</code></p>
+<p>pure function이란 인수가 전달되는 경우 항상 동일한 결과를 반환하는 함수이다. (pure function = Consistent Results)</p>
+<p>또한 side Effect가 없다면 pure function으로 봐도 된다.(전역 변수가 function에 쓰일경우)</p>
+<p>두개의 인수를 전달할 경우 두 개의 인수만이 연산하여 리턴하기 때문에 정답은 A</p>
+<p></p>
+</details>
