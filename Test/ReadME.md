@@ -1170,3 +1170,32 @@ function sum(a, b) {
 <p>두개의 인수를 전달할 경우 두 개의 인수만이 연산하여 리턴하기 때문에 정답은 A</p>
 <p></p>
 </details>
+
+## 79번 문제
+
+```javascript
+const myLifeSummedUp = ['☕', '💻', '🍷', '🍫'];
+
+for (let item in myLifeSummedUp) {
+  console.log(item);
+}
+
+for (let item of myLifeSummedUp) {
+  console.log(item);
+}
+```
+
+- A:`0 1 2 3 and "☕" "💻" "🍷" "🍫"`
+- B: `"☕" "💻" "🍷" "🍫" and "☕" "💻" "🍷" "🍫"`
+- C: `"☕" "💻" "🍷" "🍫" and 0 1 2 3`
+- D: `0 1 2 3 and {0: "☕", 1: "💻", 2: "🍷", 3: "🍫"}`
+
+<details>
+<summary>My Answer</summary>
+<p>정답은 <code>A</code></p>
+<p>javascript MDN : for...in문은 상속된 열거 가능한 속성들을 포함하여 객체에서 문자열로 키가 지정된 모든 열거 가능한 속성에 대해 반복합니다.</p>
+<p>그러므로 첫번째 for...in 은 <code>0,1,2,3</code>이 출력된다</p>
+<p>javascript MDN : for...of 명령문은 반복가능한 객체 (Array, Map, Set, String, TypedArray, arguments 객체 등을 포함)에 대해서 반복하고 각 개별 속성값에 대해 실행되는 문이 있는 사용자 정의 반복 후크를 호출하는 루프를 생성합니다.</p>
+<p>그러므로 첫번째 for...of 은 속성값인 이모지들이 출력된다</p>
+<p>정답은 A</p>
+</details>
