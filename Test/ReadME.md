@@ -1199,3 +1199,25 @@ for (let item of myLifeSummedUp) {
 <p>그러므로 첫번째 for...of 은 속성값인 이모지들이 출력된다</p>
 <p>정답은 A</p>
 </details>
+
+## 81번 문제
+
+```javascript
+function sayHi(name) {
+  return `Hi there, ${name}`;
+}
+
+console.log(sayHi());
+```
+
+- A: `Hi there,`
+- B: `Hi there, undefined`
+- C: `Hi there, null`
+- D: `ReferenceError`
+
+<details>
+<summary>My Answer</summary>
+<p>정답은 <code>B</code></p>
+<p>기본적으로 인수는 값이 함수에 전달되지 않은 경우 javascript는<code>undefined</code> 값을 할당한다.(Javascript ㅂㄷㅂㄷ)
+그러므로 답은 B</p>
+</details>
