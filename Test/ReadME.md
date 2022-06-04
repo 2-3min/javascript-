@@ -1221,3 +1221,29 @@ console.log(sayHi());
 <p>기본적으로 인수는 값이 함수에 전달되지 않은 경우 javascript는<code>undefined</code> 값을 할당한다.(Javascript ㅂㄷㅂㄷ)
 그러므로 답은 B</p>
 </details>
+
+## 83번 문제
+
+```javascript
+const person = {
+  name: 'Lydia',
+  age: 21,
+};
+
+let city = person.city;
+city = 'Amsterdam';
+
+console.log(person);
+```
+
+- A: `{ name: "Lydia", age: 21 }`
+- B: `{ name: "Lydia", age: 21, city:"Amsterdam" }`
+- C: `{ name: "Lydia", age: 21, city: undefined }`
+- D: `"Amsterdam"`
+
+<details>
+<summary>My Answer</summary>
+<p>정답은 <code>A</code></p>
+<p>person 객체에 city 키가 없으므로 person.city는 person 객체를 참조하는 것이 아닌 undefined가 바인딩딘다.</p>
+<p>그래서 person은 최초 정의했던 그대로 출력된다. 정답은 <code>A</code></p>
+</details>
