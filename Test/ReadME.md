@@ -1247,3 +1247,22 @@ console.log(person);
 <p>person 객체에 city 키가 없으므로 person.city는 person 객체를 참조하는 것이 아닌 undefined가 바인딩딘다.</p>
 <p>그래서 person은 최초 정의했던 그대로 출력된다. 정답은 <code>A</code></p>
 </details>
+
+## 85번 문제 What kind of information would get logged?
+
+```javascript
+fetch('https://www.website.com/api/user/1')
+  .then((res) => res.json())
+  .then((res) => console.log(res));
+```
+
+- A: The result of the fetch method.
+- B: The result of the second invocation of the fetch method.
+- C: The result of the callback in the previous .then().
+- D: It would always be undefined.
+
+<details>
+<summary>My Answer</summary>
+<p>정답은 <code>C</code></p>
+<p>두 번째 <code>.then</code>의 res 값은 첫번째 <code>.then</code>의 반환 값이다. 그러므로 정답은 <code>C</code></p>
+</details>
