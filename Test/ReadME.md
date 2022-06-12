@@ -1266,3 +1266,23 @@ fetch('https://www.website.com/api/user/1')
 <p>정답은 <code>C</code></p>
 <p>두 번째 <code>.then</code>의 res 값은 첫번째 <code>.then</code>의 반환 값이다. 그러므로 정답은 <code>C</code></p>
 </details>
+
+## 87번 문제 What's the output?
+
+```javascript
+console.log('I want pizza'[0]);
+```
+
+- A: `"""`
+- B: `"I"`
+- C: `SyntaxError`
+- D: `undefined`
+
+<details>
+<summary>My Answer</summary>
+<p>정답은 <code>B</code></p>
+<p>문자열의 특정 인덱스에 있는 문자를 가져오려면 대괄호 표기법을 사용한다. 문자열의 첫 번째 문자는 <code>I</code>이므로 정답은 B</p>
+
+<p>IE7 이하에서는 지원되지 않기 때문에 .charAt()를 사용해야한다.</p>
+</p>
+</details>
