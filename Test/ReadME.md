@@ -1286,3 +1286,27 @@ console.log('I want pizza'[0]);
 <p>IE7 이하에서는 지원되지 않기 때문에 .charAt()를 사용해야한다.</p>
 </p>
 </details>
+
+## 89번 문제 What's the output?
+
+```javascript
+// module.js
+export default () => 'Hello world';
+export const name = 'Lydia';
+
+// index.js
+import * as data from './module';
+
+console.log(data);
+```
+
+- A: `{ default: function default(), name: "Lydia" }`
+- B: `{ default: function default() }`
+- C: `{ default: "Hello world", name: "Lydia" }`
+- D: `Global object of module.js`
+
+<details>
+<summary>My Answer</summary>
+<p>정답은 <code>A</code></p>
+<p>import * as data 를 하게 되면 module.js에서 모든 export는 index.js에 가져오게 된다. 그래서 data를 출력하게되면은 A처럼 출력되게 된다.</p>
+</details>
