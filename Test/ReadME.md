@@ -1310,3 +1310,23 @@ console.log(data);
 <p>정답은 <code>A</code></p>
 <p>import * as data 를 하게 되면 module.js에서 모든 export는 index.js에 가져오게 된다. 그래서 data를 출력하게되면은 A처럼 출력되게 된다.</p>
 </details>
+
+## 91번 문제 What's the output?
+
+```javascript
+let newList = [1, 2, 3].push(4);
+
+console.log(newList.push(5));
+```
+
+- A: `[1, 2, 3, 4, 5]`
+- B: `[1, 2, 3, 5]`
+- C: `[1, 2, 3, 4]`
+- D: `Error`
+
+<details>
+<summary>My Answer</summary>
+<p>정답은 <code>D</code></p>
+<p>push 메서드는 배열의 끝에 하나 이상의 요소를 추가하고, 배열의 새로운 길이를 반환한다. newList는 [1,2,3] 배열에 4를 push 메서드를 사용해서 newList는 4이다.</p>
+<p>그래서 숫자 값에 push를 사용하는데 push는 배열 메서드이므로 TypeError가 발생한다,</p>
+</details>
