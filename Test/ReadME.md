@@ -1330,3 +1330,30 @@ console.log(newList.push(5));
 <p>push 메서드는 배열의 끝에 하나 이상의 요소를 추가하고, 배열의 새로운 길이를 반환한다. newList는 [1,2,3] 배열에 4를 push 메서드를 사용해서 newList는 4이다.</p>
 <p>그래서 숫자 값에 push를 사용하는데 push는 배열 메서드이므로 TypeError가 발생한다,</p>
 </details>
+
+## 95번 문제 What's the output?
+
+```javascript
+function nums(a, b) {
+  if (a > b) console.log('a is bigger');
+  else console.log('b is bigger');
+  return;
+  a + b;
+}
+
+console.log(nums(4, 2));
+console.log(nums(1, 2));
+```
+
+- A: `a is bigger, 6 and b is bigger, 3`
+- B: `a is bigger, undefined and b is bigger, undefined`
+- C: `undefined and undefined`
+- D: `SyntaxError`
+
+<details>
+<summary>My Answer</summary>
+<p>정답은 <code>B</code></p>
+<p>return문 다음 행에 a+b가 있는데, javascript에서는 세미콜론이(;) 없으면 자동으로 붙여준다.</p>
+<p>즉, 함수의 리턴은 return; 이 되어 아무것도 반환하지 않아 'undefined' 반환되어 정답은 B</p>
+
+</details>
