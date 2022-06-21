@@ -1331,6 +1331,32 @@ console.log(newList.push(5));
 <p>그래서 숫자 값에 push를 사용하는데 push는 배열 메서드이므로 TypeError가 발생한다,</p>
 </details>
 
+## 93번 문제 What's the output?
+
+```javascript
+const person = {
+  name: 'Lydia',
+  age: 21,
+};
+
+for (const [x, y] of Object.entries(person)) {
+  console.log(x, y);
+}
+```
+
+- A: `name` `Lydia` and `age` `21`
+- B: `["name", "Lydia"]` and `["age", 21]`
+- C: `["name", "age"]` and `undefined`
+- D: `Error`
+
+ <details>
+ <summary>My Answer</summary>
+ <p>정답은 <code>D</code></p>
+ <p>Object.entries(person)는 [key, value] 쌍의 배열을 반환한다.</p>
+ <p>for..of에서 [x, y]에 비구조할당에 의해 x에는 key, y에는 value가 할당된다.</p>
+ <p>따라서 정답은 A</p>
+ </details>
+
 ## 95번 문제 What's the output?
 
 ```javascript
@@ -1355,5 +1381,24 @@ console.log(nums(1, 2));
 <p>정답은 <code>B</code></p>
 <p>return문 다음 행에 a+b가 있는데, javascript에서는 세미콜론이(;) 없으면 자동으로 붙여준다.</p>
 <p>즉, 함수의 리턴은 return; 이 되어 아무것도 반환하지 않아 'undefined' 반환되어 정답은 B</p>
+</details>
+
+## 99번 문제 What's the output?
+
+```javascript
+const name = 'Lydia';
+
+console.log(name());
+```
+
+- A: `SyntaxError`
+- B: `ReferenceError`
+- C: `TypeError`
+- D: `undefined`
+
+<details>
+<summary>My Answer</summary>
+<p>정답은 <code>C</code></p>
+<p>문자열이 들어간 변수는 함수처럼 호출을 했을 경우 변수가 아닌 함수이기 때문에 Javascript는 TypeError를 출력한다. name은 함수가 아니기 때문이다.</p>
 
 </details>
