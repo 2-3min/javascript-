@@ -60,7 +60,7 @@ var score; 줄을 실행할 때, 알아둬야하는 점이 있다. 변수선언�
 
 ### 응용
 ```javascript
-console.log(score);
+console.log(test);
 var test = 1234;
 ```
 그렇다면 위의 결과는 어떨까?
