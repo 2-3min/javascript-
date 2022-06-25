@@ -1402,3 +1402,28 @@ console.log(name());
 <p>문자열이 들어간 변수는 함수처럼 호출을 했을 경우 변수가 아닌 함수이기 때문에 Javascript는 TypeError를 출력한다. name은 함수가 아니기 때문이다.</p>
 
 </details>
+
+## 101번 문제 What's the output?
+
+```javascript
+const one = false || {} || null;
+const two = null || false || '';
+const three = [] || 0 || true;
+
+console.log(one, two, three);
+```
+
+- A: `false null []`
+- B: `null "" true`
+- C: `{} "" []`
+- D: `null null true`
+
+<details>
+<summary>My Answer</summary>
+<p>정답은 <code>C</code></p>
+<p><code>||</code> 연산자는 피연산자 중 하나라도 truthy라면 그 피연산자가 리턴된다.</p>
+<p>첫번째는 <code>{}</code>가 truthy이므로, <code>{}</code>가 리턴된다.</p>
+<p>두번째는 <code>''</code>가 truthy이므로, <code>''</code>가 리턴된다.</p>
+<p>세번째는 <code>[]</code>, <code>true</code>가 truthy인데, 두개 이상일 경우 좌항에 가까운 <code>[]</code>가 리턴된다.</p>
+
+</details>
