@@ -58,9 +58,22 @@ var score; 줄을 실행할 때, 알아둬야하는 점이 있다. 변수선언�
 
 이 과정에 의해 마치 밑에 변수가 맨 위에 선언된 것처럼 동작하는데, 이를 😁*호이스팅(hoisting)* 이라고 한다.
 
+### let
+```javascript
+console.log(score); // 초기화 단계가 진행되기 전 참조하여 "참조 에러 발생" (일시적 사각지대)
+
+let score; 
+console.log(score); // 변수 선언문에 도달한 이후이기 때문에 'undefined'
+
+score = 1;
+console.log(score); // 할당 단계 이후이기 때문에 '1'
+```
+let의 경우에는 var와는 다르게 **선언 단계**와 **초기화 단계**가 분리되어 진행된다.
+평가 과정에서 '선언단계'가 진행이 되지만, 초기화 단계는 '변수 선언문에 도달했을 때' 실행이 된다.
+
 ### 응용
 ```javascript
-console.log(score);
+console.log(test);
 var test = 1234;
 ```
 그렇다면 위의 결과는 어떨까?
