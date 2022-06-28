@@ -1427,3 +1427,31 @@ console.log(one, two, three);
 <p>세번째는 <code>[]</code>, <code>true</code>가 truthy인데, 두개 이상일 경우 좌항에 가까운 <code>[]</code>가 리턴된다.</p>
 
 </details>
+
+## 103번 문제 What's the output?
+
+```javascript
+const set = new Set();
+
+set.add(1);
+set.add('Lydia');
+set.add({ name: 'Lydia' });
+
+for (let item of set) {
+  console.log(item + 2);
+}
+```
+
+- A: `3, NaN, NaN`
+- B: `3, 7, NaN`
+- C: `3, Lydia2, [object Object]2`
+- D: `"12", Lydia2, [object Object]2`
+
+<details>
+<summary>My Answer</summary>
+<p>정답은 <code>C</code></p>
+<p>Set in mdn web docs : Set 객체는 자료형에 관계없이 원시 값과 객체 참조 모두 유일한 값을 저장할 수 있다.</p>
+<p>for..of문에 의해 첫번째 loop에서는 1 + 2 = 3이 되고, 두번째 loop에서는 'Lydia'2가 된다. (javascript에서는(+)연산자는 문자, 문자열 연결이 가능하다.)</p>
+<p>세번째 loop에서는 숫자도 문자열도 아닌 객체이기 때문에 객체를 문자열화 한다.</p>
+<p>JS에서 객체를 문자열화 시키면 <code>"[object Object]"</code>가 된다.(29번 문제 참고) 따라서 [object Object]2가 되어 정답은 C</p>
+</details>
