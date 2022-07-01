@@ -1455,3 +1455,30 @@ for (let item of set) {
 <p>세번째 loop에서는 숫자도 문자열도 아닌 객체이기 때문에 객체를 문자열화 한다.</p>
 <p>JS에서 객체를 문자열화 시키면 <code>"[object Object]"</code>가 된다.(29번 문제 참고) 따라서 [object Object]2가 되어 정답은 C</p>
 </details>
+
+## 105번 문제 What's its value?
+
+```javascript
+function compareMembers(person1, person2 = person) {
+  if (person1 !== person2) {
+    console.log('Not the same!');
+  } else {
+    console.log('They are the same!');
+  }
+}
+
+const person = { name: 'Lydia' };
+
+compareMembers(person);
+```
+
+- A: `Not the same!`
+- B: `They are the same!`
+- C: `ReferenceError`
+- D: `SyntaxError`
+
+<details>
+<summary>My Answer</summary>
+<p>정답은 <code>B</code></p>
+<p>person1, person2 매개변수 둘 다 같은 주소에 위치한 객체를 참조하고 있기 때문에 정답은 B</p>
+</details>
