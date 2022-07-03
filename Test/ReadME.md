@@ -1482,3 +1482,29 @@ compareMembers(person);
 <p>정답은 <code>B</code></p>
 <p>person1, person2 매개변수 둘 다 같은 주소에 위치한 객체를 참조하고 있기 때문에 정답은 B</p>
 </details>
+
+## 107번 문제 Which of these methods modifies the original array?
+
+```javascript
+const emojis = ['✨', '🥑', '😍'];
+
+emojis.map((x) => x + '✨');
+emojis.filter((x) => x !== '🥑');
+emojis.find((x) => x !== '🥑');
+emojis.reduce((acc, cur) => acc + '✨');
+emojis.slice(1, 2, '✨');
+emojis.splice(1, 2, '✨');
+```
+
+- A: `All of them`
+
+* B: `map reduce slice splice`
+* C: `map slice splice`
+* D: `splice`
+* <details>
+  <summary>My Answer</summary>
+  <p>정답은 <code>D</code></p>
+  <p>Javascript MDN : splice() 메서드는 배열의 기존 요소를 삭제 또는 교체하거나 새 요소를 추가하여 배열의 내용을 변경합니다.</p>
+  <p>slice() 메서드는 어떤 배열의 begin부터 end까지(end 미포함)에 대한 얕은 복사본을 새로운 배열 객체로 반환합니다. 원본 배열은 바뀌지 않습니다.</p>
+  <p>map, filter는 새 배열을 리턴한다. find는 해당하는 요소를 리턴하며, reduce는 acculator에 의해 계산된 값을 리턴한다.</p>
+  </details>
