@@ -1508,3 +1508,25 @@ emojis.splice(1, 2, '✨');
   <p>slice() 메서드는 어떤 배열의 begin부터 end까지(end 미포함)에 대한 얕은 복사본을 새로운 배열 객체로 반환합니다. 원본 배열은 바뀌지 않습니다.</p>
   <p>map, filter는 새 배열을 리턴한다. find는 해당하는 요소를 리턴하며, reduce는 acculator에 의해 계산된 값을 리턴한다.</p>
   </details>
+
+## 109번 문제 What's the output?
+
+```javascript
+const food = ['🍕', '🍫', '🥑', '🍔'];
+const info = { favoriteFood: food[0] };
+
+info.favoriteFood = '🍝';
+
+console.log(food);
+```
+
+- A: `['🍕', '🍫', '🥑', '🍔']`
+- B: `['🍝', '🍫', '🥑', '🍔']`
+- C: `['🍝', '🍕', '🍫', '🥑', '🍔']`
+- D: `ReferenceError`
+
+<details>
+  <summary>My Answer</summary>
+  <p>정답은 <code>A</code></p>
+  <p>info의 프로퍼티 값을 변경하지만, info의 favoriteFood : food[0]에서는 참조 값 아닌 복사한 값이기 때문에 food의 배열 형태는 변하지 않는다. 따라서 정답은 A</p>
+  </details>
