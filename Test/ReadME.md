@@ -1555,3 +1555,20 @@ getName();
   <p>함수 코드 평가과정에서 매개변수, 지역변수 선언이 먼저 실행된다. let 키워드의 초기화단계와 할당단계는 런타임 때 선언한 위치에서 실행되는데, 이 전에 console.log()를 통해 name이 참조된다.</p>
   <p>초기화 단계 전, name을 참조했기 때문에 ReferenceError가 출력된다.(TDZ(일시적 사각지대))</p> 
   </details>
+  
+## 113번 문제 What's the output?
+
+```javascript
+console.log(`${(x => x)('I love')} to program`);
+```
+
+- A: `I love to program`
+- B: `undefined to program`
+- C: `${(x => x)('I love') to program`
+- D: `TypeError`
+
+<details>
+  <summary>My Answer</summary>
+  <p>정답은 <code>A</code></p>
+  <p>이것은 문자열이 표현식의 반환 값, 이 경우 즉시 호출된 함수<code>(x => x)('I love')</code> x => x 화살표 함수에 대한 인수로 'I love' 값을 전달해서 x는 'I love'와 같으며 반환된다. 정답은 A</p> 
+  </details>
