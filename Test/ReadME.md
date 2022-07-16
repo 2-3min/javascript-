@@ -1559,7 +1559,7 @@ getName();
 ## 113번 문제 What's the output?
 
 ```javascript
-console.log(`${(x => x)('I love')} to program`);
+console.log(`${((x) => x)('I love')} to program`);
 ```
 
 - A: `I love to program`
@@ -1573,7 +1573,7 @@ console.log(`${(x => x)('I love')} to program`);
   <p>이것은 문자열이 표현식의 반환 값, 이 경우 즉시 호출된 함수<code>(x => x)('I love')</code> x => x 화살표 함수에 대한 인수로 'I love' 값을 전달해서 x는 'I love'와 같으며 반환된다. 정답은 A</p> 
   </details>
   
-  ## 115번 문제 Which method(s) will return the value 'Hello world!'?
+## 115번 문제 Which method(s) will return the value 'Hello world!'?
 
 ```javascript
 const myMap = new Map();
@@ -1600,6 +1600,23 @@ myMap.get(() => 'greeting');
   <p>1번의 경우 'greeting'은 key가 아니기에 틀리다.</p>
   <p>3번의 경우 새로운 함수를 생성하므로 틀리다.</p>
   <p>myFunc 프로퍼티 키의 값은 'Hello World' 이므로, 정답은 B</p> 
+</details>
+
+## 117. Which of the following options will return 6?
+
+```javascript
+function sumValues(x, y, z) {
+  return x + y + z;
+}
+```
+
+- A: sumValues([...1, 2, 3])
+- B: sumValues([...[1, 2, 3]])
+- C: sumValues(...[1, 2, 3])
+- D: sumValues([1, 2, 3])
+
+<details>
+  <summary>My Answer</summary>
+  <p>정답은 <code>C</code></p>
+  <p>(...)spread 연산자는 iterable(Array, String) 대상으로 가능하다. 정답은 C</p> 
   </details>
-
-
