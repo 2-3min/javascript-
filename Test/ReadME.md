@@ -1672,3 +1672,23 @@ add(4)(5)(6);
   <summary>My Answer</summary>
   <p>정답은 <code>A</code></p> 
 </details>
+
+## 125. What's the output?
+
+```javascript
+const myFunc = ({ x, y, z }) => {
+  console.log(x, y, z);
+};
+
+myFunc(1, 2, 3);
+```
+- A: 1 2 3
+- B: {1: 1} {2: 2} {3: 3}
+- C: { 1: undefined } undefined undefined
+- D: undefined undefined undefined
+
+<details>
+  <summary>My Answer</summary>
+  <p>정답은 <code>D</code></p> 
+  <p>myFunc는 파라미터는 객체 {x, y, z}이지만 호출 시 1, 2, 3 을 전달하기 때문에 기본값인 undefined가 출력된다.</p>
+</details>
