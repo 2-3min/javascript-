@@ -1692,3 +1692,22 @@ myFunc(1, 2, 3);
   <p>정답은 <code>D</code></p> 
   <p>myFunc는 파라미터는 객체 {x, y, z}이지만 호출 시 1, 2, 3 을 전달하기 때문에 기본값인 undefined가 출력된다.</p>
 </details>
+
+## 127. What's the output?
+
+```javascript
+const spookyItems = ['👻', '🎃', '🕸'];
+({ item: spookyItems[3] } = { item: '💀' });
+
+console.log(spookyItems);
+```
+- A: ["👻", "🎃", "🕸"]
+- B: ["👻", "🎃", "🕸", "💀"]
+- C: ["👻", "🎃", "🕸", { item: "💀" }]
+- D: ["👻", "🎃", "🕸", "[object Object]"]
+
+<details>
+  <summary>My Answer</summary>
+  <p>정답은 <code>B</code></p> 
+  <p>destructuring에 의해 객체 값이 풀려 spookyItems[3]에 '💀'가 할당된다. 정답은 B</p>
+</details>
