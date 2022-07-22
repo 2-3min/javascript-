@@ -1711,3 +1711,26 @@ console.log(spookyItems);
   <p>정답은 <code>B</code></p> 
   <p>destructuring에 의해 객체 값이 풀려 spookyItems[3]에 '💀'가 할당된다. 정답은 B</p>
 </details>
+
+## 129. What's the output?
+
+```javascript
+const randomValue = 21;
+
+function getInfo() {
+  console.log(typeof randomValue);
+  const randomValue = 'Lydia Hallie';
+}
+
+getInfo();
+```
+- A: `"number"`
+- B: `"string"`
+- C: `undefined`
+- D: `ReferenceError`
+
+<details>
+  <summary>My Answer</summary>
+  <p>정답은 <code>D</code></p> 
+  <p>함수코드평가에 의해 randomValue가 인식되긴 하나(호이스팅) TDZ(일시적사각지대) 현상으로 할당되기 전 참조하므로 참조에러가 발생한다.</p>
+</details>
