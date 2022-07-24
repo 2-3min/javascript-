@@ -1758,3 +1758,33 @@ console.log(emojis.flat(1));
   <p>정답은 <code>B</code></p> 
   <p>array.prototype.flat은 하위 배열 요소 깊이까지 이어붙이는 새로운 배을 생성한다. 파라미터 값으로 1을 받았기 때문에 '✨' 배열까지 이어붙여 새로 생성하기 때문에 정답은 B<p>
 </details>
+
+## 133. What's the output?
+
+```javascript
+const person = {
+  name: 'Lydia Hallie',
+  hobbies: ['coding'],
+};
+
+function addHobby(hobby, hobbies = person.hobbies) {
+  hobbies.push(hobby);
+  return hobbies;
+}
+
+addHobby('running', []);
+addHobby('dancing');
+addHobby('baking', person.hobbies);
+
+console.log(person.hobbies);
+```
+
+- A: ["coding"]
+- B: ["coding", "dancing"]
+- C: ["coding", "dancing", "baking"]
+- D: ["coding", "running", "dancing", "baking"]
+<details>
+  <summary>My Answer</summary>
+  <p>정답은 <code>C</code></p> 
+  <p><p>
+</details>
