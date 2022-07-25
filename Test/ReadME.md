@@ -1762,6 +1762,38 @@ console.log(emojis.flat(1));
 ## 133. What's the output?
 
 ```javascript
+const myPromise = Promise.resolve(Promise.resolve('Promise'));
+
+function funcOne() {
+  setTimeout(() => console.log('Timeout 1!'), 0);
+  myPromise.then((res) => res).then((res) => console.log(`${res} 1!`));
+  console.log('Last line 1!');
+}
+
+async function funcTwo() {
+  const res = await myPromise;
+  console.log(`${res} 2!`);
+  setTimeout(() => console.log('Timeout 2!'), 0);
+  console.log('Last line 2!');
+}
+
+funcOne();
+funcTwo();
+```
+
+- A: `Promise 1! Last line 1! Promise 2! Last line 2! Timeout 1! Timeout 2!`
+- B: `Last line 1! Timeout 1! Promise 1! Last line 2! Promise2! Timeout 2!`
+- C: `Last line 1! Promise 2! Last line 2! Promise 1! Timeout 1! Timeout 2!`
+- D: `Timeout 1! Promise 1! Last line 1! Promise 2! Timeout 2! Last line 2!`
+<details>
+  <summary>My Answer</summary>
+  <p>정답은 <code>C</code></p> 
+  <p>먼저 setTimeout 함수의 콜백함수는 이벤트루프에 의해 setTimeout 같은 비동기 함수들은 태스크 큐에 보관된다. myPromise.then 구문도 마찬가지이다. 그래서 먼저 <code>Last line1!</code>이 출력된다. funcTwo() 호출 시 res는 await에 의해 결과를 받을때 까지 기다리고 값을 할당 받아 <code>Promise 2!</code>를 출력한다. 그 다음 <code>Last line2!</code> 호출스택이 모두 빈 이후에 Promise는 microtask이므로 먼저 해결되어, <code>Promise 1!</code> 후에 태스크 큐에 담긴 순서(선입선출)대로 출력되어 <code>Timeout 1!, Timeout 2!</code>가 출력된다.<p>
+</details>
+
+## 133. What's the output?
+
+```javascript
 const person = {
   name: 'Lydia Hallie',
   hobbies: ['coding'],
