@@ -1820,3 +1820,28 @@ console.log(person.hobbies);
   <p>정답은 <code>C</code></p> 
   <p><p>
 </details>
+
+## 137. Which of the following will modify the person object?
+
+```javascript
+const person = {
+  name: 'Lydia Hallie',
+  address: {
+    street: '100 Main St',
+  },
+};
+
+Object.freeze(person);
+```
+
+- A: person.name = "Evan Bacon"
+- B: delete person.address
+- C: person.address.street = "101 Main St"
+- D: person.pet = { name: "Mara" }
+
+<details>
+  <summary>My Answer</summary>
+  <p>정답은 <code>C</code></p> 
+  <p>Object.freeze 메서드는 개체를 동결하여 속성을 추가, 수정 또는 제거할 수 없다.<p>
+  <p>하지만 얕은 동결만 되기 때문에 address의 street 속성은 변경할수 없다. 그러므로 정답은 C</p>
+</details>
