@@ -1845,3 +1845,35 @@ Object.freeze(person);
   <p>Object.freeze 메서드는 개체를 동결하여 속성을 추가, 수정 또는 제거할 수 없다.<p>
   <p>하지만 얕은 동결만 되기 때문에 address의 street 속성은 변경할수 없다. 그러므로 정답은 C</p>
 </details>
+
+## 139. Which of the following will modify the person object?
+
+```javascript
+class Counter {
+  #number = 10
+
+  increment() {
+    this.#number++
+  }
+
+  getNum() {
+    return this.#number
+  }
+}
+
+const counter = new Counter()
+counter.increment()
+
+console.log(counter.#number)
+```
+
+- A: 10
+- B: 11
+- C: undefined
+- D: SyntaxError
+<details>
+  <summary>My Answer</summary>
+  <p>정답은 <code>D</code></p> 
+  <p>private 접근자는 직접적으로 접근할 수 없다. 해당 값에 접근하기 위해서는 getNum() 메서드를 사용해야한다.<p>
+  <p>해당 예시에서는 직접 접근 시도를 하였으므로 정답은 D</p>
+</details>
