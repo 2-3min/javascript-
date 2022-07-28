@@ -1877,3 +1877,24 @@ console.log(counter.#number)
   <p>private 접근자는 직접적으로 접근할 수 없다. 해당 값에 접근하기 위해서는 getNum() 메서드를 사용해야한다.<p>
   <p>해당 예시에서는 직접 접근 시도를 하였으므로 정답은 D</p>
 </details>
+
+## 143. Which of the options result(s) in an error?
+
+```javascript
+const emojis = ['🎄', '🎅🏼', '🎁', '⭐'];
+
+/* 1 */ emojis.push('🦌');
+/* 2 */ emojis.splice(0, 2);
+/* 3 */ emojis = [...emojis, '🥂'];
+/* 4 */ emojis.length = 0;
+```
+
+- A: 1
+- B: 1 and 2
+- C: 3 and 4
+- D: 3
+<details>
+  <summary>My Answer</summary>
+  <p>정답은 <code>D</code></p> 
+  <p>const 키워드느 변수 값으 다시 선언 할수 없다는 의미이다. 3번의 경우 기존의 변수에 값을 변경하므로 정답은 D
+</details>
