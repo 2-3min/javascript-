@@ -1896,5 +1896,29 @@ const emojis = ['🎄', '🎅🏼', '🎁', '⭐'];
 <details>
   <summary>My Answer</summary>
   <p>정답은 <code>D</code></p> 
-  <p>const 키워드느 변수 값으 다시 선언 할수 없다는 의미이다. 3번의 경우 기존의 변수에 값을 변경하므로 정답은 D
+  <p>const 키워드느 변수 값으 다시 선언 할수 없다는 의미이다. 3번의 경우 기존의 변수에 값을 변경하므로 정답은 D</p>
+</details>
+
+## 145. What's the output?
+
+```javascript
+function getFruit(fruits) {
+	console.log(fruits?.[1]?.[1])
+}
+
+getFruit([['🍊', '🍌'], ['🍍']])
+getFruit()
+getFruit([['🍍'], ['🍊', '🍌']])
+```
+
+- A: null, undefined, 🍌
+- B: [], null, 🍌
+- C: [], [], 🍌
+- D: undefined, undefined, 🍌
+<details>
+  <summary>My Answer</summary>
+  <p>정답은 <code>D</code></p> 
+  <p>첫번째 호출에서 fruits[1][1] 존재하지 않으므로 undefined</p>
+  <p>배열이 존재하지 않으므로 undefined</p>
+  <p>두번째 속성 배열의 두번째 속성은 바나나 이므로 정답은 D</p>
 </details>
