@@ -1922,3 +1922,34 @@ getFruit([['🍍'], ['🍊', '🍌']])
   <p>배열이 존재하지 않으므로 undefined</p>
   <p>두번째 속성 배열의 두번째 속성은 바나나 이므로 정답은 D</p>
 </details>
+
+## 147. What's the output?
+
+```javascript
+class Calc {
+	constructor() {
+		this.count = 0 
+	}
+
+	increase() {
+		this.count ++
+	}
+}
+
+const calc = new Calc()
+new Calc().increase()
+
+console.log(calc.count)
+```
+
+- A: `0`
+- B: `1`
+- C: `undefined`
+- D: `ReferenceError`
+
+<details>
+  <summary>My Answer</summary>
+  <p>정답은 <code>A</code></p> 
+  <p>11번째 줄과 12번째 줄에서 new 연산자를 통해 생성하는데 이 둘의 인스턴스는 각자의 인스턴스이다.</p>
+  <p>첫번째로 생성한 인스턴스는 increase() 메서드를 호출하 적이 없으므로 0이 출력된다. 답은 A</p>
+</details>
