@@ -1953,3 +1953,29 @@ console.log(calc.count)
   <p>11번째 줄과 12번째 줄에서 new 연산자를 통해 생성하는데 이 둘의 인스턴스는 각자의 인스턴스이다.</p>
   <p>첫번째로 생성한 인스턴스는 increase() 메서드를 호출하 적이 없으므로 0이 출력된다. 답은 A</p>
 </details>
+
+## 149. What's the output?
+
+```javascript
+
+const fruit = ['🍌', '🍊', '🍎']
+
+fruit.slice(0, 1)
+fruit.splice(0, 1)
+fruit.unshift('🍇')
+
+console.log(fruit)
+
+```
+
+- A: ['🍌', '🍊', '🍎']
+- B: ['🍊', '🍎']
+- C: ['🍇', '🍊', '🍎']
+- D: ['🍇', '🍌', '🍊', '🍎']
+
+<details>
+  <summary>My Answer</summary>
+  <p>정답은 <code>C</code></p> 
+  <p>slice 메서드는 원본 배열객체에 영향을 주지 않는다. </p>
+  <p>spice 메서드에 의해 바나나 이모지가 삭제되고 맨 앞에 unshift에 의해서 포도 이모지가 추가되므로 정답은 C</p>
+</details>
