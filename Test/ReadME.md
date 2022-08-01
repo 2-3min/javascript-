@@ -1979,3 +1979,30 @@ console.log(fruit)
   <p>slice 메서드는 원본 배열객체에 영향을 주지 않는다. </p>
   <p>spice 메서드에 의해 바나나 이모지가 삭제되고 맨 앞에 unshift에 의해서 포도 이모지가 추가되므로 정답은 C</p>
 </details>
+
+## 151. What's the output?
+
+```javascript
+
+const user = {
+	email: "my@email.com",
+	updateEmail: email => {
+		this.email = email
+	}
+}
+
+user.updateEmail("new@email.com")
+console.log(user.email)
+
+```
+
+- A: my@email.com
+- B: new@email.com
+- C: undefined
+- D: ReferenceError
+
+<details>
+  <summary>My Answer</summary>
+  <p>정답은 <code>A</code></p> 
+  <p>updateEmail 함수는 화살표 함수이며 실 인스턴스에 바인딩되지 않는다. 사용자 개체 내의 이메일 값은 업데이트되지 않아 my@email.com의 원래 값이 반환되어 정답은 A.</p>
+</details>
