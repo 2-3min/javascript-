@@ -2006,3 +2006,28 @@ console.log(user.email)
   <p>정답은 <code>A</code></p> 
   <p>updateEmail 함수는 화살표 함수이며 실 인스턴스에 바인딩되지 않는다. 사용자 개체 내의 이메일 값은 업데이트되지 않아 my@email.com의 원래 값이 반환되어 정답은 A.</p>
 </details>
+
+## 153. What should the value of method be to log { name: "Lydia", age: 22 }?
+
+```javascript
+
+const keys = ["name", "age"]
+const values = ["Lydia", 22]
+
+const method = /* ?? */
+Object[method](keys.map((_, i) => {
+	return [keys[i], values[i]]
+})) // { name: "Lydia", age: 22 }
+
+```
+
+- A: `entries`
+- B: `values`
+- C: `fromEntries`
+- D: `forEach`
+
+<details>
+  <summary>My Answer</summary>
+  <p>정답은 <code>C</code></p> 
+  <p>Object.fromEntries() 메서드는 키값 쌍 목록을 받고, 그 목록을 사용해 속성을 부여한 새로운 객체를 반환한다. 정답은 .</p>
+</details>
