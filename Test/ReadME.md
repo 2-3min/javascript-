@@ -2031,3 +2031,29 @@ Object[method](keys.map((_, i) => {
   <p>정답은 <code>C</code></p> 
   <p>Object.fromEntries() 메서드는 키값 쌍 목록을 받고, 그 목록을 사용해 속성을 부여한 새로운 객체를 반환한다. 정답은 .</p>
 </details>
+
+## 155. What's the output?
+
+```javascript
+
+let randomValue = { name: "Lydia" }
+randomValue = 23
+
+if (!typeof randomValue === "string") {
+	console.log("It's not a string!")
+} else {
+	console.log("Yay it's a string!")
+}
+
+```
+
+- A: `It's not a string!`
+- B: `Yay it's a string!`
+- C: `TypeError`
+- D: `undefined`
+
+<details>
+  <summary>My Answer</summary>
+  <p>정답은 <code>B</code></p> 
+  <p>typeof randomValue는 truthy이고 !연산자에 의해 false이므로 if문은 false이다. 정답은 B</p>
+</details>
