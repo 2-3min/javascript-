@@ -556,6 +556,22 @@ sessionStorage.setItem('cool_secret', 123);
 <p>탭/창을 닫으면 세션이 끝나고 sessionStorage 안의 객체를 초기화한다.</p>
 </details>
 
+## 22. How long is cool_secret accessible?
+
+```javascript
+sessionStorage.setItem('cool_secret', 123);
+```
+- A: Forever, the data doesn't get lost.
+- B: When the user closes the tab.
+- C: When the user closes the entire browser, not only the tab.
+- D: When the user shuts off their computer.
+
+<details>
+<summary>My Answer</summary>
+<p>정답은 <code>B</code></p>
+<p>sessionStorage에 저장된 데이터는 탭을 닫으면 제거되므로 정답은 B</p>
+</details>
+
 ## 23번 문제
 
 ```javascript
