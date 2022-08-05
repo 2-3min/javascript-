@@ -591,6 +591,30 @@ console.log(num);
 <p><code>var</code>키워드는 같은 식별자로 선언이 가능하다. 그 식별자의 값은 가장 최근에 할당한 값이 된다.</p>
 </details>
 
+## 24번 문제
+
+```javascript
+const obj = { 1: 'a', 2: 'b', 3: 'c' };
+const set = new Set([1, 2, 3, 4, 5]);
+
+obj.hasOwnProperty('1');
+obj.hasOwnProperty(1);
+set.has('1');
+set.has(1);
+```
+
+- A: false true false true
+- B: false true true true
+- C: true true false true
+- D: true true true true
+<details>
+<summary>My Answer</summary>
+<p>정답은 <code>C</code></p>
+<p>모든 개체 키는 직접 문자열로 입력하지 않더라도 내부적으로 문자열이기기 때문에 true이다.
+
+Set 에서는 동작하지 않기 때문 set.has('1')는 false를 반환하고 set.has(1)는 true를 반환하여 답은 C</p>
+</details>
+
 ## 25번 문제
 
 ```javascript
