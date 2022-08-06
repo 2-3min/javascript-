@@ -633,6 +633,18 @@ console.log(obj);
 <p>같은 이름의 키가 있을 경우, 위치는 맨 처음 정의한 위치에 지정이 되고, 나중에 정의한 키에 할당한 값으로 대체된다. <STRIKE>(아니 뭐 이런...)</STRIKE></p></hr>
 </details>
 
+## 26. The JavaScript global execution context creates two things for you: the global object, and the "this" keyword.
+
+A: true
+B: false
+C: it depends
+
+<details>
+<summary>My Answer</summary>
+<p>정답은 <code>A</code></p>
+<p>기본 실행 컨텍스트는 전역 실행 컨텍스트이다. 코드의 모든 곳에서 접근 가능하므로 답은 A</p>
+</details>
+
 ## 27번 문제
 
 ```javascript
