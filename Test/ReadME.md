@@ -664,6 +664,28 @@ for (let i = 1; i < 5; i++) {
 <p>i가 3일 때 continue 문이 실행되면서 반복을 건너뛰어 <code>3</code>을 출력하지 않는다.</p>
 </details>
 
+## 28. What's the output?
+
+```javascript
+String.prototype.giveLydiaPizza = () => {
+  return 'Just give Lydia pizza already!';
+};
+
+const name = 'Lydia';
+
+name.giveLydiaPizza();
+```
+
+- A: `"Just give Lydia pizza already!"`
+- B: `TypeError: not a function`
+- C: `SyntaxError`
+- D: `undefined`
+<details>
+<summary>My Answer</summary>
+<p>정답은 <code>A</code></p>
+<p>String 프로토타입에 gitLydiaPizza를 추가했고, name 식별자에 String을 할당하여 name 식별자는 giveLydiaPizza() 호출이 가능하다. 정답은 A</p>
+</details>
+
 ## 29번 문제
 
 ```javascript
