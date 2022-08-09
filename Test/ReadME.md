@@ -769,6 +769,28 @@ What is the event.target when clicking the button?
 <p>Bubbling phase – 이벤트 요소에서 루트로 올라가는 단계</p>
 </details>
 
+## 32번 문제
+
+When you click the paragraph, what's the logged output?
+
+```javascript
+<div onclick="console.log('div')">
+  <p onclick="console.log('p')">
+    Click here!
+  </p>
+</div>
+```
+
+- A: `p div`
+- B: `div p`
+- C: `p`
+- D: `div`
+<details>
+<summary>My Answer</summary>
+<p>정답은 <code>A</code></p>
+<p>이벤트 전파 중에는 캡처, 대상 및 버블링의 3단계가 있는데 기본적으로 이벤트 핸들러는 버블링 단계에서 실행된다. 가장 깊은 중첩 요소에서 바깥쪽으로 이동되어 정답은 A</p>
+</details>
+
 ## 33번 문제
 
 What's the output?
