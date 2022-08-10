@@ -816,6 +816,28 @@ console.log(sayHi.bind(person, 21));
 <p>bind는 apply, call 과 달리 함수를 호출하지 않고, this에 사용할 객체를 전달하기 때문에 function이 출력된다. <code>console.log(sayHi.bind(person, 21)());</code>로 호출해야 답 <code>C</code>가 될 수 있다.</p>
 </details>
 
+## 34번 문제 What's the output?
+
+```javascript
+function sayHi() {
+  return (() => 0)();
+}
+
+console.log(typeof sayHi());
+```
+
+- A: "object"
+- B: "number"
+- C: "function"
+- D: "undefined"
+
+<details>
+<summary>My Answer</summary>
+<p>정답은 <code>B</code></p>
+<p>즉시 실행함수를 리턴하기 때문에 typeof 0 이므로 타입은 number 정답은 B </p>
+</details>
+
+
 ## 35번 문제
 
 Which of these values are falsy?
