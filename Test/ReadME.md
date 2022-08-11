@@ -868,6 +868,22 @@ undefined;
 <p>0n (BigInt(0))</p>
 </details>
 
+## 36번 문제
+
+```javascript
+console.log(typeof typeof 1);
+```
+
+- A: "number"
+- B: "string"
+- C: "object"
+- D: "undefined"
+<details>
+<summary>My Answer</summary>
+<p>정답은 <code>B</code></p>
+<p>typeof 1의 리턴은 "number"이고 이의 타입은 string 이므로 정답은 B</p>
+</details>
+
 ## 37번 문제
 
 ```javascript
