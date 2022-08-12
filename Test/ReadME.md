@@ -904,6 +904,33 @@ console.log(numbers);
 <p>Chrome : [1, 2, 3, empty x 7, 11] </p>
 </details>
 
+## 38. What's the output?
+
+```javascript
+(() => {
+  let x, y;
+  try {
+    throw new Error();
+  } catch (x) {
+    (x = 1), (y = 2);
+    console.log(x);
+  }
+  console.log(x);
+  console.log(y);
+})();
+```
+
+- A: `1 undefined 2`
+- B: `undefined undefined undefined`
+- C: `1 1 2`
+- D: `1 undefined undefined`
+<details>
+<summary>My Answer</summary>
+<p>정답은 <code>A</code></p>
+<p>catch 블록은 인수 x를 받는데 이것은 인수를 전달할 때 변수와 동일한 x가 아니다. catch 내에서 x 변수를 1로 설정하고 y변수를 2로 설정후 1을 출력한다.
+catch 블록 외부에서 x는 여전히 정의되지 않고 y는 2이고 catch 블록 외부에서 console.log(x)를  undefined를 반환하고 y는 2를 반환합니다.</p>
+</details>
+
 ## 41번 문제
 
 ```javascript
