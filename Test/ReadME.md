@@ -931,6 +931,27 @@ console.log(numbers);
 catch 블록 외부에서 x는 여전히 정의되지 않고 y는 2이고 catch 블록 외부에서 console.log(x)를  undefined를 반환하고 y는 2를 반환합니다.</p>
 </details>
 
+## 40. What's the output?
+
+```javascript
+[[0, 1], [2, 3]].reduce(
+  (acc, cur) => {
+    return acc.concat(cur);
+  },
+  [1, 2],
+);
+```
+
+- A: `[0, 1, 2, 3, 1, 2]`
+- B: `[6, 1, 2]`
+- C: `[1, 2, 0, 1, 2, 3]`
+- D: `[1, 2, 6]`
+<details>
+<summary>My Answer</summary>
+<p>정답은 <code>C</code></p>
+<p>초기값 즉 acc는 [1,2] cur은 [0,1]이므로 [1,2,0,1]이다. 다음 반복때 acc는 [1,2,0,1]이고, cur은 [2,3]이므로 합쳐져서 답은 C</p>
+</details>
+
 ## 41번 문제
 
 ```javascript
