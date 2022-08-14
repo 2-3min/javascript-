@@ -971,6 +971,22 @@ catch 블록 외부에서 x는 여전히 정의되지 않고 y는 2이고 catch 
 <p>1은 truthy이며, !1은 false, !!1은 true이다.</p>
 </details>
 
+## 42. What does the setInterval method return in the browser?
+
+```javascript
+setInterval(() => console.log('Hi'), 1000);
+```
+
+- A: `a unique id`
+- B: `the amount of milliseconds specified`
+- C: `the passed function`
+- D: `undefined`
+<details>
+<summary>My Answer</summary>
+<p>정답은 <code>A</code></p>
+<p>setInterval() 메서드는 각 호출 사이에 고정된 시간 지연으로 함수를 반복적으로 호출한다. 1초에 Hi가 출력되나 그전에 고유 ID를 반환한다. 정답은 A4</p>
+</details>
+
 ## 43번 문제
 
 ```javascript
