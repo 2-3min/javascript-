@@ -1003,6 +1003,33 @@ setInterval(() => console.log('Hi'), 1000);
 <p><code>...(Spread)</code>는 반복 가능한 객체(iterable Object)를 분리시킨다. string은 반복 가능한 객체(iterable Object)이므로 개별 요소로 분리가 가능하다.</p>
 </details>
 
+## 44. What's the output?
+
+```javascript
+function* generator(i) {
+  yield i;
+  yield i * 2;
+}
+
+const gen = generator(10);
+
+console.log(gen.next().value);
+console.log(gen.next().value);
+```
+
+- A: [0, 10], [10, 20]
+- B: 20, 20
+- C: 10, 20
+- D: 0, 10 and 10, 20
+
+<details>
+<summary>My Answer</summary>
+<p>정답은 <code>C</code></p>
+<p>먼저, i를 10으로 하여 생성기 함수가 초기화되고, next() 메서드를 사용하여 생성기 함수를 호출한다. 생성기 함수를 처음 호출할 때 i는 10이고, 첫 번째 yield 키워드를 만나면 i 값이 생성된 후 생성기는 이제 멈추고 10이 출력된다.
+
+그런 다음 next() 메서드를 사용하여 함수를 다시 호출합니다. 이전에 멈춘 위치에서 계속 시작하며 i는 10이고, 다음 yield 키워드를 만나 i * 2를 생성한다. i는 10과 같으므로 10 * 2, 즉 20을 반환하여 출력하므로 정답은 C </p>
+</details>
+
 ## 45번 문제
 
 ```javascript
