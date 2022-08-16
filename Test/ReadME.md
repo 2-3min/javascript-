@@ -1054,6 +1054,26 @@ Promise.race([firstPromise, secondPromise]).then((res) => console.log(res));
 <p>race는 iterable 안에 있는 프로미스 중에 가장 먼저 완료된 것의 결과값으로 그대로 이행, 거부한다. secondPromise가 먼저 완료되기 때문에 Promise.race는 <code>"two"</code>를 리턴한다.</p>
 </details>
 
+## 46. What's the output?
+
+```javascript
+let person = { name: 'Lydia' };
+const members = [person];
+person = null;
+
+console.log(members);
+```
+
+- A: `null`
+- B: `[null]`
+- C: `[{}]`
+- D: `[{ name: "Lydia" }]`
+<details>
+<summary>My Answer</summary>
+<p>정답은 <code>D</code></p>
+<p>person 식별자가 { name: 'Lydia' } 를 가리키고 변수에서 다른 변수로 참조를 할당하면 해당 참조의 복사본을 만들어 person으로 값을 변경해도 members는 변하지 않는다. 답은 D</p>
+</details>
+
 ## 47번 문제
 
 ```javascript
