@@ -1097,6 +1097,22 @@ for (const item in person) {
 <p><code>for...in</code>은 객체의 속성(key) 수 만큼 반복 작업을 수행한다. person 객체의 키값이 item에 할당되어 item이 출력되므로 정답은 B </p>
 </details>
 
+## 48. What's the output?
+
+```javascript
+console.log(3 + 4 + '5');
+```
+
+- A: `"345"`
+- B: `"75"`
+- C: `12`
+- D: `"12"`
+<details>
+<summary>My Answer</summary>
+<p>정답은 <code>B</code></p>
+<p>7 + '5'는 강제 타이 변환의해 문자가 된 다음 7과5가 이어 붙어져 "75"가 된다. 정답은 B</p>
+</details>
+
 ## 49번 문제
 
 ```javascript
