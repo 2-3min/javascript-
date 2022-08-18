@@ -1130,6 +1130,25 @@ const num = parseInt('7*6', 10);
 <p>첫번째 인자에서 문자열에서 숫자가 아닌 문자일 때 다음 문자를 무시하기 때문에 정답은 <code>7</code></p>
 </details>
 
+## 50. What's the output?
+
+```javascript
+[1, 2, 3].map(num => {
+  if (typeof num === 'number') return;
+  return num * 2;
+});
+```
+
+- A: `[]`
+- B: `[null, null, null]`
+- C: `[undefined, undefined, undefined]`
+- D: `[ 3 x empty ]`
+<details>
+<summary>My Answer</summary>
+<p>정답은 <code>C</code></p>
+<p>배if 문 typeof num === "number"의 조건은 true를 반환한다. map 함수는 새 배열을 만들고 if 블록문이 3번 다 실행되므로 답은 C</p>
+</details>
+
 ## 51번 문제
 
 ```javascript
