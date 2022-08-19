@@ -1176,6 +1176,35 @@ console.log(person, birthYear);
 <p>getInfo 함수 호출 시 person객체의 값이 변경되지만, birthYear 같은 경우는 참조하는 값과 동일하지 않기때문에 정답은 A</p>
 </details>
 
+## 52번 문제
+
+```javascript
+function greeting() {
+  throw 'Hello world!';
+}
+
+function sayHi() {
+  try {
+    const data = greeting();
+    console.log('It worked!', data);
+  } catch (e) {
+    console.log('Oh no an error:', e);
+  }
+}
+
+sayHi();
+```
+
+- A: `It worked! Hello world!`
+- B: `Oh no an error: undefined`
+- C: `SyntaxError: can only throw Error objects`
+- D: `Oh no an error: Hello world!`
+<details>
+<summary>My Answer</summary>
+<p>정답은 <code>D</code></p>
+<p>catch 문을 사용하여 try 블록에서 예외가 throw되어 e에 'Hello wolrd'가 전달되어 그 결과 'Oh no an error: Hello world!'가 출력된다. 젇압은 D</p>
+</details>
+
 ## 53번 문제
 
 ```javascript
