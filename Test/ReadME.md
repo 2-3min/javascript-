@@ -1275,32 +1275,22 @@ pet.bark();
 <p>객체 속성을 제거하였으나, 참조 시 접근 시도를 하기 때문에 함수가 아닌 것을 호출하려고 하면 TypeErrorr가 발생하게 된다.</p>
 </details>
 
-## 57번 문제
+## 56번 문제
 
 ```javascript
-// counter.js
-let counter = 10;
-export default counter;
+const set = new Set([1, 1, 2, 3, 4]);
 
-// index.js
-import myCounter from './counter';
-
-myCounter += 1;
-
-console.log(myCounter);
+console.log(set);
 ```
 
-- A: `10`
-- B: `11`
-- C: `Error`
-- D: `NaN`
+- A: [1, 1, 2, 3, 4]
+- B: [1, 2, 3, 4]
+- C: {1, 1, 2, 3, 4}
+-D: {1, 2, 3, 4}
 <details>
 <summary>My Answer</summary>
-<p>정답은 <code>C</code></p>
-<p>가져온 모듈은 읽기 전용이므로 가져온 모듈을 수정할 수 없다. 그것들을 내보내는 모듈안에서만 값 변경이 가능하다.
-
-따라서, myCounter 값을 증가시키려고 하면 오류가 발생합니다. myCounter는 읽기 전용이며 수정이 불가능하다.</p>
-
+<p>정답은 <code>D</code></p>
+<p>배열 iterable 값들 내에서 중복을 제거한다 set의 결과 값은 객체이므로 그러므로 정답은 D</p>
 </details>
 
 ## 61번 문제
