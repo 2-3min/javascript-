@@ -1293,6 +1293,27 @@ console.log(set);
 <p>배열 iterable 값들 내에서 중복을 제거한다 set의 결과 값은 객체이므로 그러므로 정답은 D</p>
 </details>
 
+## 58. What's the output?
+
+```javascript
+const name = 'Lydia';
+age = 21;
+
+console.log(delete name);
+console.log(delete age);
+```
+
+- A: `false, true`
+- B: `"Lydia", 21`
+- C: `true, true`
+- D: `undefined, undefined`
+<details>
+<summary>My Answer</summary>
+<p>정답은 <code>A</code></p>
+<p> delete 연산자는 삭제가 성공하면 true, 실패하면 false를 반환한다. var, const, let 키워드로 선언된 변수는 delete 연산자를 사용하여 삭제가 불가능하다.</
+<p>그러므로 정답은 A</p>
+</details>
+
 ## 61번 문제
 
 ```javascript
