@@ -1314,6 +1314,25 @@ console.log(delete age);
 <p>그러므로 정답은 A</p>
 </details>
 
+## 60. What's the output?
+
+```javascript
+const user = { name: 'Lydia', age: 21 };
+const admin = { admin: true, ...user };
+
+console.log(admin);
+```
+
+- A: `{ admin: true, user: { name: "Lydia", age: 21 } }`
+- B: `{ admin: true, name: "Lydia", age: 21 }`
+- C: `{ admin: true, user: ["Lydia", 21] }`
+- D: `{ admin: true }`
+<details>
+<summary>My Answer</summary>
+<p>정답은 <code>B</code></p>
+<p>spread 연산자에 의해 user 프로퍼티 복사본을 만들고 다른 개체에 추가가 가능하다. 추가되어 { admin: true, name: "Lydia", age: 21 }가 되므로 정답은 B</p>
+</details>
+
 ## 61번 문제
 
 ```javascript
