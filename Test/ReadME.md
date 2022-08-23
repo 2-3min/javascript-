@@ -1357,6 +1357,30 @@ console.log(Object.keys(person));
 <p>defineProperty(obj, prop, descriptor)를 통해 person 프로퍼티에 age를 추가하였으나, 열거할 수 없기 때문에 age는 출력되지 않는다.</p>
 </details>
 
+## 62번 문제
+
+```javascript
+const settings = {
+  username: 'lydiahallie',
+  level: 19,
+  health: 90,
+};
+
+const data = JSON.stringify(settings, ['level', 'health']);
+console.log(data);
+```
+
+- A: "{"level":19, "health":90}"
+- B: "{"username": "lydiahallie"}"
+- C: "["level", "health"]"
+- D: "{"username": "lydiahallie", "level":19, "health":90}"
+<details>
+<summary>My Answer</summary>
+<p>정답은 <code>A</code></p>
+<p>문자열화 동작 방식을 변경하는 함수, 혹은 <code>JSON 문자열에 포함될 값 객체의 속성들을 선택하기 위한 화이트리스트(whitelist)로 쓰이는 String 과 Number 객체들의 배열</code> 이 값이 null 이거나 제공되지 않으면, 객체의 모든 속성들이 JSON 문자열 결과에 포함된다.(MDN Javascript)</p>
+<p>예제에서의 replacer는 속성을 선택한 것이므로 정답은 A</p>
+</details>
+
 ## 63번 문제
 
 ```javascript
