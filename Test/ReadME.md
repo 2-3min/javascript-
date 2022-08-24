@@ -1407,6 +1407,32 @@ console.log(num2);
 <p>그리고 num1(10)을 increasePassedNumber()함수 파라미터에 할당하는데 이 함수 또한 반환 후 연산하여, num2도 10이다. 따라서 답은 <code>A</code></p>
 </details>
 
+## 64번 문제
+
+```javascript
+const value = { number: 10 };
+
+const multiply = (x = { ...value }) => {
+  console.log((x.number *= 2));
+};
+
+multiply();
+multiply();
+multiply(value);
+multiply(value);
+```
+
+- A: `20, 40, 80, 160`
+- B: `20, 40, 20, 40`
+- C: `20, 20, 20, 40`
+- D: `NaN, NaN, 20, 40`
+<details>
+<summary>My Answer</summary>
+<p>정답은 <code>C</code></p>
+<p>x 기본값은 { number: 10 } 객체이다. multiply() 함수를 호출하면 20을 리턴하고, 3번째 부터 함수 호출부터 value의 값이 20으로 바뀌게 된다.</p>
+<p>네번째 호출에서는 세번째 호출에서 value의 값이 20으로 바뀌었기 때문에 네번째 호출에서는 40이므로 답은 C</p>
+</details>
+
 ## 65번 문제
 
 ```javascript
