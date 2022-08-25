@@ -1450,6 +1450,50 @@ multiply(value);
 <p>reduce 함수에서 값을 반환하지 않으면 <code>undefined</code>반환한다. 그래서 다음 반복에서는 undefined 3이 출력되고 그 다음 반복에서도 undefined 4 가 출력되어 정답은 <code>D</code></p>
 </details>
 
+## 66. With which constructor can we successfully extend the Dog class?
+```javascriptclass Dog {
+  constructor(name) {
+    this.name = name;
+  }
+};
+
+class Labrador extends Dog {
+  // 1
+  constructor(name, size) {
+    this.size = size;
+  }
+  // 2
+  constructor(name, size) {
+    super(name);
+    this.size = size;
+  }
+  // 3
+  constructor(size) {
+    super(name);
+    this.size = size;
+  }
+  // 4
+  constructor(name, size) {
+    this.name = name;
+    this.size = size;
+  }
+
+};
+```
+
+- A: `1`
+- B: `2`
+- C: `3`
+- D: `4`
+<details>
+<summary>My Answer</summary>
+<p>정답은 <code>B</code></p>
+<p>파생 클래스에서는 super를 호출하기 전에 this 키워드에 액세스가 불가능하므로(Reference Error) 1과 4는 X</p>
+
+<p>3번의 경우 super 키워드를 사용하였으나 constructor에 name 인수가 없으므로(name을 super에 전달하기 위해서)</p>
+<p>정답은 <code>B</code></p>
+</details>
+
 ## 67번 문제
 
 ```javascript
