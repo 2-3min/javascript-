@@ -1518,6 +1518,24 @@ export const sum = (a, b) => a + b;
 <p>즉, sum.js의 console.log가 먼저 실행되고, index.js console.log가 출력된다. 그리고 마지막으로 sum함수가 실행된 결과 값이 출력되어 정답은 <code>B</code></p>
 </details>
 
+## 68번 문제
+
+```javascript
+console.log(Number(2) === Number(2));
+console.log(Boolean(false) === Boolean(false));
+console.log(Symbol('foo') === Symbol('foo'));
+```
+
+- A: `true, true, false`
+- B: `false, true, false`
+- C: `true, false, true`
+- D: `true, true, true`
+<details>
+<summary>My Answer</summary>
+<p>정답은 <code>A</code></p>
+<p>  첫 번째 Symbol('foo')과 두 번째 Symbol('foo')는 서로  고유하며 서로 같지 않습니다. Symbol('foo') === Symbol('foo')은 false를 반환합니다. 정답은 A</p>
+</details>
+
 ## 69번 문제
 
 ```javascript
