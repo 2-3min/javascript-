@@ -1556,6 +1556,22 @@ console.log(name.padStart(2));
 <p>padStart(2)는 문자열 자릿수보다 적으므로, 문자열을 그대로 반환한다.</p>
 </details>
 
+## 70번 문제
+
+```javascript
+console.log('🥑' + '💻');
+```
+
+- A: `"🥑💻"`
+- B: `257548`
+- C: `A string containing their code points`
+- D: `Error`
+<details>
+<summary>My Answer</summary>
+<p>정답은 <code>A</code></p>
+<p>+연산자는 문자열을 합칠수 있기때문에 결과는 A</p>
+</details>
+
 ## 71번 문제
 
 ```javascript
