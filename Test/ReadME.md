@@ -1599,6 +1599,27 @@ console.log(/* 2 */); // JavaScript loves you back ❤️
 <p>game.next("Yes").value를 호출하면 이전 수율이 next() 함수에 전달된 매개변수 값으로 대체된다. Yes가 되어 두번째 출력에서 Javascript loves you back을 출력한다.</p>
 </details>
 
+## 72번 문제
+
+```javascript
+console.log(String.raw`Hello\nworld`);
+```
+
+- A: `Hello world!`
+- B: `Hello`
+     `world`
+- C: `Hello\nworld`
+- D: `Hello\n`
+     `world`
+<details>
+<summary>My Answer</summary>
+<p>정답은 <code>C</code></p>
+<p>String.raw는 이스케이프(\n, \v, \t 등)가 무시되는 문자열을 반환하여 정답은 C</p>
+<p>사용 예시 : <code>const path = `C:\Documents\Projects\table.html`</code></p>
+<p><code>"C:DocumentsProjects able.html"</code></p>
+<p>Strring.raw 사용 시<code>C:\Documents\Projects\table.html</code></p>
+</details>
+
 ## 73번 문제
 
 ```javascript
