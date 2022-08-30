@@ -1641,6 +1641,27 @@ console.log(data);
 <p>async함수는 항상 Promise 객체를 반환하기 때문에 정답은 C</p>
 </details>
 
+## 74. What's the output?
+
+```javascript
+function addToList(item, list) {
+  return list.push(item);
+}
+
+const result = addToList('apple', ['banana']);
+console.log(result);
+```
+
+- A: `['apple', 'banana']`
+- B: `2`
+- C: `true`
+- D: `undefined`
+<details>
+<summary>My Answer</summary>
+<p>정답은 <code>B</code></p>
+<p>array.prototype.push() 함수의 리턴값은 새로운 array의 길이를 반환한다. 따라서 정답은 B</p>
+</details>
+
 ## 75번 문제
 
 ```javascript
