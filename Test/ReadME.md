@@ -1685,6 +1685,26 @@ console.log(shape);
 <p>Object.freeze는 객체의 속성을 변경이 불가하다. 위 예제에서는 shape 식별자는 box가 가리키는 메모리의 값을 가지게 되고, freeze에 의해 변경이 불가하기 때문에 정답은 B</p>
 </details>
 
+## 76. What's the output?
+
+```javascript
+const { name: myName } = { name: 'Lydia' };
+
+console.log(name);
+```
+
+- A: `"Lydia"`
+- B: `"myName"`
+- C: `undefined`
+- D: `ReferenceError`
+<details>
+<summary>My Answer</summary>
+<p>정답은 <code>C</code></p>
+<p>Destructuring 할당을 통해 Lydia의 값이 myName인 변수에 할당된다.
+하지만 console.log에서 정의되지 않은 변수인 name을 참조하기 때문에 정답은 C</p>
+</details>
+
+
 ## 77번 문제 : Is this pure function?
 
 ```javascript
