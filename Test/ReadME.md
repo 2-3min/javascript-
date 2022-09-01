@@ -1725,6 +1725,41 @@ function sum(a, b) {
 <p></p>
 </details>
 
+## 78. What is the output?
+
+```javascript
+const add = () => {
+  const cache = {};
+  return num => {
+    if (num in cache) {
+      return `From cache! ${cache[num]}`;
+    } else {
+      const result = num + 10;
+      cache[num] = result;
+      return `Calculated! ${result}`;
+    }
+  };
+};
+
+const addFunction = add();
+console.log(addFunction(10));
+console.log(addFunction(10));
+console.log(addFunction(5 * 2));
+```
+
+- A: `Calculated! 20` `Calculated! 20` `Calculated! 20`
+- B: `Calculated! 20` `From cache! 20` `Calculated! 20`
+- C: `Calculated! 20` `From cache! 20` `From cache! 20`
+- D: `Calculated! 20` `From cache! 20` `Error`
+
+<details>
+<summary>My Answer</summary>
+<p>정답은 <code>C</code></p>
+<p>같은 값으로 addFunction 함수를 세 번 호출하는데, 첫 번째 호출에서 num이 10일 때 cache가 아직 없기 때문에 else문이 실행되어 20이 기록되고 결과 값이 cache에 추가된다.</p>
+<p><code>cache : { 10: 20 }</code></p>
+<p>이후로느 cache에 값이 있어 if 블록문이 실행되고 'From cache! 20'이 출력된다. 세번째 호출에서도 두번째 호출과 동일하므로 정답은 C</p>
+</details>
+
 ## 79번 문제
 
 ```javascript
