@@ -1789,6 +1789,23 @@ for (let item of myLifeSummedUp) {
 <p>정답은 A</p>
 </details>
 
+## 80번 문제
+
+```javascript
+const list = [1 + 2, 1 * 2, 1 / 2];
+console.log(list);
+```
+
+- A: `["1 + 2", "1 * 2", "1 / 2"]`
+- B: `["12", 2, 0.5]`
+- C: `[3, 2, 0.5]`
+- D: `[1, 1, 1]`
+
+<details>
+<summary>My Answer</summary>
+<p>정답은 <code>C</code></p>
+</details>
+
 ## 81번 문제
 
 ```javascript
