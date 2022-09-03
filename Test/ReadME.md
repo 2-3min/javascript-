@@ -1828,6 +1828,39 @@ console.log(sayHi());
 그러므로 답은 B</p>
 </details>
 
+## 82번 문제
+
+```javascript
+var status = '😎';
+
+setTimeout(() => {
+  const status = '😍';
+
+  const data = {
+    status: '🥑',
+    getStatus() {
+      return this.status;
+    },
+  };
+
+  console.log(data.getStatus());
+  console.log(data.getStatus.call(this));
+}, 0);
+```
+
+- A: `"🥑" and "😍"`
+- B: `"🥑" and "😎"`
+- C: `"😍" and "😎"`
+- D: `"😎" and "😎"`
+
+<details>
+<summary>My Answer</summary>
+<p>정답은 <code>B</code></p>
+<p>this 키워드의 값은 사용 위치에 따라 다른데, data.getStatus의 this는 data 객체의 메서드 이므로 "🥑"가 출력되고,</p>
+<p>call 메소드를 사용하여 this 키워드가 참조하는 객체를 변경할 수 있는데, 인수 값으로 넣은 this는 전역객체를 가리키므로 '😎'가 출력된다. 정답은 B</p>
+</details>
+
+
 ## 83번 문제
 
 ```javascript
