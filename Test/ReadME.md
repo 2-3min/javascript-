@@ -1887,6 +1887,34 @@ console.log(person);
 <p>그래서 person은 최초 정의했던 그대로 출력된다. 정답은 <code>A</code></p>
 </details>
 
+## 84번 문제
+
+```javascript
+function checkAge(age) {
+  if (age < 18) {
+    const message = "Sorry, you're too young.";
+  } else {
+    const message = "Yay! You're old enough!";
+  }
+
+  return message;
+}
+
+console.log(checkAge(21));
+```
+
+- A: `"Sorry, you're too young."`
+- B: `"Yay! You're old enough!"`
+- C: `ReferenceError`
+- D: `undefined`
+
+<details>
+<summary>My Answer</summary>
+<p>정답은 <code>C/code></p>
+<p>const 및 let 키워드가 있는 변수는 블록 범위({ })이다. 변수가 선언된 블록 외부에서 변수를 참조할 수 없으며 ReferenceError가 출력된다.</p>
+</details>
+
+
 ## 85번 문제 What kind of information would get logged?
 
 ```javascript
