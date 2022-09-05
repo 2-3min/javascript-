@@ -1934,6 +1934,28 @@ fetch('https://www.website.com/api/user/1')
 <p>두 번째 <code>.then</code>의 res 값은 첫번째 <code>.then</code>의 반환 값이다. 그러므로 정답은 <code>C</code></p>
 </details>
 
+## 86. Which option is a way to set hasName equal to true, provided you cannot pass true as an argument?
+
+```javascript
+function getName(name) {
+  const hasName = //
+}
+```
+
+- A: `!!name`
+- B: `name`
+- C: `new Boolean(name)`
+- D: `name.length`
+
+<details>
+<summary>My Answer</summary>
+<p>정답은 <code>A</code></p>
+<p>C는 객체를 반환, D는 길이 숫자형을 반환한다. 똑같이 boolean(true)로 하려면 정답은 A. B는 name 값이 전달된다.</p>
+ㄴ
+ 
+
+</details>
+
 ## 87번 문제 What's the output?
 
 ```javascript
