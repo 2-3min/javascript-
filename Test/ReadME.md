@@ -1951,9 +1951,6 @@ function getName(name) {
 <summary>My Answer</summary>
 <p>정답은 <code>A</code></p>
 <p>C는 객체를 반환, D는 길이 숫자형을 반환한다. 똑같이 boolean(true)로 하려면 정답은 A. B는 name 값이 전달된다.</p>
-ㄴ
- 
-
 </details>
 
 ## 87번 문제 What's the output?
@@ -1971,6 +1968,30 @@ console.log('I want pizza'[0]);
 <summary>My Answer</summary>
 <p>정답은 <code>B</code></p>
 <p>문자열의 특정 인덱스에 있는 문자를 가져오려면 대괄호 표기법을 사용한다. 문자열의 첫 번째 문자는 <code>I</code>이므로 정답은 B</p>
+
+<p>IE7 이하에서는 지원되지 않기 때문에 .charAt()를 사용해야한다.</p>
+</p>
+</details>
+
+## 88. What's the output?
+
+```javascript
+function sum(num1, num2 = num1) {
+  console.log(num1 + num2);
+}
+
+sum(10);
+```
+
+- A: `NaN`
+- B: `20`
+- C: `ReferenceError`
+- D: `undefined`
+
+<details>
+<summary>My Answer</summary>
+<p>정답은 <code>B</code></p>
+<p>인자를 10을 sum함수를 호출한다. sum의 두번째 인자 num2는 기본 파라미터 값은 num1과 같으므로 답은 B</p>
 
 <p>IE7 이하에서는 지원되지 않기 때문에 .charAt()를 사용해야한다.</p>
 </p>
