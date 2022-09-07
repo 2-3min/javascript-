@@ -2021,6 +2021,30 @@ console.log(data);
 <p>import * as data 를 하게 되면 module.js에서 모든 export는 index.js에 가져오게 된다. 그래서 data를 출력하게되면은 A처럼 출력되게 된다.</p>
 </details>
 
+## 90번 문제 What's the output?
+
+```javascript
+class Person {
+  constructor(name) {
+    this.name = name;
+  }
+}
+
+const member = new Person('John');
+console.log(typeof member);
+```
+
+- A: "class"
+- B: "function"
+- C: "object"
+- D: "string"
+
+<details>
+<summary>My Answer</summary>
+<p>정답은 <code>C</code></p>
+<p>new 연산자는 사용자 정의 객체 타입 내장 객체 타입의 인스턴스를 생성하므로 정답은 C.</p>
+</details>
+
 ## 91번 문제 What's the output?
 
 ```javascript
