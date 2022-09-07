@@ -2065,6 +2065,32 @@ console.log(newList.push(5));
 <p>그래서 숫자 값에 push를 사용하는데 push는 배열 메서드이므로 TypeError가 발생한다,</p>
 </details>
 
+## 92번 문제 What's the output?
+
+```javascript
+function giveLydiaPizza() {
+  return 'Here is pizza!';
+}
+
+const giveLydiaChocolate = () =>
+  "Here's chocolate... now go hit the gym already.";
+
+console.log(giveLydiaPizza.prototype);
+console.log(giveLydiaChocolate.prototype);
+```
+
+- A: `{ constructor: ...} { constructor: ...}`
+- : `{} { constructor: ...}`
+- C: `{ constructor: ...} {}`
+- D: `{ constructor: ...} undefined`
+
+<details>
+<summary>My Answer</summary>
+<p>정답은 <code>D</code></p>
+<p>GiveLydiaPizza 함수와 같은 일반 함수에는 생성자 속성이 있는 객체인 프로토타입 속성이 존재한다. 그러나 GiveLydiaChocolate 함수와 같은 화살표 함수에는 이 프로토타입 속성이 없다.</p>, <p>GiveLydiaChocolate.prototype을 사용하여 프로토타입 속성에 액세스하려고 하면 undefined가 반환되므로 정답은 D </p>
+</details>
+
+
 ## 93번 문제 What's the output?
 
 ```javascript
