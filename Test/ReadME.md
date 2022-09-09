@@ -2116,6 +2116,29 @@ for (const [x, y] of Object.entries(person)) {
  <p>for..of에서 [x, y]에 비구조할당에 의해 x에는 key, y에는 value가 할당된다.</p>
  <p>따라서 정답은 A</p>
  </details>
+ 
+ ## 94번 문제 What's the output?
+
+```javascript
+function getItems(fruitList, ...args, favoriteFruit) {
+  return [...fruitList, ...args, favoriteFruit]
+}
+
+getItems(["banana", "apple"], "pear", "orange")
+```
+
+- A: `["banana", "apple", "pear", "orange"]`
+- B: `[["banana", "apple"], "pear", "orange"]`
+- C: `["banana", "apple", ["pear"], "orange"]`
+- D: `SyntaxError`
+
+<details>
+<summary>My Answer</summary>
+<p>정답은 <code>D</code></p>
+<p> ...args는 rest이며 이는 머지 모든 인수를 포함하는 배열이기 때문에 마지막 매개변수만 될 수 있ㄷ. 하지만 뒤 인자에 favoriteFruit이 있으므로 정답은 D</p>
+
+</details>
+
 
 ## 95번 문제 What's the output?
 
