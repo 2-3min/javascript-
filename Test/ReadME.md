@@ -2166,6 +2166,36 @@ console.log(nums(1, 2));
 <p>즉, 함수의 리턴은 return; 이 되어 아무것도 반환하지 않아 'undefined' 반환되어 정답은 B</p>
 </details>
 
+## 96. What's the output?
+
+```javascript
+class Person {
+  constructor() {
+    this.name = 'Lydia';
+  }
+}
+
+Person = class AnotherPerson {
+  constructor() {
+    this.name = 'Sarah';
+  }
+};
+
+const member = new Person();
+console.log(member.name);
+```
+
+- A: `"Lydia"`
+- B: `"Sarah"`
+- C: `Error: cannot redeclare Person`
+- D: `SyntaxError`
+
+<details>
+<summary>My Answer</summary>
+<p>정답은 <code>B</code></p>
+<p>AnotherPerson 클래스르 Person에 할당하고 new 연산자 의해 생성된 member name은 "Sarah"이기 때문에 정답은 B</p>
+</details>
+
 ## 99번 문제 What's the output?
 
 ```javascript
