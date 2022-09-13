@@ -2196,6 +2196,31 @@ console.log(member.name);
 <p>AnotherPerson 클래스르 Person에 할당하고 new 연산자 의해 생성된 member name은 "Sarah"이기 때문에 정답은 B</p>
 </details>
 
+## 98. What's the output?
+
+```javascript
+const getList = ([x, ...y]) => [x, y]
+const getUser = user => { name: user.name, age: user.age }
+
+const list = [1, 2, 3, 4]
+const user = { name: "Lydia", age: 21 }
+
+console.log(getList(list))
+console.log(getUser(user))
+```
+
+- A: `[1, [2, 3, 4]]` and `SyntaxError`
+- B: `[1, [2, 3, 4]]` and `{ name: "Lydia", age: 21 }`
+- C: `[1, 2, 3, 4]` and `{ name: "Lydia", age: 21 }`
+- D: `Error` and `{ name: "Lydia", age: 21 }`
+
+<details>
+<summary>My Answer</summary>
+<p>정답은 <code>A</code></p>
+<p>rest에 의해 x에 1이 대입되고, 나머지 y에 [2,3,4]가 대입되어 [1, [2,3,4]], getUser 화살표 함수에서는 객체가 리턴되는데, 위처럼 할시에 destructuring이 되지 않는다.</p>
+<p>에러가 발생하지 않으려면 <code>user => {{ name: user.name, age: user.age }}</code>가 되어야한다 정답은 A</p>
+</details>
+
 ## 99번 문제 What's the output?
 
 ```javascript
