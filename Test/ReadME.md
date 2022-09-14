@@ -2241,6 +2241,27 @@ console.log(name());
 
 </details>
 
+## 100. What's the value of output?
+
+```javascript
+// 🎉✨ This is my 100th question! ✨🎉
+
+const output = `${[] && 'Im'}possible!
+You should${'' && `n't`} see a therapist after so much JavaScript lol`;
+```
+
+- A: `possible! You should see a therapist after so much JavaScript lol`
+- B: `Impossible! You should see a therapist after so much JavaScript lol`
+- C: `possible! You shouldn't see a therapist after so much JavaScript lol`
+- D: `Impossible! You shouldn't see a therapist after so much JavaScript lol`
+
+<details>
+<summary>My Answer</summary>
+<p>정답은 <code>B</code></p>
+<p>[]는 Truthy이고, && 연산자를 사용하면 왼쪽 값이 참 값이면 오른쪽 값이 반환된다.</p>
+<p>""는 falsy이고, 왼쪽 값이 거짓이면 앞의 값이 반환된다. 정답은 B</p>
+</details>
+
 ## 101번 문제 What's the output?
 
 ```javascript
