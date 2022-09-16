@@ -2287,6 +2287,37 @@ console.log(one, two, three);
 
 </details>
 
+## 102번 문제 What's the output?
+
+```javascript
+const myPromise = () => Promise.resolve('I have resolved!');
+
+function firstFunction() {
+  myPromise().then(res => console.log(res));
+  console.log('second');
+}
+
+async function secondFunction() {
+  console.log(await myPromise());
+  console.log('second');
+}
+
+firstFunction();
+secondFunction();
+```
+
+- A: I have resolved!, second and I have resolved!, second
+- B: second, I have resolved! and second, I have resolved!
+- C: I have resolved!, second and second, I have resolved!
+- D: second, I have resolved! and I have resolved!, second
+
+<details>
+<summary>My Answer</summary>
+<p>정답은 <code>D</code></p>
+<p>firstFunction()에서는 Promise는 태스크 큐에 들어가있는 동안 second가 출력되고 함수 실행컨택스트 종료될때 Promise가 실행된다</p>
+<p>secondFunction()에서는 await가 끝날때까지 뒤 코드를 진행하지 않는다. 정답은 D</p>
+</details>
+
 ## 103번 문제 What's the output?
 
 ```javascript
