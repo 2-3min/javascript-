@@ -2346,6 +2346,23 @@ for (let item of set) {
 <p>JS에서 객체를 문자열화 시키면 <code>"[object Object]"</code>가 된다.(29번 문제 참고) 따라서 [object Object]2가 되어 정답은 C</p>
 </details>
 
+## 104. What's its value?
+```javascript
+Promise.resolve(5);
+```
+
+- A: `5`
+- B: `Promise {<pending>: 5}`
+- C: `Promise {<fulfilled>: 5}`
+- D: `Error`
+
+<details>
+<summary>My Answer</summary>
+<p>정답은 <code>C</code></p>
+<p>resolve 메서드에 의해 Promise는 5가 확인된 값이라는 fulfilled를 반환한다. 정답은 C</p>
+</details>
+
+
 ## 105번 문제 What's its value?
 
 ```javascript
