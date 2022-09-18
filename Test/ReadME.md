@@ -2390,6 +2390,34 @@ compareMembers(person);
 <p>person1, person2 매개변수 둘 다 같은 주소에 위치한 객체를 참조하고 있기 때문에 정답은 B</p>
 </details>
 
+## 106. What's its value?
+
+```javascript
+const colorConfig = {
+  red: true,
+  blue: false,
+  green: true,
+  black: true,
+  yellow: false,
+};
+
+const colors = ['pink', 'red', 'blue'];
+
+console.log(colorConfig.colors[1]);
+```
+
+- A: `true`
+- B: `false`
+- C: `undefined`
+- D: `TypeError`
+
+<details>
+<summary>My Answer</summary>
+<p>정답은 <code>D</code></p>
+<p>colorConfig내에 colors라는 프로퍼티가 없으므로 undefined인데, undefined에서 1 인덱스에 접근하므로 Typeerror가 발생한다. 정답은 D</p>
+<p>값을 불러오려면 <code>colorConfig[colors[1]]</code></p>
+</details>
+
 ## 107번 문제 Which of these methods modifies the original array?
 
 ```javascript
