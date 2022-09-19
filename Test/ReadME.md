@@ -2443,6 +2443,30 @@ emojis.splice(1, 2, '✨');
   <p>slice() 메서드는 어떤 배열의 begin부터 end까지(end 미포함)에 대한 얕은 복사본을 새로운 배열 객체로 반환합니다. 원본 배열은 바뀌지 않습니다.</p>
   <p>map, filter는 새 배열을 리턴한다. find는 해당하는 요소를 리턴하며, reduce는 acculator에 의해 계산된 값을 리턴한다.</p>
   </details>
+  
+## 108. Which of these methods modifies the original array?
+
+```javascript
+const emojis = ['✨', '🥑', '😍'];
+
+emojis.map(x => x + '✨');
+emojis.filter(x => x !== '🥑');
+emojis.find(x => x !== '🥑');
+emojis.reduce((acc, cur) => acc + '✨');
+emojis.slice(1, 2, '✨');
+emojis.splice(1, 2, '✨');
+```
+
+- A: `All of them`
+- B: `map` `reduce` `slice` `splice`
+- C: `map` `slice` `splice`
+- D: `splice`
+<details>
+  <summary>My Answer</summary>
+  <p>정답은 <code>D</code></p>
+  <p>map, filter, slice는 새 배열을 리턴하고, find는 해당 요소 중 첫번째 요소만 리턴하고, reduce는 축소된 값을 반환한다.</p>
+  <p>splice는 배열의 기존 요소를 삭제, 수정, 추가하여 배열의 내용을 변경하기 때문에 정답은 D</p>
+</details>
 
 ## 109번 문제 What's the output?
 
@@ -2464,7 +2488,7 @@ console.log(food);
   <summary>My Answer</summary>
   <p>정답은 <code>A</code></p>
   <p>info의 프로퍼티 값을 변경하지만, info의 favoriteFood : food[0]에서는 참조 값 아닌 복사한 값이기 때문에 food의 배열 형태는 변하지 않는다. 따라서 정답은 A</p>
-  </details>
+</details>
 
 ## 111번 문제 What's the output?
 
