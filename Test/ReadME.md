@@ -2490,6 +2490,23 @@ console.log(food);
   <p>info의 프로퍼티 값을 변경하지만, info의 favoriteFood : food[0]에서는 참조 값 아닌 복사한 값이기 때문에 food의 배열 형태는 변하지 않는다. 따라서 정답은 A</p>
 </details>
 
+## 110. What does this method do?
+
+```javascript
+JSON.parse();
+```
+
+- A: `Parses JSON to a JavaScript value`
+- B: `Parses a JavaScript object to JSON`
+- C: `Parses any JavaScript value to JSON`
+- D: `Parses JSON to a JavaScript object only`
+
+<details>
+  <summary>My Answer</summary>
+  <p>정답은 <code>A</code></p>
+  <p>JSON.parse() 메서드를 사용하여 JSON 문자열을 JavaScript 값으로 변환한ㄷ. 정답은 A</p>
+</details>
+
 ## 111번 문제 What's the output?
 
 ```javascript
