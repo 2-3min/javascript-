@@ -2531,6 +2531,38 @@ getName();
   <p>함수 코드 평가과정에서 매개변수, 지역변수 선언이 먼저 실행된다. let 키워드의 초기화단계와 할당단계는 런타임 때 선언한 위치에서 실행되는데, 이 전에 console.log()를 통해 name이 참조된다.</p>
   <p>초기화 단계 전, name을 참조했기 때문에 ReferenceError가 출력된다.(TDZ(일시적 사각지대))</p> 
   </details>
+
+
+## 112. What's the output?
+
+```javascript
+function* generatorOne() {
+  yield ['a', 'b', 'c'];
+}
+
+function* generatorTwo() {
+  yield* ['a', 'b', 'c'];
+}
+
+const one = generatorOne();
+const two = generatorTwo();
+
+console.log(one.next().value);
+console.log(two.next().value);
+```
+
+- A: `a and a`
+- B: `a and undefined`
+- C: `['a', 'b', 'c'] and a`
+- D: `a and ['a', 'b', 'c']`
+
+<details>
+  <summary>My Answer</summary>
+  <p>정답은 <code>C</code></p>
+  <p>yield 키워드를 사용하여 생성기 함수에서 값을 발생시키고 yield* 키워드를 사용하여 다른 생성기 함수 또는 반복 가능한 객체에서 값을 발생시킨다.
+  <p>generatorOne에서 yield 키워드를 사용하여 전체 배열 ['a', 'b', 'c']이 출력되고  다음 메서드가 반환하는 객체의 value 속성 값은 전체 배열 ['a', 'b', 'c']와 같다. 정답은 C</p> 
+ </details>
+  
   
 ## 113번 문제 What's the output?
 
