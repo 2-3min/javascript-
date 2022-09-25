@@ -2581,6 +2581,29 @@ console.log(`${((x) => x)('I love')} to program`);
   <p>이것은 문자열이 표현식의 반환 값, 이 경우 즉시 호출된 함수<code>(x => x)('I love')</code> x => x 화살표 함수에 대한 인수로 'I love' 값을 전달해서 x는 'I love'와 같으며 반환된다. 정답은 A</p> 
   </details>
   
+## 114. What will happen?
+
+```javascript
+let config = {
+  alert: setInterval(() => {
+    console.log('Alert!');
+  }, 1000),
+};
+
+config = null;
+```
+
+- A: `The setInterval callback won't be invoked`
+- B: `The setInterval callback gets invoked once`
+- C: `The setInterval callback will still be called every second`
+- D: `We never invoked config.alert(), config is null`
+
+<details>
+  <summary>My Answer</summary>
+  <p>정답은 <code>C</code></p>
+  <p일반적으로 객체를 null로 설정하면 해당 객체에 대한 참조가 더 이상 없기 때문에 해당 객체는 실행컨택스트에서 지워지나 setInterval 내의 콜백 함수는 콜백 함수는 여전히 존재한다. 참조가 있는 한 개체는 가비지 수집되지 않습니다. 이것은 간격이므로 config를 null로 설정하거나 config.alert를 삭제해도 간격이 가비지 수집되지 않으므로 간격이 계속 호출된다. 메모리에서 제거하려면 clearInterval(config.alert) 호출해야한다. 정답은 C </p> 
+</details>
+  
 ## 115번 문제 Which method(s) will return the value 'Hello world!'?
 
 ```javascript
