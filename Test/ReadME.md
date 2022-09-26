@@ -2633,6 +2633,37 @@ myMap.get(() => 'greeting');
   <p>myFunc 프로퍼티 키의 값은 'Hello World' 이므로, 정답은 B</p> 
 </details>
 
+## 116. What's the output?
+
+```javascript
+const person = {
+  name: 'Lydia',
+  age: 21,
+};
+
+const changeAge = (x = { ...person }) => (x.age += 1);
+const changeAgeAndName = (x = { ...person }) => {
+  x.age += 1;
+  x.name = 'Sarah';
+};
+
+changeAge(person);
+changeAgeAndName();
+
+console.log(person);
+```
+
+- A: `{name: "Sarah", age: 22}`
+- B: `{name: "Sarah", age: 23}`
+- C: `{name: "Lydia", age: 22}`
+- D: `{name: "Lydia", age: 23}`
+
+<details>
+  <summary>My Answer</summary>
+  <p>정답은 <code>C</code></p>
+  <p>chanageAge 함수를 호출할 때 person 객체를 파라미터로하여 age 값에서 1을 더한다. changeAgeAndName의 경우는 호출만 하므로 person객체에 영향이 없다. 정답은 C</p> 
+ </details>
+
 ## 117. Which of the following options will return 6?
 
 ```javascript
