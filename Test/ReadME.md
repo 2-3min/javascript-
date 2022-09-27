@@ -2681,7 +2681,28 @@ function sumValues(x, y, z) {
   <summary>My Answer</summary>
   <p>정답은 <code>C</code></p>
   <p>(...)spread 연산자는 iterable(Array, String) 대상으로 가능하다. 정답은 C</p> 
- </details>
+</details>
+
+## 118. What's the output?
+
+```javascript
+let num = 1;
+const list = ['🥳', '🤠', '🥰', '🤪'];
+
+console.log(list[(num += 1)]);
+```
+
+- A: `🤠`
+- B: `🥰`
+- C: `SyntaxError`
+- D: `ReferenceError`
+
+<details>
+  <summary>My Answer</summary>
+  <p>정답은 <code>B</code></p>
+  <p>num +=1 에 의해 2가 되고 list 배열의 인덱스 2는 B이다. 정답은 C</p> 
+</details>
+ 
  
  ## 119. What's the output?
  
