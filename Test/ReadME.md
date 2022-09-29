@@ -2781,6 +2781,27 @@ add(4)(5)(6);
   <p>정답은 <code>A</code></p> 
 </details>
 
+## 122. What's the output?
+
+```javascript
+const name = 'Lydia Hallie';
+
+console.log(!typeof name === 'object');
+console.log(!typeof name === 'string');
+````
+
+- A: `false` `true`
+- B: `true` `false`
+- C: `false` `false`
+- D: `true` `true`
+
+<details>
+  <summary>My Answer</summary>
+  <p>정답은 <code>C</code></p> 
+  <p>typeof name은 "string"이고 이는 truty이다. !연산자에 의해 false이며 false === 'object'는 false</p>
+  <p>typeof name은 "string"이고 이는 truty이다. !연산자에 의해 false이며 false === 'string'는 false. 답은 C</p>
+</details>
+
 ## 125. What's the output?
 
 ```javascript
