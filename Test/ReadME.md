@@ -2802,6 +2802,33 @@ console.log(!typeof name === 'string');
   <p>typeof name은 "string"이고 이는 truty이다. !연산자에 의해 false이며 false === 'string'는 false. 답은 C</p>
 </details>
 
+## 124. What's the output?
+
+```javascript
+async function* range(start, end) {
+  for (let i = start; i <= end; i++) {
+    yield Promise.resolve(i);
+  }
+}
+
+(async () => {
+  const gen = range(1, 3);
+  for await (const item of gen) {
+    console.log(item);
+  }
+})();
+````
+
+- A: `Promise {1} Promise {2} Promise {3}`
+- B: `Promise {<pending>} Promise {<pending>} Promise {<pending>}`
+- C: `1 2 3`
+- D: `undefined undefined undefined`
+<details>
+  <summary>My Answer</summary>
+  <p>정답은 <code>C</code></p> 
+  <p>생성기 함수 범위는 우리가 전달하는 범위(Promise{1}, Promise{2}, Promise{3})의 각 항목에 대한 약속이 있는 비동기 객체를 반환한다. gen 변수를 비동기 객체와 동일하게 설정한 후 for 루프를 사용하여 루프를 돌리는데, 변수 항목을 반환된 Promise 값과 동일하게 설정한다. 첫 번째 Promise{1}, Promise{2}, Promise{3}이다. 우리는 item의 값을 기다리고 있기 때문에 해결된 약속, (1,2,3)을 반환한다. 정답은 C</p>
+</details>
+
 ## 125. What's the output?
 
 ```javascript
