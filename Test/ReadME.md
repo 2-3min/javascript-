@@ -2850,6 +2850,36 @@ myFunc(1, 2, 3);
   <p>myFunc는 파라미터는 객체 {x, y, z}이지만 호출 시 1, 2, 3 을 전달하기 때문에 기본값인 undefined가 출력된다.</p>
 </details>
 
+## 126. What's the output?
+
+```javascript
+function getFine(speed, amount) {
+  const formattedSpeed = new Intl.NumberFormat('en-US', {
+    style: 'unit',
+    unit: 'mile-per-hour'
+  }).format(speed);
+
+  const formattedAmount = new Intl.NumberFormat('en-US', {
+    style: 'currency',
+    currency: 'USD'
+  }).format(amount);
+
+  return `The driver drove ${formattedSpeed} and has to pay ${formattedAmount}`;
+}
+
+console.log(getFine(130, 300))
+```
+
+- A: `The driver drove 130 and has to pay 300`
+- B: `The driver drove 130 mph and has to pay $300.00`
+- C: `The driver drove undefined and has to pay undefined`
+- D: `The driver drove 130.00 and has to pay 300.00`
+<details>
+  <summary>My Answer</summary>
+  <p>정답은 <code>D</code></p> 
+  <p>Intl.NumberFormat 메서드를 사용하면 숫자 값의 형식을 모든 로케일로 지정이 가능하다. 숫자 값 130을 en-US 로케일에 시간당 마일 단위로 형식을 지정하면 130mph가 됩니다. en-US 로케일에 대한 숫자 값 300을 USD 통화로 사용하면 $300.00가 된다. 정답은 B</p>
+</details>
+
 ## 127. What's the output?
 
 ```javascript
