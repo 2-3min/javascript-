@@ -2900,6 +2900,31 @@ console.log(spookyItems);
   <p>destructuring에 의해 객체 값이 풀려 spookyItems[3]에 '💀'가 할당된다. 정답은 B</p>
 </details>
 
+## 128. What's the output?
+
+```javascript
+const name = 'Lydia Hallie';
+const age = 21;
+
+console.log(Number.isNaN(name));
+console.log(Number.isNaN(age));
+
+console.log(isNaN(name));
+console.log(isNaN(age));
+```
+
+- A: true false true false
+- B: true false false false
+- C: false false true false
+- D: false true false true
+<details>
+  <summary>My Answer</summary>
+  <p>정답은 <code>D</code></p> 
+  <p>Number.isNaN 메서드를 사용하면 전달한 값이 숫자 값이고 NaN인지 확인한다. name은 숫자 값이 아니므로 Number.isNaN(name)은 false를 반환한다. age는 숫자 값이지만 NaN과 같지 않으므로 Number.isNaN(age)은 false를 반환한ㄷ..</p>
+  <p>isNaN 메서드를 사용하면 전달한 값이 숫자가 아닌지 확인 가능핟.. name은 숫자가 아니므로 isNaN(name)은 true를 반환한다. age는 숫자이므로 isNaN(age)은 false를 반환한다.</p>
+</details>
+
+
 ## 129. What's the output?
 
 ```javascript
