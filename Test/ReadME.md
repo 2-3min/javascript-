@@ -2949,6 +2949,33 @@ getInfo();
   <p>함수코드평가에 의해 randomValue가 인식되긴 하나(호이스팅) TDZ(일시적사각지대) 현상으로 할당되기 전 참조하므로 참조에러가 발생한다.</p>
 </details>
 
+## 130. What's the output?
+
+```javascript
+const myPromise = Promise.resolve('Woah some cool data');
+
+(async () => {
+  try {
+    console.log(await myPromise);
+  } catch {
+    throw new Error(`Oops didn't work`);
+  } finally {
+    console.log('Oh finally!');
+  }
+})();
+```
+
+- A: `Woah some cool data`
+- B: `Oh finally!`	
+- C: `Woah some cool data Oh finally!`
+- D: `Oops didn't work Oh finally!`
+
+<details>
+  <summary>My Answer</summary>
+  <p>정답은 <code>C</code></p> 
+  <p>즉시실행함수에 의해 async()가 실행되고, await에 의해 Promise.resolve 함수가 실행될때까지 기다린다. 후에 finally 문이 실행되어 정답은 C<p>
+</details>
+
 ## 131. What's the output?
 
 ```javascript
