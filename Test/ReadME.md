@@ -2995,6 +2995,40 @@ console.log(emojis.flat(1));
   <p>array.prototype.flat은 하위 배열 요소 깊이까지 이어붙이는 새로운 배을 생성한다. 파라미터 값으로 1을 받았기 때문에 '✨' 배열까지 이어붙여 새로 생성하기 때문에 정답은 B<p>
 </details>
 
+## 132. What's the output?
+
+```javascript
+class Counter {
+  constructor() {
+    this.count = 0;
+  }
+
+  increment() {
+    this.count++;
+  }
+}
+
+const counterOne = new Counter();
+counterOne.increment();
+counterOne.increment();
+
+const counterTwo = counterOne;
+counterTwo.increment();
+
+console.log(counterOne.count);
+```
+
+- A: `0`
+- B: `1`
+- C: `2`
+- D: `3`
+
+<details>
+  <summary>My Answer</summary>
+  <p>정답은 <code>D</code></p> 
+  <p>counterOne.increment() 함수에 의해 this.count는 2이고, <code>const counterTwo = counterOne;</code>은 counterTwo가 counterOne 참조하기때문에 <code>counterTwo.increment();</code> 2에서 3이 된다. 정답은 D<p>
+</details>
+
 ## 133. What's the output?
 
 ```javascript
