@@ -3061,7 +3061,30 @@ funcTwo();
   <p>먼저 setTimeout 함수의 콜백함수는 이벤트루프에 의해 setTimeout 같은 비동기 함수들은 태스크 큐에 보관된다. myPromise.then 구문도 마찬가지이다. 그래서 먼저 <code>Last line1!</code>이 출력된다. funcTwo() 호출 시 res는 await에 의해 결과를 받을때 까지 기다리고 값을 할당 받아 <code>Promise 2!</code>를 출력한다. 그 다음 <code>Last line2!</code> 호출스택이 모두 빈 이후에 Promise는 microtask이므로 먼저 해결되어, <code>Promise 1!</code> 후에 태스크 큐에 담긴 순서(선입선출)대로 출력되어 <code>Timeout 1!, Timeout 2!</code>가 출력된다.<p>
 </details>
 
-## 133. What's the output?
+## 134. How can we invoke sum in sum.js from index.js?
+
+```javascript
+// sum.js
+export default function sum(x) {
+  return x + x;
+}
+
+// index.js
+import * as sum from './sum';
+```
+
+- A: `sum(4)`
+- B: `sum.sum(4)`
+- C: `sum.default(4)`
+- D: `Default aren't imported with *, only named exports`
+
+<details>
+  <summary>My Answer</summary>
+  <p>정답은 <code>C</code></p> 
+  <p>별표 *를 사용하여 default 및 named된 파일에서 내보낸 모든 값을 가져온다. 정답은 C<p>
+</details>
+
+## 135. What's the output?
 
 ```javascript
 const person = {
