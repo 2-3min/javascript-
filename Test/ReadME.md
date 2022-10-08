@@ -3114,6 +3114,25 @@ console.log(person.hobbies);
   <p><p>
 </details>
 
+## 136. Which of the following will modify the person object?
+
+```javascript
+const person = { name: 'Lydia Hallie' };
+
+Object.seal(person);
+```
+
+- A: `person.name = "Evan Bacon"`
+- B: `person.age = 21`
+- C: `delete person.name`
+- D: `Object.assign(person, { age: 21 })`
+
+<details>
+  <summary>My Answer</summary>
+  <p>정답은 <code>A</code></p> 
+  <p>Object.seal을 사용하면 새 속성이 추가되거나 기존 속성이 제거되지 않게하고, 속성에 대한 수정은 가능하기 때문에 정답은 A</p>
+</details>
+
 ## 137. Which of the following will modify the person object?
 
 ```javascript
