@@ -3158,6 +3158,30 @@ Object.freeze(person);
   <p>하지만 얕은 동결만 되기 때문에 address의 street 속성은 변경할수 없다. 그러므로 정답은 C</p>
 </details>
 
+## 138. What's the output?
+
+```javascript
+const add = x => x + x;
+
+function myFunc(num = 2, value = add(num)) {
+  console.log(num, value);
+}
+
+myFunc();
+myFunc(3);
+```
+
+- A: 2 4 and 3 6
+- B: 2 NaN and 3 NaN
+- C: 2 Error and 3 6
+- D: 2 4 and 3 Error
+
+<details>
+  <summary>My Answer</summary>
+  <p>정답은 <code>A</code></p> 
+  <p>함수 호출 시 인자값이 없기 때문에 기본 파라미터 값인 2가 설정이 되고, 2 4 가 출력된다. 두번째 호출에는 3을 넘기므로, num은 3이 되어 3 6을 출력한다. 정답은 A<p>
+</details>
+
 ## 139. Which of the following will modify the person object?
 
 ```javascript
