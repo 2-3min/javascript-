@@ -3214,6 +3214,43 @@ console.log(counter.#number)
   <p>해당 예시에서는 직접 접근 시도를 하였으므로 정답은 D</p>
 </details>
 
+## 140. What's missing?
+
+```javascript
+const teams = [
+  { name: 'Team 1', members: ['Paul', 'Lisa'] },
+  { name: 'Team 2', members: ['Laura', 'Tim'] },
+];
+
+function* getMembers(members) {
+  for (let i = 0; i < members.length; i++) {
+    yield members[i];
+  }
+}
+
+function* getTeams(teams) {
+  for (let i = 0; i < teams.length; i++) {
+    // ✨ SOMETHING IS MISSING HERE ✨
+  }
+}
+
+const obj = getTeams(teams);
+obj.next(); // { value: "Paul", done: false }
+obj.next(); // { value: "Lisa", done: false }
+```
+
+- A: `yield getMembers(teams[i].members)`
+- B: `yield* getMembers(teams[i].members)`
+- C: `return getMembers(teams[i].members)`
+- D: `return yield getMembers(teams[i].members)`
+
+<details>
+  <summary>My Answer</summary>
+  <p>정답은 <code>D</code></p> 
+  <p>teams 배열의 각 요소에 있는 구성원에 접근하려면 team[i].members를 getMembers 생성기 함수에 전달해야한다.</p>
+  <p>결과 값에서 멤버에 직접 접근하는데, 제너레이터 함수는 제너레이터 객체를 반환하고, 이 생성기 객체의 각 요소를 반복하려면 yield*를 사용해야한다. 정답은 B</p>
+</details>
+
 ## 143. Which of the options result(s) in an error?
 
 ```javascript
