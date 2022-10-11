@@ -3251,6 +3251,36 @@ obj.next(); // { value: "Lisa", done: false }
   <p>결과 값에서 멤버에 직접 접근하는데, 제너레이터 함수는 제너레이터 객체를 반환하고, 이 생성기 객체의 각 요소를 반복하려면 yield*를 사용해야한다. 정답은 B</p>
 </details>
 
+## 142. What's the output?
+
+```javascript
+class Bird {
+  constructor() {
+    console.log("I'm a bird. 🦢");
+  }
+}
+
+class Flamingo extends Bird {
+  constructor() {
+    console.log("I'm pink. 🌸");
+    super();
+  }
+}
+
+const pet = new Flamingo();
+```
+
+- A: `I'm pink. 🌸`
+- B: `I'm pink. 🌸 I'm a bird. 🦢`
+- C: `I'm a bird. 🦢 I'm pink. 🌸`
+- D: Nothing, we didn't call any method
+<details>
+  <summary>My Answer</summary>
+  <p>정답은 <code>B</code></p> 
+  <p>new에 의해 Flamingo 클래스의 인스턴스인 변수 pet을 생성되고,먼저 "I'm pink. 🌸"가 출력된 후 super()를 호출한다. super()는 부모 클래스 Bird의 생성자를 호출하고, "I'm a bird. 🦢 "를 출력한다.</p>
+</details>
+
+
 ## 143. Which of the options result(s) in an error?
 
 ```javascript
