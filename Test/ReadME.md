@@ -3305,6 +3305,29 @@ const emojis = ['🎄', '🎅🏼', '🎁', '⭐'];
 ## 145. What's the output?
 
 ```javascript
+let count = 0;
+const nums = [0, 1, 2, 3];
+
+nums.forEach(num => {
+	if (num) count += 1
+})
+
+console.log(count)
+```
+
+- A: `1`
+- B: `2`
+- C: `3`
+- D: `4`
+<details>
+  <summary>My Answer</summary>
+  <p>정답은 <code>D</code></p> 
+  <p>forEach문에서 nums 배열의 첫 번째 숫자는 0(falsy)이므로, if 문의 코드 블록이 실행되지 않고 나머지(1,2,3)은 증가한다. 정답은 3 C.</p>
+</details>
+
+## 146. What's the output?
+
+```javascript
 function getFruit(fruits) {
 	console.log(fruits?.[1]?.[1])
 }
@@ -3325,6 +3348,8 @@ getFruit([['🍍'], ['🍊', '🍌']])
   <p>배열이 존재하지 않으므로 undefined</p>
   <p>두번째 속성 배열의 두번째 속성은 바나나 이므로 정답은 D</p>
 </details>
+
+
 
 ## 147. What's the output?
 
