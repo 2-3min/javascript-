@@ -3382,6 +3382,42 @@ console.log(calc.count)
   <p>첫번째로 생성한 인스턴스는 increase() 메서드를 호출하 적이 없으므로 0이 출력된다. 답은 A</p>
 </details>
 
+## 148. What's the output?
+
+```javascript
+const user = {
+	email: "e@mail.com",
+	password: "12345"
+}
+
+const updateUser = ({ email, password }) => {
+	if (email) {
+		Object.assign(user, { email })
+	}
+
+	if (password) {
+		user.password = password
+	}
+
+	return user
+}
+
+const updatedUser = updateUser({ email: "new@email.com" })
+
+console.log(updatedUser === user)
+```
+
+- A: `false`
+- B: `true`
+- C: `TypeError`
+- D: `ReferenceError`
+
+<details>
+  <summary>My Answer</summary>
+  <p>정답은 <code>B</code></p> 
+  <p>updateUser 함수는사용자의 이메일 및 비밀번호 속성 값을 업데이트한 후 함수가 사용자 객체를 리턴한다. 즉, updatedUser 리턴값인 user는 전역 user에 대한 참조이기 때문에. updatedUser === user는 true이다. 정답은 B</p>
+</details>
+
 ## 149. What's the output?
 
 ```javascript
