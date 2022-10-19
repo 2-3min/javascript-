@@ -3444,6 +3444,31 @@ console.log(fruit)
   <p>spice 메서드에 의해 바나나 이모지가 삭제되고 맨 앞에 unshift에 의해서 포도 이모지가 추가되므로 정답은 C</p>
 </details>
 
+## 150. What's the output?
+
+```javascript
+const animals = {};
+let dog = { emoji: '🐶' }
+let cat = { emoji: '🐈' }
+
+animals[dog] = { ...dog, name: "Mara" }
+animals[cat] = { ...cat, name: "Sara" }
+
+console.log(animals[dog]);
+```
+
+- A: `{ emoji: "🐶", name: "Mara" }`
+- B: `{ emoji: "🐈", name: "Sara" }`
+- C: `undefined`
+- D: `ReferenceError`
+
+<details>
+  <summary>My Answer</summary>
+  <p>정답은 <code>B</code></p> 
+  <p>animals[dog], animals[cat]은 animals['Object object']가 되기 때문에 animals[dog]를 출력한다면 </p>
+  <p><code>animals[cat] = { ...cat, name: "Sara" }</code>가 적용되어 정답은 B</p>
+</details>
+
 ## 151. What's the output?
 
 ```javascript
