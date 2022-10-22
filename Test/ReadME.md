@@ -3496,6 +3496,36 @@ console.log(user.email)
   <p>updateEmail 함수는 화살표 함수이며 실 인스턴스에 바인딩되지 않는다. 사용자 개체 내의 이메일 값은 업데이트되지 않아 my@email.com의 원래 값이 반환되어 정답은 A.</p>
 </details>
 
+## 152. What's the output?
+
+```javascript
+const promise1 = Promise.resolve('First')
+const promise2 = Promise.resolve('Second')
+const promise3 = Promise.reject('Third')
+const promise4 = Promise.resolve('Fourth')
+
+const runPromises = async () => {
+	const res1 = await Promise.all([promise1, promise2])
+	const res2  = await Promise.all([promise3, promise4])
+	return [res1, res2]
+}
+
+runPromises()
+	.then(res => console.log(res))
+	.catch(err => console.log(err))
+```
+
+- A: `[['First', 'Second'], ['Fourth']]`
+- B: `[['First', 'Second'], ['Third', 'Fourth']]`
+- C: `[['First', 'Second']]`
+- D: `'Third'`
+
+<details>
+  <summary>My Answer</summary>
+  <p>정답은 <code>D</code></p> 
+  <p>Promise.all 메서드는 Promise를 병렬로 실행한ㄷ. Promise 중 하나라도 실패하며 Promise.all 메서드는 거부된 Promise 값으로 reject한다. 위의 경우 'Third'가 reject되는데, runPromises 함수 내에 catch 메소드르 통해 reject 값을 찾는다. promise3에 의해 catch 블록이 실행되어  "Third"만 출력한다.</p>
+</details>
+
 ## 153. What should the value of method be to log { name: "Lydia", age: 22 }?
 
 ```javascript
