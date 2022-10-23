@@ -3551,6 +3551,34 @@ Object[method](keys.map((_, i) => {
   <p>Object.fromEntries() 메서드는 키값 쌍 목록을 받고, 그 목록을 사용해 속성을 부여한 새로운 객체를 반환한다. 정답은 .</p>
 </details>
 
+## 154. What's the output?
+
+```javascript
+const createMember = ({ email, address = {}}) => {
+	const validEmail = /.+\@.+\..+/.test(email)
+	if (!validEmail) throw new Error("Valid email pls")
+
+	return {
+		email,
+		address: address ? address : null
+	}
+}
+
+const member = createMember({ email: "my@email.com" })
+console.log(member)
+```
+
+- A: `{ email: "my@email.com", address: null }`
+- B: `{ email: "my@email.com" }`
+- C: `{ email: "my@email.com", address: {} }`
+- D: `{ email: "my@email.com", address: undefined }`
+<details>
+  <summary>My Answer</summary>
+  <p>정답은 <code>C</code></p> 
+  <p>createMember 함수에 의해 address의 기본값은 {}이다. 빈 객체느 truthy인데, 조건문에 의해 address는 {}를 반환하여 정답은 C</p>
+</details>
+
+
 ## 155. What's the output?
 
 ```javascript
