@@ -2802,6 +2802,29 @@ console.log(!typeof name === 'string');
   <p>typeof name은 "string"이고 이는 truty이다. !연산자에 의해 false이며 false === 'string'는 false. 답은 C</p>
 </details>
 
+## 123. What's the output?
+
+```javascript
+const add = x => y => z => {
+  console.log(x, y, z);
+  return x + y + z;
+};
+
+add(4)(5)(6);
+````
+
+- A: `4` `5` `6`
+- B: `6` `5` `4`
+- C: `4` `function` `function`
+- D: `undefined` `undefined` `6`
+
+<details>
+  <summary>My Answer</summary>
+  <p>정답은 <code>A</code></p> 
+  <p>답은 A (왜지..?)</p>
+</details>
+
+
 ## 124. What's the output?
 
 ```javascript
